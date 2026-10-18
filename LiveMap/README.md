@@ -33,7 +33,9 @@ The default build is a **Python-required source preview**, not a bundled-interpr
 
 ## Release status
 
-Local disc import, browser setup/cache/rendering and source-package launch have been exercised on macOS. The read-only DuckStation GDB backend also has prior live gameplay evidence. Python-free release builds and native Windows/Linux DuckStation launch-to-live lifecycle checks still need completion before a general release-ready claim. CI builds alone will not prove live emulator compatibility.
+[Native CI run 39139164216](https://github.com/SirDarcanos/MediEvil/actions/runs/39139164216) produced bundled-Python Windows x64, Linux x64 and macOS ARM64 packages, with successful native tests and frozen-startup/resource checks. Python 3.10 and 3.14 source checks also passed. The initial `a8e54aa` Mac candidate (the subsequent fix changed archive metadata only, not runtime code) additionally imported the local USA disc, rendered its textures and reopened its cache without an image argument. The read-only DuckStation GDB backend has prior live gameplay evidence.
+
+These are unsigned release candidates, not published releases. Actual Windows/Linux DuckStation gameplay and lifecycle checks, signing/notarization decisions and maintainer approval remain before a general release-ready claim. CI startup checks do not prove live emulator compatibility.
 
 Keep tests and build tooling in the repository, not in runner archives. The distribution builder uses an explicit allowlist and excludes all game assets, private data and research.
 
