@@ -32,7 +32,7 @@ The [repository workflow](../../.github/workflows/livemap-build.yml) builds on e
 
 **Executed:** [CI run 39139164216](https://github.com/SirDarcanos/MediEvil/actions/runs/39139164216), code commit `f4fbabaa9852c03f15113b9ad7838e356dcf1319`: native Windows x64/Linux x64/macOS ARM64 builds and frozen startup/resource checks, plus Python3.10/3.14 source checks. Downloaded archive checksums, contents and required notices were verified locally. The downloaded initial `a8e54aa` Mac candidate, whose runtime code is unchanged by the archive-metadata repair, also completed own-disc extraction, textured rendering and cached restart.
 
-**Still unverified/not performed:** actual Windows/Linux DuckStation gameplay/lifecycle, code signing/notarization and public release publication. These builds remain unsigned candidates. Do not label the source ZIP as standalone or CI startup as full gameplay certification.
+**Stable-release gates still outstanding:** actual Windows/Linux DuckStation gameplay/lifecycle and code signing/notarization decisions. Published previews must retain these limits and their unsigned status. Do not label the source ZIP as standalone or CI startup as full gameplay certification.
 
 ## Maintainer release checks (not runner tasks)
 

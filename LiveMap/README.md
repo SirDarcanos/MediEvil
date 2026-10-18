@@ -4,6 +4,14 @@ A standalone companion minimap for runners using their own DuckStation, BIOS, US
 
 **This folder is the maintained project location.** No extracted game assets, emulator, BIOS, savestates, RAM dumps or controller-automation research belong in this repository or its downloads.
 
+## Download for runners
+
+[**Download the LiveMap preview**](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.1.0-preview.1) — Windows x64, macOS Apple Silicon/ARM64 and Linux x64. Native downloads bundle Python; no separate Python installation or commands are needed.
+
+Unzip the entire folder, then double-click **`MediEvilMinimap.exe`** on Windows or **`Open Minimap.command`** on Mac. On Linux, open `MediEvilMinimap`. The browser setup page guides you through importing your own game. Keep `_internal` beside the executable. See the [runner guide](RUNNERS.md) for DuckStation configuration and security/preview caveats.
+
+This is an explicitly **preview** release: native builds/startup checks passed and Mac has a user smoke-test report; actual Windows/Linux DuckStation gameplay and lifecycle checks remain unverified. No game assets, BIOS or saves are distributed.
+
 ## Run from source
 
 Requires Python 3.10+ and a current browser. No Python packages are needed.
@@ -35,7 +43,7 @@ The default build is a **Python-required source preview**, not a bundled-interpr
 
 [Native CI run 39139164216](https://github.com/SirDarcanos/MediEvil/actions/runs/39139164216) produced bundled-Python Windows x64, Linux x64 and macOS ARM64 packages, with successful native tests and frozen-startup/resource checks. Python 3.10 and 3.14 source checks also passed. The initial `a8e54aa` Mac candidate (the subsequent fix changed archive metadata only, not runtime code) additionally imported the local USA disc, rendered its textures and reopened its cache without an image argument. The read-only DuckStation GDB backend has prior live gameplay evidence.
 
-These are unsigned release candidates, not published releases. Actual Windows/Linux DuckStation gameplay and lifecycle checks, signing/notarization decisions and maintainer approval remain before a general release-ready claim. CI startup checks do not prove live emulator compatibility.
+These are unsigned preview releases, not universally validated stable releases. Actual Windows/Linux DuckStation gameplay and lifecycle checks, signing/notarization decisions and maintainer approval remain before a general release-ready claim. CI startup checks do not prove live emulator compatibility.
 
 Keep tests and build tooling in the repository, not in runner archives. The distribution builder uses an explicit allowlist and excludes all game assets, private data and research.
 

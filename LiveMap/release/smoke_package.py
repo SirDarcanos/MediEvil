@@ -53,7 +53,7 @@ def smoke(archive):
         for key in ('PYTHONHOME','PYTHONPATH','VIRTUAL_ENV'):env.pop(key,None)
         env['PYTHONNOUSERSITE']='1'
         env['PATH']=os.pathsep.join([str(Path(env.get('SystemRoot','C:/Windows'))/'System32'),env.get('SystemRoot','C:/Windows')])if sys.platform=='win32'else'/usr/bin:/bin'
-        child=subprocess.Popen([str(executable),'--port','0','--data-dir',str(Path(temp)/'empty cache')],cwd=root,
+        child=subprocess.Popen([str(executable),'--no-open','--port','0','--data-dir',str(Path(temp)/'empty cache')],cwd=root,
             env=env,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,encoding='utf-8',errors='replace')
         lines=queue.Queue();output=[]
         def consume():

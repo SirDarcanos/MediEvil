@@ -7,7 +7,7 @@ import threading
 import unittest
 from unittest.mock import patch
 from disc_import import EXE_SHA1, MAX_IMAGE
-from runner import Runner, make_runner_handler
+from runner import Runner, make_runner_handler, main
 
 
 class FakeFeed:
@@ -71,6 +71,19 @@ class RunnerTests(unittest.TestCase):
         self.assertEqual(self.request('/api/import','POST',b'fixture',self.post_headers())[0],409)
         feed=FakeFeed();restored=Runner(self.temp.name,feed);self.assertTrue(restored.ready)
         self.assertFalse(feed.worker.is_alive(),'A failed port bind must not attach to an emulator')
+    def test_native_double_click_opens_browser_source_stays_opt_in(self):
+        cases=[(True,[],True),(True,['--no-open'],False),(False,[],False),(False,['--open'],True)]
+        for frozen,flags,expected in cases:
+            with self.subTest(frozen=frozen,flags=flags),tempfile.TemporaryDirectory()as tmp:
+                feed=FakeFeed()
+                with patch('runner.sys.frozen',frozen,create=True),patch('runner.Feed',return_value=feed),patch('runner.ThreadingHTTPServer')as server,patch('runner.webbrowser.open')as opened:
+                    server.return_value.server_address=('127.0.0.1',54321)
+                    server.return_value.serve_forever.side_effect=KeyboardInterrupt
+                    main(['--data-dir',tmp,'--port','54321']+flags)
+                    if expected:opened.assert_called_once_with('http://127.0.0.1:54321')
+                    else:opened.assert_not_called()
+                self.assertFalse(feed.worker.is_alive(),'Empty-cache launch must not attach to an emulator')
+
     def test_documented_preserve_then_reimport_recovers_damaged_cache(self):
         for damage in ('empty','malformed','missing-map'):
             with self.subTest(damage=damage),tempfile.TemporaryDirectory()as tmp:

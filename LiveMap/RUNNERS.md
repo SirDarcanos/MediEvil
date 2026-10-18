@@ -4,17 +4,25 @@ A textured top-down map with Dan’s live position, raw XYZ coordinates, items, 
 
 **Bring your own DuckStation, BIOS and MediEvil USA (SCUS-94227).** No game data or saves are supplied. The minimap never controls the game, patches RAM, changes DuckStation settings or writes save slots. There is no controller automation, telemetry reporting or external upload.
 
-## Open the minimap
+## Download and open — no commands to type
 
-Unzip the **whole folder** somewhere you can run it. Do not launch files inside the ZIP.
+Get a native package from the [LiveMap preview release](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.1.0-preview.1). Choose **Windows x64**, **macOS Apple Silicon/ARM64**, or **Linux x64**. These packages include Python; you do **not** install Python or any Python packages. Intel Macs and other architectures are not supplied in this preview.
 
-- **Windows:** double-click `Open Minimap.cmd`.
-- **macOS:** open `Open Minimap.command`.
-- **Linux:** run `./open-minimap.sh`.
+1. Download the ZIP for your OS, not GitHub's automatic **Source code** download.
+2. Unzip the **whole folder**. Do not run files inside the ZIP, or move the executable away from its `_internal` folder.
+3. Start the minimap:
+   - **Windows:** double-click **`MediEvilMinimap.exe`**. `Open Minimap.cmd` is an alternative.
+   - **macOS:** double-click **`Open Minimap.command`**. A Terminal window appears automatically; you do not type commands.
+   - **Linux:** open **`MediEvilMinimap`**, or use `open-minimap.sh`.
+4. Your browser opens the map/setup page. Keep any launcher/console window open while using it.
 
-The **source ZIP requires Python 3.10 or newer**, from python.org or your package manager. It needs no Python packages. A standalone build includes Python; do not confuse the source ZIP with a standalone executable.
+The default address is `http://127.0.0.1:8768`. On Windows, close the minimap's console window to quit. On Mac/Linux, Ctrl-C in its launcher window stops it. Closing only the browser tab does not stop the local map process. DuckStation stays open, although GDB disconnects can affect its pause state.
 
-Keep the launcher window open while using the map. The browser opens at `http://127.0.0.1:8768`. Close the minimap with Ctrl-C in its launcher window. DuckStation stays open, although GDB disconnects can affect its pause state.
+**Unsigned preview:** your OS may show a publisher/security warning. Do not disable OS security protections; report the exact warning if the download is blocked.
+
+### Source edition (optional)
+
+The separately named **source ZIP requires Python 3.10+**, from python.org or your package manager. It needs no Python packages. Its OS launchers are `Open Minimap.cmd`, `Open Minimap.command` and `open-minimap.sh`. Most runners should use a native download above instead.
 
 ## Configure DuckStation
 
