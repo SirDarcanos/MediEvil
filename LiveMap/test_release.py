@@ -2,6 +2,8 @@ import importlib.util
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
+import stat
 import zipfile
 
 path=Path(__file__).with_name('release')/'build.py'
@@ -20,6 +22,21 @@ class ReleaseTests(unittest.TestCase):
                 self.assertIn(b'first-run',z.read('MediEvil-Minimap/runner.py'))
                 self.assertEqual((z.getinfo('MediEvil-Minimap/Open Minimap.command').external_attr>>16)&0o777,0o755)
             with self.assertRaises(ValueError):build.build(Path(tmp)/'output')
+    def test_windows_zip_metadata_still_marks_unix_launchers_executable(self):
+        original=zipfile.ZipInfo.from_file
+        def windows_info(filename,arcname=None,*,strict_timestamps=True):
+            info=original(filename,arcname,strict_timestamps=strict_timestamps)
+            info.create_system=0
+            info.external_attr=(stat.S_IFREG|0o666)<<16
+            return info
+        with tempfile.TemporaryDirectory()as tmp:
+            with patch.object(zipfile.ZipInfo,'from_file',side_effect=windows_info):archive=build.build(tmp)
+            with zipfile.ZipFile(archive)as z:
+                for name in ('Open Minimap.command','open-minimap.sh'):
+                    info=z.getinfo('MediEvil-Minimap/'+name)
+                    self.assertEqual(info.create_system,3)
+                    self.assertEqual((info.external_attr>>16)&0o777,0o755)
+
     def test_standalone_missing_build_dependency_fails_without_install(self):
         if importlib.util.find_spec('PyInstaller')is not None:self.skipTest('Builder installed on this environment')
         with tempfile.TemporaryDirectory()as tmp:

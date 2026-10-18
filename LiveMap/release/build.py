@@ -88,7 +88,16 @@ def build(output,standalone=False,python_license=None):
                     info=zipfile.ZipInfo(relative);info.create_system=3
                     info.external_attr=(stat.S_IFLNK|0o777)<<16
                     z.writestr(info,os.readlink(path))
-                elif path.is_file():z.write(path,relative)
+                elif path.is_file():
+                    info=zipfile.ZipInfo.from_file(path,relative)
+                    if path.name in ('Open Minimap.command','open-minimap.sh'):
+                        # Windows chmod/stat do not preserve POSIX execute bits.
+                        # The portable source ZIP still needs runnable Unix launchers.
+                        info.create_system=3
+                        info.external_attr=(stat.S_IFREG|0o755)<<16
+                    info.compress_type=zipfile.ZIP_DEFLATED
+                    with path.open('rb')as source,z.open(info,'w')as target:
+                        shutil.copyfileobj(source,target)
         digest=hashlib.sha256(archive.read_bytes()).hexdigest()
         (output/(name+'.sha256')).write_text(digest+'  '+name+'\n',encoding='utf-8')
         print(json.dumps({'archive':str(archive.resolve()),'sha256':digest,'kind':suffix,'files':len(hashes)+1},indent=2))
