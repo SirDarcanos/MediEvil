@@ -1,0 +1,141 @@
+{
+  "terrain_materials": {
+    "AG": [
+      949,
+      3316
+    ],
+    "CH": [
+      21
+    ],
+    "CR": [
+      2070,
+      2659
+    ],
+    "DC": [
+      49
+    ],
+    "GY2": [
+      817,
+      669,
+      1104,
+      2071
+    ],
+    "EE": [
+      3358,
+      3359
+    ],
+    "HR": [
+      396,
+      395,
+      357,
+      358,
+      4206,
+      4207
+    ],
+    "SF": [
+      89,
+      88,
+      90
+    ],
+    "EH": [
+      3954
+    ],
+    "GS": [
+      1990,
+      2003,
+      2008,
+      2015,
+      2021,
+      2026
+    ],
+    "GY1": [
+      669
+    ],
+    "HH": [
+      3208,
+      3405,
+      3561
+    ],
+    "IA": [
+      4064,
+      4148
+    ],
+    "PG": [
+      137
+    ],
+    "PS": [
+      2653
+    ],
+    "SV": [
+      203
+    ],
+    "TD": [
+      3894
+    ]
+  },
+  "gate_models": {
+    "152": "GY_CRYPTSGATEL.XMR",
+    "153": "GY_CRYPTSGATER.XMR",
+    "154": "ENTRANCEGATEL.XMR",
+    "155": "ENTRANCEGATER.XMR",
+    "156": "GY_GATE1L.XMR",
+    "157": "GY_GATE1R.XMR",
+    "164": "SPINANGELGATE1_GROUP.XMR",
+    "165": "SPINANGELGATE2_GROUP.XMR",
+    "166": "SPINANGELGATE3_GROUP.XMR",
+    "167": "SPINANGELGATE4_GROUP.XMR",
+    "168": "SPINANGELGATE5_GROUP.XMR",
+    "169": "SPINANGELGATE6_GROUP.XMR",
+    "179": "WOLFGATE.XMR",
+    "180": "GY_UNDERTAKERGATEL.XMR",
+    "181": "GY_UNDERTAKERGATER.XMR",
+    "182": "SKULLGATEZL.XMR",
+    "183": "SKULLGATEZR.XMR",
+    "227": "DC_FRONTGATEL.XMR",
+    "228": "DC_FRONTGATER.XMR",
+    "264": "SF_GATE.XMR",
+    "290": "CR_GATE.XMR",
+    "293": "CR_MAINGATEL.XMR",
+    "294": "CR_MAINGATER.XMR",
+    "295": "CR_EXITGATEL.XMR",
+    "296": "CR_EXITGATER.XMR",
+    "341": "CC_GATELEFT.XMR",
+    "342": "CC_GATERIGHT.XMR",
+    "359": "PG_HILLGATE.XMR",
+    "360": "PG_KEY4GATEL.XMR",
+    "361": "PG_KEY4GATER.XMR",
+    "362": "PG_KEY5AGATEL.XMR",
+    "363": "PG_KEY5AGATER.XMR",
+    "364": "PG_KEY5BGATEL.XMR",
+    "365": "PG_KEY5BGATER.XMR",
+    "405": "SV_BRIDGEGATEL.XMR",
+    "406": "SV_BRIDGEGATER.XMR",
+    "416": "SV_GUARDIANGATE.XMR",
+    "417": "SV_MANORGATEL.XMR",
+    "418": "SV_MANORGATER.XMR",
+    "442": "PD_ENDGATE1.XMR",
+    "444": "PD_LASTGATE1.XMR",
+    "463": "AG_FRONTGATE_LEFT1.XMR",
+    "464": "AG_FRONTGATE_RIGHT1.XMR",
+    "465": "AG_GATE2_LEFT1.XMR",
+    "466": "AG_GATE2_RIGHT1.XMR",
+    "471": "AG_OUTGATEL.XMR",
+    "472": "AG_OUTGATER.XMR",
+    "497": "GG_GATEWAY1.XMR",
+    "498": "GG_GATEWAY2.XMR",
+    "511": "IA_FENCEDOOR.XMR",
+    "525": "EE_ALTNERATIVEEXITGATE.XMR",
+    "531": "EE_GATETOTOMBL.XMR",
+    "532": "EE_GATETOTOMBR.XMR",
+    "533": "EE_GATETOTREEL.XMR",
+    "534": "EE_GATETOTREER.XMR",
+    "594": "HR_FLOORGATE.XMR",
+    "598": "HR_STEPGATE.XMR",
+    "610": "LA_GATELEVER.XAR",
+    "693": "TD_BUTTERFLYGATE.XMR",
+    "722": "TD_TRAINGATE.XMR",
+    "739": "LA_GATE.XMR",
+    "755": "ZL_MAINGATE.XMR"
+  },
+  "source": "Inspected native cutout fence/railing materials; named gate/fence models from FrogLord ntsc-u-master.cfg. No general wall, slope, foliage, cross/grave marker or alpha-only heuristic."
+}

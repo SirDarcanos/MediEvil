@@ -1,0 +1,86 @@
+name: LiveMap builds
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'LiveMap/**'
+      - '.github/workflows/livemap-build.yml'
+  push:
+    paths:
+      - 'LiveMap/**'
+      - '.github/workflows/livemap-build.yml'
+
+# Build artifacts only: no release publication, credentials or repository writes.
+permissions:
+  contents: read
+
+concurrency:
+  group: livemap-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-compatibility:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.10', '3.14']
+    defaults:
+      run:
+        working-directory: LiveMap
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Source tests without third-party runtime dependencies
+        run: python -m unittest discover -s . -p 'test_*.py'
+      - name: Browser script syntax
+        run: node --check web/app.js && node --check web/terrain.js && node --check web/setup.js
+
+  standalone:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-22.04, macos-latest]
+    defaults:
+      run:
+        working-directory: LiveMap
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Install isolated CI build tooling
+        run: python -m pip install -r release/requirements-build.txt
+      - name: Native source tests (not DuckStation gameplay)
+        run: python -m unittest discover -s . -p 'test_*.py'
+      - name: Collect bundled interpreter license
+        run: python release/python_license.py --output build-licenses/PYTHON-LICENSE.txt
+      - name: Build source preview
+        run: python release/build.py --output dist
+      - name: Build runtime-inclusive package
+        run: python release/build.py --standalone --python-license build-licenses/PYTHON-LICENSE.txt --output dist
+      - name: Smoke the unpacked executable without source fallback
+        run: >-
+          python -c "from pathlib import Path; import subprocess, sys;
+          packages=[p for p in Path('dist').glob('*.zip') if not p.name.endswith('-source.zip')];
+          assert len(packages)==1;
+          subprocess.run([sys.executable, 'release/smoke_package.py', str(packages[0])], check=True)"
+      - name: Upload packages and checksums (no automatic release)
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: LiveMap-${{ runner.os }}-${{ runner.arch }}
+          path: |
+            LiveMap/dist/*.zip
+            LiveMap/dist/*.sha256
+          if-no-files-found: error
+          retention-days: 14

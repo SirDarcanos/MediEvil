@@ -1,0 +1,38 @@
+# Local Python/build products
+__pycache__/
+*.py[cod]
+.venv/
+.venv-*/
+build/
+build-licenses/
+native-dist/
+dist/
+releases/
+*.spec
+
+# Generated/private game data: never commit or distribute
+cache/
+.cache/
+data/
+runtime/
+evidence/
+research/
+*.bin
+*.cue
+*.iso
+*.img
+*.chd
+*.sav
+*.state
+*.dump
+*.mwd
+*.ovl
+*.str
+*.png
+*.jpg
+*.webp
+
+# Local OS/editor state
+.DS_Store
+.env
+.env.*
