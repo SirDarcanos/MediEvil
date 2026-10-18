@@ -1,0 +1,3 @@
+# Build-only; the source runtime itself uses Python's standard library.
+# Version verified against PyPI metadata when preparing the CI workflow.
+PyInstaller==6.22.3

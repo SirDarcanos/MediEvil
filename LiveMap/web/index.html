@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MediEvil · Live map</title><link rel="stylesheet" href="/style.css"><script src="/terrain.js" defer></script><script src="/app.js" defer></script></head>
+<body>
+<header><div class="title"><span class="eyebrow">MEDIEVIL / USA</span><h1 id="level-name">Live map</h1></div><span id="connection" class="connection">Connecting</span></header>
+<main>
+<div class="toolbar"><label for="map-select">Level</label><select id="map-select"><option value="auto">Follow current level</option></select><button id="fit" title="Fit the whole level (F)">Fit level</button><button id="follow" aria-pressed="false" title="Keep Dan at the centre">Follow Dan</button></div>
+<div class="appearance-bar"><label for="map-style">Terrain</label><select id="map-style"><option value="texture">Original textures</option><option value="colour">Simple colours</option><option value="height">Height shading</option></select><label class="check"><input id="show-objects" type="checkbox" checked disabled> Static props</label><label class="check"><input id="show-items" type="checkbox" checked> Item spawns</label><select id="item-locate" aria-label="Find an item spawn" disabled><option>Loading items…</option></select><span id="render-note" role="status"></span></div>
+<div class="exit-bar"><label class="check"><input id="show-exits" type="checkbox" checked> Exit triggers</label><button id="find-exit" disabled title="Centre on the exit volume; repeat to cycle through multiple exits">Find exit</button><span id="exit-detail" role="status">Loading exit data…</span></div>
+<div id="viewport"><canvas id="map" aria-label="Top-down level map. Mouse wheel zooms, drag pans, F fits the level."></canvas><div id="empty">Loading level geometry…</div><div class="axis" aria-hidden="true">+Z ↑ &nbsp; +X →</div><div id="scale" class="scale"></div><div class="zoom"><button id="zoom-in" aria-label="Zoom in">+</button><button id="zoom-out" aria-label="Zoom out">−</button></div></div>
+<div class="item-legend" aria-label="Item marker legend"><span class="gold">$ Gold</span><span class="health">+ Health</span><span class="rune">♦ Rune</span><span class="chalice">C Chalice</span><span class="equipment">E Equipment</span><span class="quest">? Quest</span><span class="chest">□ Chest</span></div>
+<p id="object-detail" class="item-detail" role="status">Loading static props…</p>
+<p id="item-detail" class="item-detail" role="status">Static spawns — includes collected, hidden or conditional items. No dropped-item tracking.</p>
+<div class="readout"><span class="marker-key">● Dan</span><span>X <b id="x">—</b></span><span>Z <b id="z">—</b></span><span>Height <b id="y">—</b></span><span id="recorded" hidden>RECORDED · NOT LIVE</span></div>
+</main>
+<footer><span id="message" role="status">Looking for DuckStation or PCSX-Redux…</span><span class="readonly">READ ONLY</span></footer>
+</body></html>
