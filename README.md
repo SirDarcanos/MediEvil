@@ -30,17 +30,17 @@ hexadecimal; mode, phase, action and index values are decimal unless prefixed
 with `0x`. Brackets mean reading the value at an address: `[G + 0x530]` reads a
 pointer from the game-state allocation.
 
-| Symbol | Pointer read | Owner / lifetime |
-| --- | --- | --- |
-| `G` | `uint32 [0x800EDB3C]` | Game-state allocation, size `0x6F0`. Persists through the observed level-to-map transition. **Can remain non-null after free on return to title.** |
-| `A` | `uint32 [G + 0x530]` | Registered player actor. Can be null during loading and on the map while `G` remains live. |
-| `P` | `uint32 [A + 0x80]` | Player physics allocation; valid only with its owning actor. |
-| `T` | `uint32 [0x800EDC1C]` | Title-control allocation. Interpreted in main mode 2, overlay header 24. |
-| `F` | `uint32 [0x800EDB74]` | Generic screen-transition allocation. Its destructor clears this root after freeing it. |
-| `S` | `uint32 [0x800EDC18]` | Active scripted-sequence allocation; nullable between sequences. |
-| `L` | `uint32 [0x800EE978]` | Level-local data. **Its layout changes with the loaded level.** |
-| `B` | `uint32 [0x80021508]` | Shared Kardok/Zarok actor root in `ZL.BIN`, header 25 only. Not a global boss pointer for other levels. |
-| `D` | `uint32 [B + 0x08]` | Definition of that boss actor; identifies its class through `D + 0x88`. |
+| Symbol | Type | Pointer read | Owner / lifetime |
+| --- | --- | --- | --- |
+| `G` | `uint32` | `[0x800EDB3C]` | Game-state allocation, size `0x6F0`. Persists through the observed level-to-map transition. **Can remain non-null after free on return to title.** |
+| `A` | `uint32` | `[G + 0x530]` | Registered player actor. Can be null during loading and on the map while `G` remains live. |
+| `P` | `uint32` | `[A + 0x80]` | Player physics allocation; valid only with its owning actor. |
+| `T` | `uint32` | `[0x800EDC1C]` | Title-control allocation. Interpreted in main mode 2, overlay header 24. |
+| `F` | `uint32` | `[0x800EDB74]` | Generic screen-transition allocation. Its destructor clears this root after freeing it. |
+| `S` | `uint32` | `[0x800EDC18]` | Active scripted-sequence allocation; nullable between sequences. |
+| `L` | `uint32` | `[0x800EE978]` | Level-local data. **Its layout changes with the loaded level.** |
+| `B` | `uint32` | `[0x80021508]` | Shared Kardok/Zarok actor root in `ZL.BIN`, header 25 only. Not a global boss pointer for other levels. |
+| `D` | `uint32` | `[B + 0x08]` | Definition of that boss actor; identifies its class through `D + 0x88`. |
 
 An aligned pointer inside RAM is not proof that its allocation is still owned.
 The fatal-to-title capture shows `G` retaining its old address while its freed
