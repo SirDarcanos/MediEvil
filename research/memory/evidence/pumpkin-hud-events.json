@@ -1,0 +1,75 @@
+{
+  "run_id": "medievil-memory-pumpkin-active-1",
+  "probe_sha256": "358ef0fcf960bfcd24ba6e78a6db4fdcd80f83e563ae5c7e38ab439fc03cc6b0",
+  "seed_sha256": "a23eb608e9e520de1c73c765dae62457dc130d461f7b7db071ea04b86e801d5f",
+  "setup_writes": {
+    "[0x800EE978]+0x10": 0
+  },
+  "isolation": {
+    "private_app": true,
+    "expected_process_name": "ReduxAudit",
+    "webserver": false,
+    "gdb_server": false,
+    "debugger": false,
+    "observed_process_path": "/private/tmp/medievil-memory-pumpkin-active-1/ReduxAudit.app/Contents/MacOS/ReduxAudit",
+    "excluded_from_canonical_discovery": true
+  },
+  "active_samples": 2001,
+  "input_actor_hp_mismatches": 0,
+  "maximum_values": [
+    1100
+  ],
+  "boss_hp_values": [
+    1100
+  ],
+  "first_active": {
+    "phase": "fight",
+    "bossMax": 1100,
+    "health": 300,
+    "reserveEnergy": 300,
+    "reserveCapacity": 300,
+    "weapon": 0,
+    "deathSubstate": 0,
+    "actor": 2149239248,
+    "pumpkinPhase": 1,
+    "wakeGateCount": 0,
+    "monsterActor": 2149244384,
+    "monsterHP": 1100,
+    "level": 10,
+    "mode": 3,
+    "submode": 0,
+    "y": 18,
+    "x": -298,
+    "z": -297,
+    "overlay": 20,
+    "gameFrame": 4935,
+    "frame": 191,
+    "bossActive": 1,
+    "bossInput": 1100,
+    "bossCached": 0,
+    "targetHP": 1100,
+    "targetActor": 2149244384
+  },
+  "final": {
+    "phase": "finished",
+    "bossMax": 1100,
+    "health": 0,
+    "reserveEnergy": 0,
+    "reserveCapacity": 300,
+    "weapon": 0,
+    "deathSubstate": 1,
+    "pumpkinPhase": 1,
+    "wakeGateCount": 0,
+    "level": 10,
+    "mode": 3,
+    "submode": 0,
+    "overlay": 20,
+    "gameFrame": 5920,
+    "frame": 2192,
+    "bossActive": 1,
+    "bossInput": 1100,
+    "bossCached": 1100
+  },
+  "samples_sha256": "9fb0accbf63421c4bf3a59f81e36768fc1608be103bb190c7e9ba9c2d220e2a2",
+  "scope": "Pumpkin HUD active/input/max binding observed after an explicitly forced wake prerequisite; actor HP/HUD fields were not injected. HP stayed 1100, so native boss damage/defeat is not verified by this run. Derived phase changes are not natural progression evidence."
+}

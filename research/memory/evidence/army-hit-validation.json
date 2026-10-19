@@ -1,0 +1,984 @@
+{
+  "scope": "Observed form-3 skeleton collision callback and immediate post-handler HP/action readback; actual 8v8 fight, inherited laboratory setup, no HP/RNG edits.",
+  "callback": "0x80016AAC",
+  "rng_return_address": "0x80016B18",
+  "readback_checkpoint": "0x80016B78",
+  "probe_sha256": "8dd12e58bd176573fefad431a7a35c2b5eda66a8073a485ec5b0dfbc01604ff7",
+  "seed_sha256": "d620ca34ae513d9ed5edf647b5ae085048359173a6fb7b59e693e8c8b5462387",
+  "readback_sha256": "7c0746abe8ab7e9e9968d6da0c2a502fe82dd5a55a24ca3ce24f859ffaa5f815",
+  "rng_trace_unchanged": true,
+  "decisions_validated": 106,
+  "odd_output": {
+    "count": 48,
+    "hp_delta": 0,
+    "result_action": 18
+  },
+  "even_output": {
+    "count": 58,
+    "friendly_defender_damage": 50,
+    "enemy_defender_damage": 20,
+    "fatal_friendly_hits": 7
+  },
+  "decisions": [
+    {
+      "frame": 3,
+      "actor": 2149293532,
+      "subtype": 1,
+      "draw": 17145,
+      "hpBefore": 440,
+      "hpAfter": 440,
+      "actionAfter": 18
+    },
+    {
+      "frame": 17,
+      "actor": 2149300712,
+      "subtype": 1,
+      "draw": 1506,
+      "hpBefore": 440,
+      "hpAfter": 420,
+      "actionAfter": 6
+    },
+    {
+      "frame": 17,
+      "actor": 2149277232,
+      "subtype": 0,
+      "draw": 32638,
+      "hpBefore": 100,
+      "hpAfter": 50,
+      "actionAfter": 6
+    },
+    {
+      "frame": 21,
+      "actor": 2149298584,
+      "subtype": 1,
+      "draw": 27813,
+      "hpBefore": 460,
+      "hpAfter": 460,
+      "actionAfter": 18
+    },
+    {
+      "frame": 25,
+      "actor": 2149295660,
+      "subtype": 1,
+      "draw": 28954,
+      "hpBefore": 420,
+      "hpAfter": 400,
+      "actionAfter": 6
+    },
+    {
+      "frame": 27,
+      "actor": 2149294596,
+      "subtype": 1,
+      "draw": 28744,
+      "hpBefore": 480,
+      "hpAfter": 460,
+      "actionAfter": 6
+    },
+    {
+      "frame": 33,
+      "actor": 2149314380,
+      "subtype": 0,
+      "draw": 6325,
+      "hpBefore": 147,
+      "hpAfter": 147,
+      "actionAfter": 18
+    },
+    {
+      "frame": 55,
+      "actor": 2149312124,
+      "subtype": 0,
+      "draw": 12805,
+      "hpBefore": 177,
+      "hpAfter": 177,
+      "actionAfter": 18
+    },
+    {
+      "frame": 55,
+      "actor": 2149292468,
+      "subtype": 1,
+      "draw": 31175,
+      "hpBefore": 340,
+      "hpAfter": 340,
+      "actionAfter": 18
+    },
+    {
+      "frame": 55,
+      "actor": 2149273136,
+      "subtype": 0,
+      "draw": 5073,
+      "hpBefore": 251,
+      "hpAfter": 251,
+      "actionAfter": 18
+    },
+    {
+      "frame": 65,
+      "actor": 2149297520,
+      "subtype": 1,
+      "draw": 16594,
+      "hpBefore": 440,
+      "hpAfter": 420,
+      "actionAfter": 6
+    },
+    {
+      "frame": 67,
+      "actor": 2149294596,
+      "subtype": 1,
+      "draw": 24688,
+      "hpBefore": 460,
+      "hpAfter": 440,
+      "actionAfter": 6
+    },
+    {
+      "frame": 69,
+      "actor": 2149315508,
+      "subtype": 0,
+      "draw": 10936,
+      "hpBefore": 253,
+      "hpAfter": 203,
+      "actionAfter": 6
+    },
+    {
+      "frame": 71,
+      "actor": 2149314380,
+      "subtype": 0,
+      "draw": 18749,
+      "hpBefore": 147,
+      "hpAfter": 147,
+      "actionAfter": 18
+    },
+    {
+      "frame": 81,
+      "actor": 2149313252,
+      "subtype": 0,
+      "draw": 26038,
+      "hpBefore": 157,
+      "hpAfter": 107,
+      "actionAfter": 6
+    },
+    {
+      "frame": 97,
+      "actor": 2149324040,
+      "subtype": 0,
+      "draw": 30869,
+      "hpBefore": 207,
+      "hpAfter": 207,
+      "actionAfter": 18
+    },
+    {
+      "frame": 99,
+      "actor": 2149293532,
+      "subtype": 1,
+      "draw": 1443,
+      "hpBefore": 440,
+      "hpAfter": 440,
+      "actionAfter": 18
+    },
+    {
+      "frame": 103,
+      "actor": 2149298584,
+      "subtype": 1,
+      "draw": 25942,
+      "hpBefore": 460,
+      "hpAfter": 440,
+      "actionAfter": 6
+    },
+    {
+      "frame": 103,
+      "actor": 2149299648,
+      "subtype": 1,
+      "draw": 15828,
+      "hpBefore": 380,
+      "hpAfter": 360,
+      "actionAfter": 6
+    },
+    {
+      "frame": 119,
+      "actor": 2149272008,
+      "subtype": 0,
+      "draw": 27566,
+      "hpBefore": 249,
+      "hpAfter": 199,
+      "actionAfter": 6
+    },
+    {
+      "frame": 127,
+      "actor": 2149314380,
+      "subtype": 0,
+      "draw": 20836,
+      "hpBefore": 147,
+      "hpAfter": 97,
+      "actionAfter": 6
+    },
+    {
+      "frame": 149,
+      "actor": 2149295660,
+      "subtype": 1,
+      "draw": 8482,
+      "hpBefore": 400,
+      "hpAfter": 380,
+      "actionAfter": 6
+    },
+    {
+      "frame": 155,
+      "actor": 2149314380,
+      "subtype": 0,
+      "draw": 392,
+      "hpBefore": 97,
+      "hpAfter": 47,
+      "actionAfter": 6
+    },
+    {
+      "frame": 155,
+      "actor": 2149297520,
+      "subtype": 1,
+      "draw": 20292,
+      "hpBefore": 420,
+      "hpAfter": 400,
+      "actionAfter": 6
+    },
+    {
+      "frame": 159,
+      "actor": 2149294596,
+      "subtype": 1,
+      "draw": 20521,
+      "hpBefore": 440,
+      "hpAfter": 440,
+      "actionAfter": 18
+    },
+    {
+      "frame": 159,
+      "actor": 2149292468,
+      "subtype": 1,
+      "draw": 14229,
+      "hpBefore": 340,
+      "hpAfter": 340,
+      "actionAfter": 18
+    },
+    {
+      "frame": 177,
+      "actor": 2149300712,
+      "subtype": 1,
+      "draw": 18452,
+      "hpBefore": 420,
+      "hpAfter": 400,
+      "actionAfter": 6
+    },
+    {
+      "frame": 179,
+      "actor": 2149277232,
+      "subtype": 0,
+      "draw": 12261,
+      "hpBefore": 50,
+      "hpAfter": 50,
+      "actionAfter": 18
+    },
+    {
+      "frame": 181,
+      "actor": 2149293532,
+      "subtype": 1,
+      "draw": 27397,
+      "hpBefore": 440,
+      "hpAfter": 440,
+      "actionAfter": 18
+    },
+    {
+      "frame": 185,
+      "actor": 2149299648,
+      "subtype": 1,
+      "draw": 1067,
+      "hpBefore": 360,
+      "hpAfter": 360,
+      "actionAfter": 18
+    },
+    {
+      "frame": 193,
+      "actor": 2149315508,
+      "subtype": 0,
+      "draw": 32704,
+      "hpBefore": 203,
+      "hpAfter": 153,
+      "actionAfter": 6
+    },
+    {
+      "frame": 193,
+      "actor": 2149312124,
+      "subtype": 0,
+      "draw": 22756,
+      "hpBefore": 177,
+      "hpAfter": 127,
+      "actionAfter": 6
+    },
+    {
+      "frame": 193,
+      "actor": 2149298584,
+      "subtype": 1,
+      "draw": 6588,
+      "hpBefore": 440,
+      "hpAfter": 420,
+      "actionAfter": 6
+    },
+    {
+      "frame": 207,
+      "actor": 2149313252,
+      "subtype": 0,
+      "draw": 14590,
+      "hpBefore": 107,
+      "hpAfter": 57,
+      "actionAfter": 6
+    },
+    {
+      "frame": 215,
+      "actor": 2149299648,
+      "subtype": 1,
+      "draw": 15950,
+      "hpBefore": 360,
+      "hpAfter": 340,
+      "actionAfter": 6
+    },
+    {
+      "frame": 217,
+      "actor": 2149298584,
+      "subtype": 1,
+      "draw": 23235,
+      "hpBefore": 420,
+      "hpAfter": 420,
+      "actionAfter": 18
+    },
+    {
+      "frame": 217,
+      "actor": 2149273136,
+      "subtype": 0,
+      "draw": 24325,
+      "hpBefore": 251,
+      "hpAfter": 251,
+      "actionAfter": 18
+    },
+    {
+      "frame": 237,
+      "actor": 2149313252,
+      "subtype": 0,
+      "draw": 25432,
+      "hpBefore": 57,
+      "hpAfter": 7,
+      "actionAfter": 6
+    },
+    {
+      "frame": 243,
+      "actor": 2149324040,
+      "subtype": 0,
+      "draw": 14682,
+      "hpBefore": 207,
+      "hpAfter": 157,
+      "actionAfter": 6
+    },
+    {
+      "frame": 243,
+      "actor": 2149277232,
+      "subtype": 0,
+      "draw": 20803,
+      "hpBefore": 50,
+      "hpAfter": 50,
+      "actionAfter": 18
+    },
+    {
+      "frame": 251,
+      "actor": 2149273136,
+      "subtype": 0,
+      "draw": 13187,
+      "hpBefore": 251,
+      "hpAfter": 251,
+      "actionAfter": 18
+    },
+    {
+      "frame": 269,
+      "actor": 2149313252,
+      "subtype": 0,
+      "draw": 32648,
+      "hpBefore": 7,
+      "hpAfter": -43,
+      "actionAfter": 11
+    },
+    {
+      "frame": 273,
+      "actor": 2149272008,
+      "subtype": 0,
+      "draw": 31377,
+      "hpBefore": 199,
+      "hpAfter": 199,
+      "actionAfter": 18
+    },
+    {
+      "frame": 277,
+      "actor": 2149297520,
+      "subtype": 1,
+      "draw": 31564,
+      "hpBefore": 400,
+      "hpAfter": 380,
+      "actionAfter": 6
+    },
+    {
+      "frame": 279,
+      "actor": 2149312124,
+      "subtype": 0,
+      "draw": 8844,
+      "hpBefore": 127,
+      "hpAfter": 77,
+      "actionAfter": 6
+    },
+    {
+      "frame": 287,
+      "actor": 2149294596,
+      "subtype": 1,
+      "draw": 4406,
+      "hpBefore": 440,
+      "hpAfter": 420,
+      "actionAfter": 6
+    },
+    {
+      "frame": 289,
+      "actor": 2149299648,
+      "subtype": 1,
+      "draw": 25011,
+      "hpBefore": 340,
+      "hpAfter": 340,
+      "actionAfter": 18
+    },
+    {
+      "frame": 313,
+      "actor": 2149324040,
+      "subtype": 0,
+      "draw": 11946,
+      "hpBefore": 157,
+      "hpAfter": 107,
+      "actionAfter": 6
+    },
+    {
+      "frame": 321,
+      "actor": 2149292468,
+      "subtype": 1,
+      "draw": 29131,
+      "hpBefore": 340,
+      "hpAfter": 340,
+      "actionAfter": 18
+    },
+    {
+      "frame": 323,
+      "actor": 2149295660,
+      "subtype": 1,
+      "draw": 4366,
+      "hpBefore": 380,
+      "hpAfter": 360,
+      "actionAfter": 6
+    },
+    {
+      "frame": 327,
+      "actor": 2149314380,
+      "subtype": 0,
+      "draw": 21187,
+      "hpBefore": 47,
+      "hpAfter": 47,
+      "actionAfter": 18
+    },
+    {
+      "frame": 329,
+      "actor": 2149293532,
+      "subtype": 1,
+      "draw": 14276,
+      "hpBefore": 440,
+      "hpAfter": 420,
+      "actionAfter": 6
+    },
+    {
+      "frame": 353,
+      "actor": 2149312124,
+      "subtype": 0,
+      "draw": 4968,
+      "hpBefore": 77,
+      "hpAfter": 27,
+      "actionAfter": 6
+    },
+    {
+      "frame": 361,
+      "actor": 2149315508,
+      "subtype": 0,
+      "draw": 28040,
+      "hpBefore": 153,
+      "hpAfter": 103,
+      "actionAfter": 6
+    },
+    {
+      "frame": 367,
+      "actor": 2149272008,
+      "subtype": 0,
+      "draw": 2665,
+      "hpBefore": 199,
+      "hpAfter": 199,
+      "actionAfter": 18
+    },
+    {
+      "frame": 385,
+      "actor": 2149298584,
+      "subtype": 1,
+      "draw": 31895,
+      "hpBefore": 420,
+      "hpAfter": 420,
+      "actionAfter": 18
+    },
+    {
+      "frame": 399,
+      "actor": 2149297520,
+      "subtype": 1,
+      "draw": 19266,
+      "hpBefore": 380,
+      "hpAfter": 360,
+      "actionAfter": 6
+    },
+    {
+      "frame": 403,
+      "actor": 2149294596,
+      "subtype": 1,
+      "draw": 30831,
+      "hpBefore": 420,
+      "hpAfter": 420,
+      "actionAfter": 18
+    },
+    {
+      "frame": 405,
+      "actor": 2149299648,
+      "subtype": 1,
+      "draw": 420,
+      "hpBefore": 340,
+      "hpAfter": 320,
+      "actionAfter": 6
+    },
+    {
+      "frame": 405,
+      "actor": 2149273136,
+      "subtype": 0,
+      "draw": 6930,
+      "hpBefore": 251,
+      "hpAfter": 201,
+      "actionAfter": 6
+    },
+    {
+      "frame": 409,
+      "actor": 2149324040,
+      "subtype": 0,
+      "draw": 23345,
+      "hpBefore": 107,
+      "hpAfter": 107,
+      "actionAfter": 18
+    },
+    {
+      "frame": 411,
+      "actor": 2149292468,
+      "subtype": 1,
+      "draw": 7188,
+      "hpBefore": 340,
+      "hpAfter": 320,
+      "actionAfter": 6
+    },
+    {
+      "frame": 413,
+      "actor": 2149312124,
+      "subtype": 0,
+      "draw": 7787,
+      "hpBefore": 27,
+      "hpAfter": 27,
+      "actionAfter": 18
+    },
+    {
+      "frame": 429,
+      "actor": 2149277232,
+      "subtype": 0,
+      "draw": 19103,
+      "hpBefore": 50,
+      "hpAfter": 50,
+      "actionAfter": 18
+    },
+    {
+      "frame": 435,
+      "actor": 2149272008,
+      "subtype": 0,
+      "draw": 3339,
+      "hpBefore": 199,
+      "hpAfter": 199,
+      "actionAfter": 18
+    },
+    {
+      "frame": 439,
+      "actor": 2149273136,
+      "subtype": 0,
+      "draw": 16447,
+      "hpBefore": 201,
+      "hpAfter": 201,
+      "actionAfter": 18
+    },
+    {
+      "frame": 443,
+      "actor": 2149314380,
+      "subtype": 0,
+      "draw": 12524,
+      "hpBefore": 47,
+      "hpAfter": -3,
+      "actionAfter": 11
+    },
+    {
+      "frame": 447,
+      "actor": 2149277232,
+      "subtype": 0,
+      "draw": 9366,
+      "hpBefore": 50,
+      "hpAfter": 0,
+      "actionAfter": 11
+    },
+    {
+      "frame": 451,
+      "actor": 2149315508,
+      "subtype": 0,
+      "draw": 12086,
+      "hpBefore": 103,
+      "hpAfter": 53,
+      "actionAfter": 6
+    },
+    {
+      "frame": 453,
+      "actor": 2149324040,
+      "subtype": 0,
+      "draw": 26083,
+      "hpBefore": 107,
+      "hpAfter": 107,
+      "actionAfter": 18
+    },
+    {
+      "frame": 473,
+      "actor": 2149324040,
+      "subtype": 0,
+      "draw": 16140,
+      "hpBefore": 107,
+      "hpAfter": 57,
+      "actionAfter": 6
+    },
+    {
+      "frame": 477,
+      "actor": 2149298584,
+      "subtype": 1,
+      "draw": 24013,
+      "hpBefore": 420,
+      "hpAfter": 420,
+      "actionAfter": 18
+    },
+    {
+      "frame": 483,
+      "actor": 2149293532,
+      "subtype": 1,
+      "draw": 19749,
+      "hpBefore": 420,
+      "hpAfter": 420,
+      "actionAfter": 18
+    },
+    {
+      "frame": 489,
+      "actor": 2149272008,
+      "subtype": 0,
+      "draw": 17149,
+      "hpBefore": 199,
+      "hpAfter": 199,
+      "actionAfter": 18
+    },
+    {
+      "frame": 507,
+      "actor": 2149295660,
+      "subtype": 1,
+      "draw": 31801,
+      "hpBefore": 360,
+      "hpAfter": 360,
+      "actionAfter": 18
+    },
+    {
+      "frame": 511,
+      "actor": 2149315508,
+      "subtype": 0,
+      "draw": 7199,
+      "hpBefore": 53,
+      "hpAfter": 53,
+      "actionAfter": 18
+    },
+    {
+      "frame": 513,
+      "actor": 2149294596,
+      "subtype": 1,
+      "draw": 32628,
+      "hpBefore": 420,
+      "hpAfter": 400,
+      "actionAfter": 6
+    },
+    {
+      "frame": 513,
+      "actor": 2149293532,
+      "subtype": 1,
+      "draw": 3724,
+      "hpBefore": 420,
+      "hpAfter": 400,
+      "actionAfter": 6
+    },
+    {
+      "frame": 539,
+      "actor": 2149293532,
+      "subtype": 1,
+      "draw": 21701,
+      "hpBefore": 400,
+      "hpAfter": 400,
+      "actionAfter": 18
+    },
+    {
+      "frame": 543,
+      "actor": 2149324040,
+      "subtype": 0,
+      "draw": 17769,
+      "hpBefore": 57,
+      "hpAfter": 57,
+      "actionAfter": 18
+    },
+    {
+      "frame": 549,
+      "actor": 2149315508,
+      "subtype": 0,
+      "draw": 30043,
+      "hpBefore": 53,
+      "hpAfter": 53,
+      "actionAfter": 18
+    },
+    {
+      "frame": 557,
+      "actor": 2149272008,
+      "subtype": 0,
+      "draw": 8868,
+      "hpBefore": 199,
+      "hpAfter": 149,
+      "actionAfter": 6
+    },
+    {
+      "frame": 559,
+      "actor": 2149312124,
+      "subtype": 0,
+      "draw": 23350,
+      "hpBefore": 27,
+      "hpAfter": -23,
+      "actionAfter": 11
+    },
+    {
+      "frame": 577,
+      "actor": 2149293532,
+      "subtype": 1,
+      "draw": 4674,
+      "hpBefore": 400,
+      "hpAfter": 380,
+      "actionAfter": 6
+    },
+    {
+      "frame": 583,
+      "actor": 2149324040,
+      "subtype": 0,
+      "draw": 12083,
+      "hpBefore": 57,
+      "hpAfter": 57,
+      "actionAfter": 18
+    },
+    {
+      "frame": 587,
+      "actor": 2149292468,
+      "subtype": 1,
+      "draw": 14829,
+      "hpBefore": 320,
+      "hpAfter": 320,
+      "actionAfter": 18
+    },
+    {
+      "frame": 601,
+      "actor": 2149315508,
+      "subtype": 0,
+      "draw": 23639,
+      "hpBefore": 53,
+      "hpAfter": 53,
+      "actionAfter": 18
+    },
+    {
+      "frame": 601,
+      "actor": 2149315508,
+      "subtype": 0,
+      "draw": 22005,
+      "hpBefore": 53,
+      "hpAfter": 53,
+      "actionAfter": 18
+    },
+    {
+      "frame": 603,
+      "actor": 2149324040,
+      "subtype": 0,
+      "draw": 11030,
+      "hpBefore": 57,
+      "hpAfter": 7,
+      "actionAfter": 6
+    },
+    {
+      "frame": 605,
+      "actor": 2149273136,
+      "subtype": 0,
+      "draw": 13249,
+      "hpBefore": 201,
+      "hpAfter": 201,
+      "actionAfter": 18
+    },
+    {
+      "frame": 653,
+      "actor": 2149315508,
+      "subtype": 0,
+      "draw": 2478,
+      "hpBefore": 53,
+      "hpAfter": 3,
+      "actionAfter": 6
+    },
+    {
+      "frame": 653,
+      "actor": 2149324040,
+      "subtype": 0,
+      "draw": 7744,
+      "hpBefore": 7,
+      "hpAfter": -43,
+      "actionAfter": 11
+    },
+    {
+      "frame": 675,
+      "actor": 2149315508,
+      "subtype": 0,
+      "draw": 16582,
+      "hpBefore": 3,
+      "hpAfter": -47,
+      "actionAfter": 11
+    },
+    {
+      "frame": 683,
+      "actor": 2149292468,
+      "subtype": 1,
+      "draw": 11666,
+      "hpBefore": 320,
+      "hpAfter": 300,
+      "actionAfter": 6
+    },
+    {
+      "frame": 685,
+      "actor": 2149273136,
+      "subtype": 0,
+      "draw": 9361,
+      "hpBefore": 201,
+      "hpAfter": 201,
+      "actionAfter": 18
+    },
+    {
+      "frame": 711,
+      "actor": 2149293532,
+      "subtype": 1,
+      "draw": 13008,
+      "hpBefore": 380,
+      "hpAfter": 360,
+      "actionAfter": 6
+    },
+    {
+      "frame": 723,
+      "actor": 2149272008,
+      "subtype": 0,
+      "draw": 28642,
+      "hpBefore": 149,
+      "hpAfter": 99,
+      "actionAfter": 6
+    },
+    {
+      "frame": 753,
+      "actor": 2149292468,
+      "subtype": 1,
+      "draw": 32559,
+      "hpBefore": 300,
+      "hpAfter": 300,
+      "actionAfter": 18
+    },
+    {
+      "frame": 773,
+      "actor": 2149293532,
+      "subtype": 1,
+      "draw": 2438,
+      "hpBefore": 360,
+      "hpAfter": 340,
+      "actionAfter": 6
+    },
+    {
+      "frame": 783,
+      "actor": 2149273136,
+      "subtype": 0,
+      "draw": 15181,
+      "hpBefore": 201,
+      "hpAfter": 201,
+      "actionAfter": 18
+    },
+    {
+      "frame": 803,
+      "actor": 2149272008,
+      "subtype": 0,
+      "draw": 3128,
+      "hpBefore": 99,
+      "hpAfter": 49,
+      "actionAfter": 6
+    },
+    {
+      "frame": 807,
+      "actor": 2149273136,
+      "subtype": 0,
+      "draw": 16682,
+      "hpBefore": 201,
+      "hpAfter": 151,
+      "actionAfter": 6
+    },
+    {
+      "frame": 817,
+      "actor": 2149272008,
+      "subtype": 0,
+      "draw": 13043,
+      "hpBefore": 49,
+      "hpAfter": 49,
+      "actionAfter": 18
+    },
+    {
+      "frame": 817,
+      "actor": 2149272008,
+      "subtype": 0,
+      "draw": 21606,
+      "hpBefore": 49,
+      "hpAfter": -1,
+      "actionAfter": 11
+    },
+    {
+      "frame": 833,
+      "actor": 2149273136,
+      "subtype": 0,
+      "draw": 25604,
+      "hpBefore": 151,
+      "hpAfter": 101,
+      "actionAfter": 6
+    },
+    {
+      "frame": 879,
+      "actor": 2149273136,
+      "subtype": 0,
+      "draw": 17160,
+      "hpBefore": 101,
+      "hpAfter": 51,
+      "actionAfter": 6
+    }
+  ],
+  "limits": [
+    "This is the other-form-3 collision branch, not a universal chance applied to every player/projectile/contact type.",
+    "Damage amounts are observed for these definitions/context; do not generalize to modified stats or every attack.",
+    "Finite 48/58 distribution is not a measured long-run independent hit probability.",
+    "Damage branch consumes additional RNG, including a conditional third draw; fixed consumption per attack is invalid."
+  ]
+}

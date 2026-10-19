@@ -1,0 +1,28 @@
+# Generated language/tool caches; reusable source belongs in Git.
+__pycache__/
+*.py[cod]
+*.class
+.pytest_cache/
+.coverage
+htmlcov/
+.DS_Store
+
+# Local game inputs, complete emulator runs and disposable workspaces.
+# Curated summaries belong in evidence/, not in these ignored directories.
+/inputs/
+/runs/
+/outputs/
+/scratch/
+
+# Raw game-memory/state/card artifacts, even if saved outside a run folder.
+*.ram
+*.pixels
+*.state
+*.state.gz
+*.mcd
+*.mcr
+
+# Private emulator application copies and Ghidra project databases.
+*.app/
+*.gpr
+*.rep/

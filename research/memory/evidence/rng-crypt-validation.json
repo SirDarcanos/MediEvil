@@ -1,0 +1,40 @@
+{
+  "calls": 99,
+  "validated_native_steps": 99,
+  "state_address": "0x800F3994",
+  "multiplier": "0x41C64E6D",
+  "increment": "0x00003039",
+  "first_state": 2953313536,
+  "last_state": 3844040319,
+  "caller_return_addresses": {
+    "0x80024040": 14,
+    "0x800240C0": 34,
+    "0x80067278": 3,
+    "0x80053890": 1,
+    "0x800538B8": 1,
+    "0x800538E0": 1,
+    "0x80053948": 1,
+    "0x80055158": 8,
+    "0x8005516C": 8,
+    "0x80055180": 8,
+    "0x8007E7E4": 5,
+    "0x8007E840": 3,
+    "0x8007E850": 3,
+    "0x8007E860": 5,
+    "0x8007E5AC": 4
+  },
+  "submode_calls": {
+    "0": 99
+  },
+  "state_discontinuities": [],
+  "scope": "Exact native PRNG steps/callers in this trace window. Scratch actor is only a context hint. Discontinuities need reseed/write tracing; no combat outcome manipulation is implied.",
+  "run_id": "medievil-memory-rng-api-1",
+  "probe_sha256": "c7b7a3fb2d84e737da75299a904b61c19aba91ffdc8e8314662aa04003871caa",
+  "seed_sha256": "0703b96df11bf544f6841e81d0b466cbdc2b0a9fb0fbe910f6003369cb53cf94",
+  "instrumentation": {
+    "rng_store_exec_callback": "0x800A43D8",
+    "non_pausing": true,
+    "guest_memory_edits": false
+  },
+  "trace_sha256": "497d0d5f3c901aa90f44502924ab02c0530000c4a55624727a071cdfe836dc8b"
+}

@@ -1,0 +1,22 @@
+{
+  "run_id": "medievil-memory-isolation-1",
+  "emulator_sha256": "b34a12d9e6565630163d7b086b2fd59366d9eb7523526ec7610975f11563ce0c",
+  "isolation": {
+    "private_app": true,
+    "expected_process_name": "ReduxAudit",
+    "webserver": false,
+    "gdb_server": false,
+    "debugger": false,
+    "observed_process_path": "/private/tmp/medievil-memory-isolation-1/ReduxAudit.app/Contents/MacOS/ReduxAudit",
+    "excluded_from_canonical_discovery": true
+  },
+  "pid": 83168,
+  "probe_sha256": "a8a9fd2ac8454687927864c12370afe265fc91bf4245bb9928feff812413c10e",
+  "semantic_pass": true,
+  "canonical_discovery_names": [
+    "pcsx-redux",
+    "pcsx-redux.exe"
+  ],
+  "tcp_check": "No TCP listeners observed in the explicit process/socket isolation check; web/GDB/debugger disabled in launch arguments",
+  "scope": "Copied executable name and private HOME/cards avoid the other project's canonical process auto-discovery and server ports. Does not claim absence of ordinary CPU/disk contention."
+}

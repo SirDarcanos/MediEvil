@@ -1,0 +1,209 @@
+{
+  "scope": "Controller-only acquisitions; no inventory RAM writes. Runs 1/2 share a seed; run 3 continues our own saved run 2. Not three independent playthroughs.",
+  "runs": [
+    {
+      "run_id": "medievil-memory-pickups-1",
+      "probe_sha256": "0569ee5315c89af4d6a5b39e74f2c49992247a7e4ed20e201a4480fe1aa99280",
+      "seed_sha256": "4e2d7d5e907c77a08f00d5d9c3cfc351ff7ce622497c8b7be848140bffc1601d",
+      "exe_sha1": "265ce5dc508002a339ae535e49a5b1b4e683b732",
+      "semantic_checks": {
+        "normal_completion": true,
+        "samples": 3600,
+        "live_samples": 3600,
+        "unique_positions": 914,
+        "unique_game_frames": 1801,
+        "modes": [
+          3
+        ]
+      },
+      "method": "Controller only; no emulated RAM writes",
+      "route_result": "frame limit; route did not acquire every requested item",
+      "observed_changes": [
+        {
+          "field": "starRune",
+          "pointer_root": "0x800EDB3C",
+          "state_offset": "0xc8",
+          "type": "ushort",
+          "frame": 534,
+          "old": 65535,
+          "new": 1,
+          "actor_position": [
+            -993,
+            139,
+            2626
+          ]
+        },
+        {
+          "field": "smallSword",
+          "pointer_root": "0x800EDB3C",
+          "state_offset": "0x80",
+          "type": "ushort",
+          "frame": 896,
+          "old": 65535,
+          "new": 0,
+          "actor_position": [
+            -956,
+            0,
+            -102
+          ]
+        }
+      ],
+      "no_change_in_this_run": [
+        "daggers",
+        "gold",
+        "reserveEnergy",
+        "reserveCapacity"
+      ],
+      "samples_sha256": "8afab12728cf24b0a244a3d5dce9284978627dfcc63d6e57033a685eb14f417b",
+      "events": [
+        "REACHED|277|corridor|-995|0|590|star=65535|sword=65535|daggers=65535",
+        "REACHED|541|star-rune|-996|139|2674|star=1|sword=65535|daggers=65535",
+        "REACHED|793|back-to-room|-989|0|692|star=1|sword=65535|daggers=65535",
+        "REACHED|901|sword|-982|0|-120|star=1|sword=0|daggers=65535"
+      ],
+      "y_min": 0,
+      "y_max": 141
+    },
+    {
+      "run_id": "medievil-memory-pickups-2",
+      "probe_sha256": "808948ded01b174188823cdb1215d5a87a0a607db59cef4a06e775da66262596",
+      "seed_sha256": "4e2d7d5e907c77a08f00d5d9c3cfc351ff7ce622497c8b7be848140bffc1601d",
+      "exe_sha1": "265ce5dc508002a339ae535e49a5b1b4e683b732",
+      "semantic_checks": {
+        "normal_completion": true,
+        "samples": 3600,
+        "live_samples": 3600,
+        "unique_positions": 1303,
+        "unique_game_frames": 1801,
+        "modes": [
+          3
+        ]
+      },
+      "method": "Controller only; no emulated RAM writes",
+      "route_result": "frame limit; route did not acquire every requested item",
+      "observed_changes": [
+        {
+          "field": "starRune",
+          "pointer_root": "0x800EDB3C",
+          "state_offset": "0xc8",
+          "type": "ushort",
+          "frame": 534,
+          "old": 65535,
+          "new": 1,
+          "actor_position": [
+            -993,
+            139,
+            2626
+          ]
+        },
+        {
+          "field": "smallSword",
+          "pointer_root": "0x800EDB3C",
+          "state_offset": "0x80",
+          "type": "ushort",
+          "frame": 896,
+          "old": 65535,
+          "new": 0,
+          "actor_position": [
+            -956,
+            0,
+            -102
+          ]
+        }
+      ],
+      "no_change_in_this_run": [
+        "daggers",
+        "gold",
+        "reserveEnergy",
+        "reserveCapacity"
+      ],
+      "samples_sha256": "70501bd80e7bb2059df8c045bb2d43767284e1376337231c17f0cc804794c0e9",
+      "events": [
+        "REACHED|277|corridor|-995|0|590|star=65535|sword=65535|daggers=65535",
+        "REACHED|541|star-rune|-996|139|2674|star=1|sword=65535|daggers=65535",
+        "REACHED|793|back-to-room|-989|0|692|star=1|sword=65535|daggers=65535",
+        "REACHED|901|sword|-982|0|-120|star=1|sword=0|daggers=65535",
+        "REACHED|1045|sword-return|-957|0|566|star=1|sword=0|daggers=65535",
+        "REACHED|1165|cross-left|-435|0|558|star=1|sword=0|daggers=65535",
+        "REACHED|1321|cross-centre|244|0|598|star=1|sword=0|daggers=65535"
+      ],
+      "y_min": 0,
+      "y_max": 141
+    },
+    {
+      "run_id": "medievil-memory-pickups-3",
+      "probe_sha256": "b50871e6e8ca36d22407326068abafc4d92b852ed97f4c78bd7772077732c540",
+      "seed_sha256": "63beea038360a799ab8814e36fc498b2bfd303c804f2019f3713a62acb12cb42",
+      "exe_sha1": "265ce5dc508002a339ae535e49a5b1b4e683b732",
+      "semantic_checks": {
+        "normal_completion": true,
+        "samples": 2426,
+        "live_samples": 2426,
+        "unique_positions": 1056,
+        "unique_game_frames": 1214,
+        "modes": [
+          3
+        ]
+      },
+      "method": "Controller only; no emulated RAM writes",
+      "route_result": "both focused targets acquired",
+      "observed_changes": [
+        {
+          "field": "daggers",
+          "pointer_root": "0x800EDB3C",
+          "state_offset": "0x94",
+          "type": "ushort",
+          "frame": 2414,
+          "old": 65535,
+          "new": 100,
+          "actor_position": [
+            974,
+            -178,
+            -339
+          ]
+        },
+        {
+          "field": "reserveEnergy",
+          "pointer_root": "0x800EDB3C",
+          "state_offset": "0x4",
+          "type": "int",
+          "frame": 2192,
+          "old": 0,
+          "new": 300,
+          "actor_position": [
+            1106,
+            -187,
+            511
+          ]
+        },
+        {
+          "field": "reserveCapacity",
+          "pointer_root": "0x800EDB3C",
+          "state_offset": "0x8",
+          "type": "int",
+          "frame": 2192,
+          "old": 0,
+          "new": 300,
+          "actor_position": [
+            1106,
+            -187,
+            511
+          ]
+        }
+      ],
+      "no_change_in_this_run": [
+        "starRune",
+        "smallSword",
+        "gold"
+      ],
+      "samples_sha256": "4a062a325f1e2db32410002f2de18526f4ad37b07afbcbea844b69bbc2869241",
+      "events": [
+        "REACHED|2197|bottle|1127|-190|535|star=1|sword=0|daggers=65535",
+        "REACHED|2425|daggers|990|-115|-417|star=1|sword=0|daggers=100",
+        "STOP|all-targets-reached|frame=2426|stage=3"
+      ],
+      "y_min": -374,
+      "y_max": 0
+    }
+  ]
+}

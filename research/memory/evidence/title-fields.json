@@ -1,0 +1,91 @@
+{
+  "pointer_address": "0x800EDC1C",
+  "state_offset": "0x00",
+  "state_type": "int",
+  "native_update": "0x8001203C",
+  "native_meaning": "Flow state 2 returns 1 to the main dispatcher, whose title-result-1 path starts a new game. State 1 updates active title UI.",
+  "scope": "Read/code verified in fresh-boot captures. One-second RAM-dump spacing does not establish exact button-acceptance timing. Menu-negative controls and Windows ASL execution are not tested.",
+  "captures": [
+    {
+      "capture": "frame-02160-boot.ram",
+      "title_pointer": "0x800F85A8",
+      "title_flow_state": 0,
+      "main_mode": 2,
+      "loaded_header_id": 24
+    },
+    {
+      "capture": "frame-02220-boot.ram",
+      "title_pointer": "0x800F85A8",
+      "title_flow_state": 0,
+      "main_mode": 2,
+      "loaded_header_id": 24
+    },
+    {
+      "capture": "frame-02280-boot.ram",
+      "title_pointer": "0x800F85A8",
+      "title_flow_state": 0,
+      "main_mode": 2,
+      "loaded_header_id": 24
+    },
+    {
+      "capture": "frame-02340-boot.ram",
+      "title_pointer": "0x800F85A8",
+      "title_flow_state": 0,
+      "main_mode": 2,
+      "loaded_header_id": 24
+    },
+    {
+      "capture": "frame-02400-boot.ram",
+      "title_pointer": "0x800F85A8",
+      "title_flow_state": 0,
+      "main_mode": 2,
+      "loaded_header_id": 24
+    },
+    {
+      "capture": "frame-02460-boot.ram",
+      "title_pointer": "0x800F85A8",
+      "title_flow_state": 1,
+      "main_mode": 2,
+      "loaded_header_id": 24
+    },
+    {
+      "capture": "frame-02520-boot.ram",
+      "title_pointer": "0x800F85A8",
+      "title_flow_state": 1,
+      "main_mode": 2,
+      "loaded_header_id": 24
+    },
+    {
+      "capture": "frame-02580-boot.ram",
+      "title_pointer": "0x800F85A8",
+      "title_flow_state": 1,
+      "main_mode": 2,
+      "loaded_header_id": 24
+    },
+    {
+      "capture": "frame-02640-boot.ram",
+      "title_pointer": "0x800F85A8",
+      "title_flow_state": 1,
+      "main_mode": 2,
+      "loaded_header_id": 24
+    },
+    {
+      "capture": "frame-02700-boot.ram",
+      "title_pointer": "0x800F85A8",
+      "title_flow_state": 1,
+      "main_mode": 2,
+      "loaded_header_id": 24
+    },
+    {
+      "capture": "frame-02760-boot.ram",
+      "title_pointer": "0x800F85A8",
+      "title_flow_state": 2,
+      "main_mode": 2,
+      "loaded_header_id": 24
+    }
+  ],
+  "exe_sha1": "265ce5dc508002a339ae535e49a5b1b4e683b732",
+  "title_overlay_sha1": "b511b56db83862ed017fc72cdbb833f2e06de58e",
+  "run_id": "medievil-memory-boot-4",
+  "capture_hashes": "verified-runs.json: matching run/full_ram_scan/captures"
+}

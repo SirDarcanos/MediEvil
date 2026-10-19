@@ -1,0 +1,75 @@
+{
+  "run_id": "medievil-memory-dagger-use-1",
+  "exe_sha1": "265ce5dc508002a339ae535e49a5b1b4e683b732",
+  "probe_sha256": "a8a9fd2ac8454687927864c12370afe265fc91bf4245bb9928feff812413c10e",
+  "seed_sha256": "0703b96df11bf544f6841e81d0b466cbdc2b0a9fb0fbe910f6003369cb53cf94",
+  "method": "Controller only; no emulated RAM writes",
+  "pointer_root": "0x800EDB3C",
+  "state_offset": "0x94",
+  "type": "ushort",
+  "equipped_weapon_enum": 3,
+  "initial_ammo": 100,
+  "final_ammo": 92,
+  "changes": [
+    {
+      "frame": 190,
+      "phase": "cross-attack",
+      "old": 100,
+      "new": 99
+    },
+    {
+      "frame": 220,
+      "phase": "cross-attack",
+      "old": 99,
+      "new": 98
+    },
+    {
+      "frame": 250,
+      "phase": "cross-attack",
+      "old": 98,
+      "new": 97
+    },
+    {
+      "frame": 280,
+      "phase": "cross-attack",
+      "old": 97,
+      "new": 96
+    },
+    {
+      "frame": 310,
+      "phase": "square-attack",
+      "old": 96,
+      "new": 95
+    },
+    {
+      "frame": 340,
+      "phase": "square-attack",
+      "old": 95,
+      "new": 94
+    },
+    {
+      "frame": 370,
+      "phase": "square-attack",
+      "old": 94,
+      "new": 93
+    },
+    {
+      "frame": 400,
+      "phase": "square-attack",
+      "old": 93,
+      "new": 92
+    }
+  ],
+  "semantic_checks": {
+    "normal_completion": true,
+    "samples": 540,
+    "live_samples": 540,
+    "unique_positions": 3,
+    "unique_game_frames": 271,
+    "modes": [
+      3
+    ]
+  },
+  "samples_sha256": "008aae2e263166176d3880f1c254ef76dea39167ea2fdef89315cc1eb15fbcea",
+  "scope": "Acquisition and native attack consumption verified; complete depletion/empty-state behavior remains untested."
+}

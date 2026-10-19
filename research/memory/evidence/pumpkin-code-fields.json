@@ -1,0 +1,47 @@
+{
+  "scope": "Code-backed Pumpkin-specific fields; native HP damage/defeat has not yet been observed",
+  "game_level_index": 10,
+  "loaded_header_id": 20,
+  "overlay_file": "PS.BIN",
+  "overlay_sha1": "92c871bee68855dad4229da6d15fbaaa00b802cf",
+  "actor_definition": "0x8001AD48",
+  "actor_name": "PsMonster",
+  "actor_hp": {
+    "offset": "0x5A",
+    "type": "short"
+  },
+  "maximum_hp": {
+    "definition_offset": "0x24",
+    "type": "int",
+    "observed_definition_value": 1100
+  },
+  "native_constructor": "0x80013D70",
+  "native_state_initializer": "0x80013EE4",
+  "native_update": "0x8001416C",
+  "hud_bindings": {
+    "active": "0x800F170C",
+    "input": "0x800F1710",
+    "maximum": "0x800F171C",
+    "condition": "Update writes the signed actor HP and definition maximum only after the private sleep flag is cleared and actor action is not 11; death initializer disables the bar"
+  },
+  "level_runtime_pointer": "0x800EE978",
+  "phase": {
+    "offset": "0x0C",
+    "type": "int",
+    "code_writes": {
+      "1": "actor action 13 initializer",
+      "2": "wake transition",
+      "3": "actor action 11/death initializer"
+    },
+    "observed_dormant_value": 0,
+    "runtime_transition_verification": false
+  },
+  "wake_gate_count": {
+    "offset": "0x10",
+    "type": "int",
+    "observed_dormant_value": 9,
+    "meaning_limit": "Update waits for zero; individual decrement sources require separate tracing"
+  },
+  "clean_export_sha256": "f15a61d8f6195480529bdea8ebc5a7bbed60c51358594f6009a2e1c456bd81f5",
+  "analysis_limit": "The initial auto-analysis export had invalid overlapping overlay function boundaries. This report uses only the clean -noanalysis export with three checked constructor/vtable entries; original project remains unmodified."
+}

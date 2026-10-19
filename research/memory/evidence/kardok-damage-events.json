@@ -1,0 +1,1035 @@
+{
+  "scope": "Native Kardok damage in assisted player-health/ammo laboratory; time limit reached with no defeat. Not a full fight or a successful defeat test.",
+  "run_directory": "/tmp/medievil-memory-boss-combat-1",
+  "seed_sha256": "0b7343e1fcf84f2b3e8b5b23732ff3264e1a777b9a66b93a15af526fa96f38a4",
+  "probe_sha256": "1465b398761611e707d5c010711fe1597363fbf0a5d97a9cfc49cc9562af3718",
+  "samples_sha256": "9183a87ab7ae456c20ff0526a1436c0182ba4cac1b48078ed76a057803e06e2b",
+  "initial_hp": 1500,
+  "final_hp": 822,
+  "samples": 24000,
+  "native_damage_events": [
+    {
+      "frame": 1717,
+      "hp_before": 1500,
+      "hp_after": 1494,
+      "hud_input": 1494,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 1757,
+      "hp_before": 1494,
+      "hp_after": 1488,
+      "hud_input": 1488,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 1805,
+      "hp_before": 1488,
+      "hp_after": 1482,
+      "hud_input": 1482,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 1839,
+      "hp_before": 1482,
+      "hp_after": 1476,
+      "hud_input": 1476,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 1985,
+      "hp_before": 1476,
+      "hp_after": 1470,
+      "hud_input": 1470,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 2135,
+      "hp_before": 1470,
+      "hp_after": 1464,
+      "hud_input": 1464,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 2175,
+      "hp_before": 1464,
+      "hp_after": 1458,
+      "hud_input": 1458,
+      "action": 13,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 2879,
+      "hp_before": 1458,
+      "hp_after": 1452,
+      "hud_input": 1452,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 3055,
+      "hp_before": 1452,
+      "hp_after": 1446,
+      "hud_input": 1446,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 3103,
+      "hp_before": 1446,
+      "hp_after": 1440,
+      "hud_input": 1440,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 3135,
+      "hp_before": 1440,
+      "hp_after": 1434,
+      "hud_input": 1434,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 3183,
+      "hp_before": 1434,
+      "hp_after": 1428,
+      "hud_input": 1428,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 3353,
+      "hp_before": 1428,
+      "hp_after": 1422,
+      "hud_input": 1422,
+      "action": 13,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 3393,
+      "hp_before": 1422,
+      "hp_after": 1416,
+      "hud_input": 1416,
+      "action": 13,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 4017,
+      "hp_before": 1416,
+      "hp_after": 1410,
+      "hud_input": 1410,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 4207,
+      "hp_before": 1410,
+      "hp_after": 1404,
+      "hud_input": 1404,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 4249,
+      "hp_before": 1404,
+      "hp_after": 1398,
+      "hud_input": 1398,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 4289,
+      "hp_before": 1398,
+      "hp_after": 1392,
+      "hud_input": 1392,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 4479,
+      "hp_before": 1392,
+      "hp_after": 1386,
+      "hud_input": 1386,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 4629,
+      "hp_before": 1386,
+      "hp_after": 1380,
+      "hud_input": 1380,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 4671,
+      "hp_before": 1380,
+      "hp_after": 1374,
+      "hud_input": 1374,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 6429,
+      "hp_before": 1374,
+      "hp_after": 1368,
+      "hud_input": 1368,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 6465,
+      "hp_before": 1368,
+      "hp_after": 1362,
+      "hud_input": 1362,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 6505,
+      "hp_before": 1362,
+      "hp_after": 1356,
+      "hud_input": 1356,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 6543,
+      "hp_before": 1356,
+      "hp_after": 1350,
+      "hud_input": 1350,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 6839,
+      "hp_before": 1350,
+      "hp_after": 1344,
+      "hud_input": 1344,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 6879,
+      "hp_before": 1344,
+      "hp_after": 1338,
+      "hud_input": 1338,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 6929,
+      "hp_before": 1338,
+      "hp_after": 1332,
+      "hud_input": 1332,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 7025,
+      "hp_before": 1332,
+      "hp_after": 1326,
+      "hud_input": 1326,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 7177,
+      "hp_before": 1326,
+      "hp_after": 1320,
+      "hud_input": 1320,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 7217,
+      "hp_before": 1320,
+      "hp_after": 1314,
+      "hud_input": 1314,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 7363,
+      "hp_before": 1314,
+      "hp_after": 1308,
+      "hud_input": 1308,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 7507,
+      "hp_before": 1308,
+      "hp_after": 1302,
+      "hud_input": 1302,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 7551,
+      "hp_before": 1302,
+      "hp_after": 1296,
+      "hud_input": 1296,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 7695,
+      "hp_before": 1296,
+      "hp_after": 1290,
+      "hud_input": 1290,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 7839,
+      "hp_before": 1290,
+      "hp_after": 1284,
+      "hud_input": 1284,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 8625,
+      "hp_before": 1284,
+      "hp_after": 1278,
+      "hud_input": 1278,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 8673,
+      "hp_before": 1278,
+      "hp_after": 1272,
+      "hud_input": 1272,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 8719,
+      "hp_before": 1272,
+      "hp_after": 1266,
+      "hud_input": 1266,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 8773,
+      "hp_before": 1266,
+      "hp_after": 1260,
+      "hud_input": 1260,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 8847,
+      "hp_before": 1260,
+      "hp_after": 1254,
+      "hud_input": 1254,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 8895,
+      "hp_before": 1254,
+      "hp_after": 1248,
+      "hud_input": 1248,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 8991,
+      "hp_before": 1248,
+      "hp_after": 1242,
+      "hud_input": 1242,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 9139,
+      "hp_before": 1242,
+      "hp_after": 1236,
+      "hud_input": 1236,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 9183,
+      "hp_before": 1236,
+      "hp_after": 1230,
+      "hud_input": 1230,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 9297,
+      "hp_before": 1230,
+      "hp_after": 1224,
+      "hud_input": 1224,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 9329,
+      "hp_before": 1224,
+      "hp_after": 1218,
+      "hud_input": 1218,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 9471,
+      "hp_before": 1218,
+      "hp_after": 1212,
+      "hud_input": 1212,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 9663,
+      "hp_before": 1212,
+      "hp_after": 1206,
+      "hud_input": 1206,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 9807,
+      "hp_before": 1206,
+      "hp_after": 1200,
+      "hud_input": 1200,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 9999,
+      "hp_before": 1200,
+      "hp_after": 1194,
+      "hud_input": 1194,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 10335,
+      "hp_before": 1194,
+      "hp_after": 1188,
+      "hud_input": 1188,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 11217,
+      "hp_before": 1188,
+      "hp_after": 1182,
+      "hud_input": 1182,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 11251,
+      "hp_before": 1182,
+      "hp_after": 1176,
+      "hud_input": 1176,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 11295,
+      "hp_before": 1176,
+      "hp_after": 1170,
+      "hud_input": 1170,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 11413,
+      "hp_before": 1170,
+      "hp_after": 1164,
+      "hud_input": 1164,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 11443,
+      "hp_before": 1164,
+      "hp_after": 1158,
+      "hud_input": 1158,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 11775,
+      "hp_before": 1158,
+      "hp_after": 1152,
+      "hud_input": 1152,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 12115,
+      "hp_before": 1152,
+      "hp_after": 1146,
+      "hud_input": 1146,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 12255,
+      "hp_before": 1146,
+      "hp_after": 1140,
+      "hud_input": 1140,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 12447,
+      "hp_before": 1140,
+      "hp_after": 1134,
+      "hud_input": 1134,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 12783,
+      "hp_before": 1134,
+      "hp_after": 1128,
+      "hud_input": 1128,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 12927,
+      "hp_before": 1128,
+      "hp_after": 1122,
+      "hud_input": 1122,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 13715,
+      "hp_before": 1122,
+      "hp_after": 1116,
+      "hud_input": 1116,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 13763,
+      "hp_before": 1116,
+      "hp_after": 1110,
+      "hud_input": 1110,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 13807,
+      "hp_before": 1110,
+      "hp_after": 1104,
+      "hud_input": 1104,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 13855,
+      "hp_before": 1104,
+      "hp_after": 1098,
+      "hud_input": 1098,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 13891,
+      "hp_before": 1098,
+      "hp_after": 1092,
+      "hud_input": 1092,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 13935,
+      "hp_before": 1092,
+      "hp_after": 1086,
+      "hud_input": 1086,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 14079,
+      "hp_before": 1086,
+      "hp_after": 1080,
+      "hud_input": 1080,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 14271,
+      "hp_before": 1080,
+      "hp_after": 1074,
+      "hud_input": 1074,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 14415,
+      "hp_before": 1074,
+      "hp_after": 1068,
+      "hud_input": 1068,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 14751,
+      "hp_before": 1068,
+      "hp_after": 1062,
+      "hud_input": 1062,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 15087,
+      "hp_before": 1062,
+      "hp_after": 1056,
+      "hud_input": 1056,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 15423,
+      "hp_before": 1056,
+      "hp_after": 1050,
+      "hud_input": 1050,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 15571,
+      "hp_before": 1050,
+      "hp_after": 1044,
+      "hud_input": 1044,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 16357,
+      "hp_before": 1044,
+      "hp_after": 1038,
+      "hud_input": 1038,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 16399,
+      "hp_before": 1038,
+      "hp_after": 1032,
+      "hud_input": 1032,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 16447,
+      "hp_before": 1032,
+      "hp_after": 1026,
+      "hud_input": 1026,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 16497,
+      "hp_before": 1026,
+      "hp_after": 1020,
+      "hud_input": 1020,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 16529,
+      "hp_before": 1020,
+      "hp_after": 1014,
+      "hud_input": 1014,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 16671,
+      "hp_before": 1014,
+      "hp_after": 1008,
+      "hud_input": 1008,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 16863,
+      "hp_before": 1008,
+      "hp_after": 1002,
+      "hud_input": 1002,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 17007,
+      "hp_before": 1002,
+      "hp_after": 996,
+      "hud_input": 996,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 17199,
+      "hp_before": 996,
+      "hp_after": 990,
+      "hud_input": 990,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 17633,
+      "hp_before": 990,
+      "hp_after": 984,
+      "hud_input": 984,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 17775,
+      "hp_before": 984,
+      "hp_after": 978,
+      "hud_input": 978,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 18065,
+      "hp_before": 978,
+      "hp_after": 972,
+      "hud_input": 972,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 19145,
+      "hp_before": 972,
+      "hp_after": 966,
+      "hud_input": 966,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 19805,
+      "hp_before": 966,
+      "hp_after": 960,
+      "hud_input": 960,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 19845,
+      "hp_before": 960,
+      "hp_after": 954,
+      "hud_input": 954,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 19887,
+      "hp_before": 954,
+      "hp_after": 948,
+      "hud_input": 948,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 20035,
+      "hp_before": 948,
+      "hp_after": 942,
+      "hud_input": 942,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 20181,
+      "hp_before": 942,
+      "hp_after": 936,
+      "hud_input": 936,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 20223,
+      "hp_before": 936,
+      "hp_after": 930,
+      "hud_input": 930,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 20337,
+      "hp_before": 930,
+      "hp_after": 924,
+      "hud_input": 924,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 20369,
+      "hp_before": 924,
+      "hp_after": 918,
+      "hud_input": 918,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 20703,
+      "hp_before": 918,
+      "hp_after": 912,
+      "hud_input": 912,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 20853,
+      "hp_before": 912,
+      "hp_after": 906,
+      "hud_input": 906,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 21039,
+      "hp_before": 906,
+      "hp_after": 900,
+      "hud_input": 900,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 21189,
+      "hp_before": 900,
+      "hp_after": 894,
+      "hud_input": 894,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 21375,
+      "hp_before": 894,
+      "hp_after": 888,
+      "hud_input": 888,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 21519,
+      "hp_before": 888,
+      "hp_after": 882,
+      "hud_input": 882,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 21711,
+      "hp_before": 882,
+      "hp_after": 876,
+      "hud_input": 876,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 22323,
+      "hp_before": 876,
+      "hp_after": 870,
+      "hud_input": 870,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 22347,
+      "hp_before": 870,
+      "hp_after": 864,
+      "hud_input": 864,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 22527,
+      "hp_before": 864,
+      "hp_after": 858,
+      "hud_input": 858,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 22671,
+      "hp_before": 858,
+      "hp_after": 852,
+      "hud_input": 852,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 22975,
+      "hp_before": 852,
+      "hp_after": 846,
+      "hud_input": 846,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 23007,
+      "hp_before": 846,
+      "hp_after": 840,
+      "hud_input": 840,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 23343,
+      "hp_before": 840,
+      "hp_after": 834,
+      "hud_input": 834,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 23489,
+      "hp_before": 834,
+      "hp_after": 828,
+      "hud_input": 828,
+      "action": 4,
+      "entity": 46020,
+      "constructor": 2147557156
+    },
+    {
+      "frame": 23679,
+      "hp_before": 828,
+      "hp_after": 822,
+      "hud_input": 822,
+      "action": 5,
+      "entity": 46020,
+      "constructor": 2147557156
+    }
+  ],
+  "supply_writes_by_type": {
+    "ushort": 482,
+    "int": 166
+  },
+  "boss_hp_writes": 0,
+  "interpretation": "Actor HP and HUD input track damage; HUD cache initially zero while actor HP1500. Death and later boss handoff not reached."
+}

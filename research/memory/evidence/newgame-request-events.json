@@ -1,0 +1,67 @@
+{
+  "scope": "USA title main menu. Positive New Game input, idle/attract and navigation controls. Valid saved-game Load control still outstanding; not a Windows ASL integration test.",
+  "owner_code": {
+    "0x800142A8": "When selection [T]+0x190 is 0 and confirm is accepted, calls 0x8004E7B0(1,1,8).",
+    "0x8004E9F0": "Constructs/replaces [0x800EDB74], writes flags=argument3|1, kind at +4, argument2 at +8, clears completion field +0x14.",
+    "0x8004EC8C": "Frees and zeroes transition root."
+  },
+  "watchers": {
+    "title_root": "uint 0x800EDC1C",
+    "title_flow": "int [T]+0",
+    "menu_selection": "int [T]+0x190; 0 New Game, 1 Load Game",
+    "transition_root": "uint 0x800EDB74",
+    "transition_flags": "uint [A]+0",
+    "transition_kind": "uint [A]+4",
+    "transition_argument": "uint [A]+8"
+  },
+  "runs": {
+    "newgame": {
+      "seed_sha256": "c2d9ad29386ecc880e0d5e3b678a502b4e4ced36f86a1b5fc1b9c45e3a81177e",
+      "probe_sha256": "ce8e1aed2c782eecee3b6b400042815668ab838cbba6626821e93489cb1ca612",
+      "samples_sha256": "d63e5527bb84a30496b6cc189a434052de621ab3af94d6827a9fcd5106924d7e",
+      "first_matching_request": {
+        "phase": "newgame",
+        "mode": 2,
+        "transitionWord4": 1,
+        "transitionWord8": 1,
+        "transitionWord12": 59,
+        "overlay": 24,
+        "transitionWord20": 0,
+        "transitionWord24": 87381,
+        "transitionWord28": 69905,
+        "gameFrame": 0,
+        "vblank": 962,
+        "frame": 3,
+        "titleFlow": 1,
+        "legacyHighlight": 3,
+        "inputButton": 14,
+        "effectivePadMask": 16384,
+        "audioByte": 0,
+        "updateCallback": 2147566248,
+        "finishCallback": 2147567152,
+        "uiCountdown": -1,
+        "menuSelection": 0,
+        "transitionPointer": 2149284436,
+        "transitionWord16": 60,
+        "transitionWord0": 9,
+        "titlePointer": 2148500904
+      },
+      "first_flow2_frame": 124
+    },
+    "idle": {
+      "seed_sha256": "c2d9ad29386ecc880e0d5e3b678a502b4e4ced36f86a1b5fc1b9c45e3a81177e",
+      "probe_sha256": "ce8e1aed2c782eecee3b6b400042815668ab838cbba6626821e93489cb1ca612",
+      "samples_sha256": "78b89aa118f282a84c1acbef441292bda7b02e2a81d604db470d9fd258f9d272",
+      "first_matching_request": null,
+      "first_flow2_frame": null
+    },
+    "navigate": {
+      "seed_sha256": "c2d9ad29386ecc880e0d5e3b678a502b4e4ced36f86a1b5fc1b9c45e3a81177e",
+      "probe_sha256": "ce8e1aed2c782eecee3b6b400042815668ab838cbba6626821e93489cb1ca612",
+      "samples_sha256": "be6523d13ceffc6550db79e7dcaf495bb23427ea6fbda3465c1bdcda4b9bc5a3",
+      "first_matching_request": null,
+      "first_flow2_frame": null
+    }
+  },
+  "interpretation": "Earliest tested accepted-New-Game state appears at probe Vsync 3 for a Cross request at 1; flow 2 at 124 is later completion, not input acceptance. Guard title/main-menu owner and selection; the transition packet is generic, not a global New Game flag."
+}

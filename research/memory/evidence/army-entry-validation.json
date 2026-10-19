@@ -1,0 +1,1758 @@
+{
+  "scope": "Laboratory dispatch, detachment/relocation and introduction-prerequisite state family; not normal-route entry. Successful process completion is not a reproduced glitch.",
+  "conclusions": [
+    "Walking after relocation did not supply script flag 11 or start the encounter.",
+    "Native introduction supplied both eight-member teams after labeled prerequisite injection.",
+    "Moving timing sweeps did not open inventory; native admission requires zero horizontal motion.",
+    "Stationary Select opened inventory for Vsyncs 123-124 while sequence timeline advanced.",
+    "Inventory closed at 125 even with no Triangle inputs: an early Triangle is not the established cause.",
+    "No sustained inventory state or Fazgul despawn reproduced."
+  ],
+  "runs": {
+    "army-normal-1": {
+      "seed_sha256": "8641939967114c4c89f55006eaa55b8d85981e6082a8119e61848ecc9940b81b",
+      "probe_sha256": "35c88a933dc523c0c247b7215af5129f1f9bc20d3056d1cb42faece07bade060",
+      "samples_sha256": "6005ae1f83fa46641032d33744990b9f958b0e2d8091ae7b5c9843f190e7e6e3",
+      "exit_code": 1,
+      "observed_inventory_vsyncs": [],
+      "state_transitions": [
+        {
+          "frame": 1,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 0
+        },
+        {
+          "frame": 15,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 512
+        },
+        {
+          "frame": 221,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 0
+        }
+      ],
+      "final": {
+        "phase": "finished",
+        "cutsceneRequest": -1,
+        "cutsceneNext": -1,
+        "phaseIndex": 0,
+        "armyOutcome": 0,
+        "frame": 3600,
+        "countedEnemy": 0,
+        "rngState": 3677353790,
+        "health": 300,
+        "x": -37,
+        "y": 25,
+        "actorFlags": 12544,
+        "scriptFlag19": 0,
+        "scriptFlag18": 0,
+        "scriptFlag17": 0,
+        "level": 23,
+        "scriptFlag16": 0,
+        "scriptFlag15": 0,
+        "mode": 3,
+        "scriptFlag14": 0,
+        "scriptFlag13": 0,
+        "z": 440,
+        "scriptFlag12": 0,
+        "scriptFlag11": 0,
+        "countedFriendly": 0,
+        "scriptFlag9": 1,
+        "scriptFlag10": 0,
+        "overlay": 25,
+        "vblank": 15265,
+        "gameFrame": 6743,
+        "submode": 0,
+        "gameFlags": 0,
+        "cutsceneState": 0
+      }
+    },
+    "army-intro-normal-2": {
+      "seed_sha256": "8641939967114c4c89f55006eaa55b8d85981e6082a8119e61848ecc9940b81b",
+      "probe_sha256": "503b782685d3756220cfbf08b7a7777105660f71f731b8ef9dadd660336b5799",
+      "samples_sha256": "bfc18d00f0a5f228a1bc093bf46b46676d8fa7692588bf995d1175863a7f34db",
+      "exit_code": 0,
+      "observed_inventory_vsyncs": [],
+      "state_transitions": [
+        {
+          "frame": 1,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 0
+        },
+        {
+          "frame": 15,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 512
+        },
+        {
+          "frame": 121,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 513
+        },
+        {
+          "frame": 125,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 563,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 1,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 621,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 2,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 683,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 3,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 741,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 4,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 921,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 5,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 983,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 6,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 1041,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 7,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 1103,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2207,
+          "phaseIndex": 1,
+          "countedFriendly": 1,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2257,
+          "phaseIndex": 1,
+          "countedFriendly": 2,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2261,
+          "phaseIndex": 1,
+          "countedFriendly": 3,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2307,
+          "phaseIndex": 1,
+          "countedFriendly": 4,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2345,
+          "phaseIndex": 1,
+          "countedFriendly": 5,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2379,
+          "phaseIndex": 1,
+          "countedFriendly": 6,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2397,
+          "phaseIndex": 1,
+          "countedFriendly": 7,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2417,
+          "phaseIndex": 1,
+          "countedFriendly": 8,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2542,
+          "phaseIndex": 2,
+          "countedFriendly": 8,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2580,
+          "phaseIndex": 2,
+          "countedFriendly": 8,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 513
+        },
+        {
+          "frame": 2588,
+          "phaseIndex": 2,
+          "countedFriendly": 8,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2662,
+          "phaseIndex": 2,
+          "countedFriendly": 8,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 0
+        }
+      ],
+      "final": {
+        "phase": "finished",
+        "scriptFlag19": 0,
+        "scriptFlag18": 0,
+        "z": 1122,
+        "scriptFlag17": 0,
+        "scriptFlag16": 0,
+        "scriptFlag15": 0,
+        "scriptFlag9": 1,
+        "scriptFlag10": 1,
+        "scriptFlag11": 1,
+        "overlay": 25,
+        "vblank": 15265,
+        "level": 23,
+        "submode": 0,
+        "gameFlags": 0,
+        "audioStateCandidate": 0,
+        "requestedTrackCandidate": -1,
+        "queuedTrackCandidate": -1,
+        "phaseIndex": 2,
+        "armyOutcome": 0,
+        "countedFriendly": 8,
+        "countedEnemy": 8,
+        "rngState": 3166769735,
+        "health": 300,
+        "x": 141,
+        "y": 0,
+        "actorFlags": 12544,
+        "scriptFlag14": 0,
+        "scriptFlag13": 0,
+        "scriptFlag12": 1,
+        "gameFrame": 6736,
+        "frame": 3600,
+        "mode": 3
+      }
+    },
+    "army-intro-inventory-1": {
+      "seed_sha256": "8641939967114c4c89f55006eaa55b8d85981e6082a8119e61848ecc9940b81b",
+      "probe_sha256": "503b782685d3756220cfbf08b7a7777105660f71f731b8ef9dadd660336b5799",
+      "samples_sha256": "f07636fccf128129a088f6c27e54cccb921b86e2d463fea156a66e73dd387bd7",
+      "exit_code": 0,
+      "observed_inventory_vsyncs": [],
+      "state_transitions": [
+        {
+          "frame": 1,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 0
+        },
+        {
+          "frame": 15,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 512
+        },
+        {
+          "frame": 121,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 513
+        },
+        {
+          "frame": 125,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 563,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 1,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 621,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 2,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 683,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 3,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 741,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 4,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 921,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 5,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 983,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 6,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 1041,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 7,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 1103,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2207,
+          "phaseIndex": 1,
+          "countedFriendly": 1,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2257,
+          "phaseIndex": 1,
+          "countedFriendly": 2,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2261,
+          "phaseIndex": 1,
+          "countedFriendly": 3,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2307,
+          "phaseIndex": 1,
+          "countedFriendly": 4,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2345,
+          "phaseIndex": 1,
+          "countedFriendly": 5,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2379,
+          "phaseIndex": 1,
+          "countedFriendly": 6,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2397,
+          "phaseIndex": 1,
+          "countedFriendly": 7,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2417,
+          "phaseIndex": 1,
+          "countedFriendly": 8,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2542,
+          "phaseIndex": 2,
+          "countedFriendly": 8,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2580,
+          "phaseIndex": 2,
+          "countedFriendly": 8,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 513
+        },
+        {
+          "frame": 2588,
+          "phaseIndex": 2,
+          "countedFriendly": 8,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2662,
+          "phaseIndex": 2,
+          "countedFriendly": 8,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 0
+        }
+      ],
+      "final": {
+        "phase": "finished",
+        "scriptFlag19": 0,
+        "level": 23,
+        "scriptFlag18": 0,
+        "scriptFlag17": 0,
+        "mode": 3,
+        "scriptFlag16": 0,
+        "scriptFlag15": 0,
+        "scriptFlag14": 0,
+        "scriptFlag13": 0,
+        "scriptFlag12": 1,
+        "overlay": 25,
+        "vblank": 15265,
+        "gameFrame": 6736,
+        "submode": 0,
+        "gameFlags": 0,
+        "audioStateCandidate": 0,
+        "requestedTrackCandidate": -1,
+        "queuedTrackCandidate": -1,
+        "phaseIndex": 2,
+        "armyOutcome": 0,
+        "countedFriendly": 8,
+        "countedEnemy": 8,
+        "rngState": 3166769735,
+        "health": 300,
+        "x": 141,
+        "y": 0,
+        "actorFlags": 12544,
+        "scriptFlag11": 1,
+        "scriptFlag10": 1,
+        "scriptFlag9": 1,
+        "z": 1122,
+        "frame": 3600
+      }
+    },
+    "army-stationary-normal-1": {
+      "seed_sha256": "8641939967114c4c89f55006eaa55b8d85981e6082a8119e61848ecc9940b81b",
+      "probe_sha256": "fd7511c975785da1cf180e57c3e1ab9055f7ce95d17531b2a11e08bef113a8cc",
+      "samples_sha256": "e95703992b1ec2eb993434f88a0ba213d071d1252e8369c2bce9830fb5408745",
+      "exit_code": 0,
+      "observed_inventory_vsyncs": [],
+      "state_transitions": [
+        {
+          "frame": 1,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 0
+        },
+        {
+          "frame": 15,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 512
+        },
+        {
+          "frame": 77,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 0
+        },
+        {
+          "frame": 121,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 563,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 1,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 621,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 2,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 683,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 3,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 741,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 4,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 921,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 5,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 983,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 6,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 1041,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 7,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 1103,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2207,
+          "phaseIndex": 1,
+          "countedFriendly": 1,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2257,
+          "phaseIndex": 1,
+          "countedFriendly": 2,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2261,
+          "phaseIndex": 1,
+          "countedFriendly": 3,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2307,
+          "phaseIndex": 1,
+          "countedFriendly": 4,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2345,
+          "phaseIndex": 1,
+          "countedFriendly": 5,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2379,
+          "phaseIndex": 1,
+          "countedFriendly": 6,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2397,
+          "phaseIndex": 1,
+          "countedFriendly": 7,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2413,
+          "phaseIndex": 1,
+          "countedFriendly": 8,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2543,
+          "phaseIndex": 2,
+          "countedFriendly": 8,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2663,
+          "phaseIndex": 2,
+          "countedFriendly": 8,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 0
+        }
+      ],
+      "final": {
+        "phase": "finished",
+        "frameLimit": 3600,
+        "frame": 3600,
+        "sawInventory": 0,
+        "scriptFlag14": 0,
+        "scriptFlag17": 0,
+        "level": 23,
+        "scriptFlag16": 0,
+        "scriptFlag19": 0,
+        "audioStateCandidate": 0,
+        "scriptFlag15": 0,
+        "scriptFlag13": 0,
+        "scriptFlag12": 1,
+        "overlay": 25,
+        "vblank": 15265,
+        "gameFrame": 6735,
+        "submode": 0,
+        "gameFlags": 0,
+        "scriptFlag9": 1,
+        "scriptFlag10": 1,
+        "scriptFlag11": 1,
+        "phaseIndex": 2,
+        "armyOutcome": 0,
+        "countedFriendly": 8,
+        "countedEnemy": 8,
+        "rngState": 1661923773,
+        "health": 300,
+        "scriptFlag18": 0,
+        "sequencePointer": 0,
+        "previousEffectivePadMask": 0,
+        "menuRequestAt": 116,
+        "requestedTrackCandidate": -1,
+        "queuedTrackCandidate": -1,
+        "z": 1575,
+        "x": 36,
+        "y": 0,
+        "actorFlags": 12544,
+        "mode": 3,
+        "motion48": 0,
+        "motion50": 0,
+        "stationaryWindow": 1
+      }
+    },
+    "army-stationary-inventory-1": {
+      "seed_sha256": "8641939967114c4c89f55006eaa55b8d85981e6082a8119e61848ecc9940b81b",
+      "probe_sha256": "fd7511c975785da1cf180e57c3e1ab9055f7ce95d17531b2a11e08bef113a8cc",
+      "samples_sha256": "8cd2402268ec577458119e65f15f37384e7e4fa40270c61d17fad326e08356d1",
+      "exit_code": 0,
+      "observed_inventory_vsyncs": [
+        123,
+        124
+      ],
+      "state_transitions": [
+        {
+          "frame": 1,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 0
+        },
+        {
+          "frame": 15,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 512
+        },
+        {
+          "frame": 77,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 0
+        },
+        {
+          "frame": 121,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 123,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 2,
+          "gameFlags": 5
+        },
+        {
+          "frame": 125,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 561,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 1,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 623,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 2,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 681,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 3,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 743,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 4,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 923,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 5,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 981,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 6,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 1043,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 7,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 1101,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2205,
+          "phaseIndex": 1,
+          "countedFriendly": 1,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2255,
+          "phaseIndex": 1,
+          "countedFriendly": 2,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2259,
+          "phaseIndex": 1,
+          "countedFriendly": 3,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2313,
+          "phaseIndex": 1,
+          "countedFriendly": 4,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2347,
+          "phaseIndex": 1,
+          "countedFriendly": 5,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2381,
+          "phaseIndex": 1,
+          "countedFriendly": 6,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2395,
+          "phaseIndex": 1,
+          "countedFriendly": 7,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2411,
+          "phaseIndex": 1,
+          "countedFriendly": 8,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2543,
+          "phaseIndex": 2,
+          "countedFriendly": 8,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 2663,
+          "phaseIndex": 2,
+          "countedFriendly": 8,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 0
+        },
+        {
+          "frame": 3593,
+          "phaseIndex": 2,
+          "countedFriendly": 7,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 0
+        }
+      ],
+      "final": {
+        "phase": "finished",
+        "motion50": 0,
+        "stationaryWindow": 1,
+        "frameLimit": 3600,
+        "mode": 3,
+        "frame": 3600,
+        "scriptFlag15": 0,
+        "scriptFlag17": 0,
+        "sawInventory": 1,
+        "scriptFlag19": 0,
+        "z": 1575,
+        "scriptFlag18": 0,
+        "scriptFlag11": 1,
+        "level": 23,
+        "scriptFlag12": 1,
+        "overlay": 25,
+        "vblank": 15265,
+        "gameFrame": 6734,
+        "submode": 0,
+        "gameFlags": 0,
+        "scriptFlag9": 1,
+        "requestedTrackCandidate": -1,
+        "queuedTrackCandidate": -1,
+        "phaseIndex": 2,
+        "armyOutcome": 0,
+        "countedFriendly": 7,
+        "countedEnemy": 8,
+        "rngState": 1662277886,
+        "health": 300,
+        "scriptFlag13": 0,
+        "scriptFlag10": 1,
+        "previousEffectivePadMask": 0,
+        "menuRequestAt": 116,
+        "scriptFlag14": 0,
+        "scriptFlag16": 0,
+        "sequencePointer": 0,
+        "x": 36,
+        "y": 0,
+        "actorFlags": 12544,
+        "audioStateCandidate": 0,
+        "motion48": 0
+      }
+    },
+    "army-inventory-held-1": {
+      "seed_sha256": "8641939967114c4c89f55006eaa55b8d85981e6082a8119e61848ecc9940b81b",
+      "probe_sha256": "fe115ec0a1a4c59ecff5247ba3ad0b8b52dc7018735fc8d2150a84d368e1be0a",
+      "samples_sha256": "24e1a71d2c6a84d1750ca3d62a57cbfe158e8a0d23361d498e42eb9e78d85b71",
+      "exit_code": 0,
+      "observed_inventory_vsyncs": [
+        123,
+        124
+      ],
+      "state_transitions": [
+        {
+          "frame": 1,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 0
+        },
+        {
+          "frame": 15,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 512
+        },
+        {
+          "frame": 77,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 0
+        },
+        {
+          "frame": 121,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 123,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 2,
+          "gameFlags": 5
+        },
+        {
+          "frame": 125,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 1237,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 1,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 1295,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 2,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 1357,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 3,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 1415,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 4,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 1595,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 5,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 1657,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 6,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 1715,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 7,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 1777,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 3521,
+          "phaseIndex": 1,
+          "countedFriendly": 1,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 3579,
+          "phaseIndex": 1,
+          "countedFriendly": 2,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 3583,
+          "phaseIndex": 1,
+          "countedFriendly": 3,
+          "countedEnemy": 8,
+          "submode": 0,
+          "gameFlags": 1
+        }
+      ],
+      "final": {
+        "phase": "finished",
+        "actorFlags": 12544,
+        "motion48": 0,
+        "motion50": 0,
+        "stationaryWindow": 1,
+        "frame": 3600,
+        "sawInventory": 1,
+        "scriptFlag9": 1,
+        "scriptFlag10": 0,
+        "scriptFlag12": 1,
+        "z": 1575,
+        "scriptFlag15": 0,
+        "scriptFlag16": 0,
+        "scriptFlag17": 0,
+        "scriptFlag11": 1,
+        "scriptFlag14": 0,
+        "scriptFlag19": 0,
+        "level": 23,
+        "scriptFlag18": 0,
+        "scriptFlag13": 0,
+        "frameLimit": 3600,
+        "overlay": 25,
+        "vblank": 15265,
+        "gameFrame": 6742,
+        "submode": 0,
+        "gameFlags": 1,
+        "mode": 3,
+        "requestedTrackCandidate": -1,
+        "queuedTrackCandidate": -1,
+        "phaseIndex": 1,
+        "armyOutcome": 0,
+        "countedFriendly": 3,
+        "countedEnemy": 8,
+        "rngState": 2570017996,
+        "health": 300,
+        "audioStateCandidate": 0,
+        "sequencePointer": 2149254732,
+        "previousEffectivePadMask": 192,
+        "menuRequestAt": 116,
+        "sequenceFlags": 519,
+        "sequenceDescriptor": 2147605344,
+        "sequenceFrame": 1019,
+        "x": 36,
+        "y": 0
+      }
+    },
+    "army-timing-114-1": {
+      "seed_sha256": "8641939967114c4c89f55006eaa55b8d85981e6082a8119e61848ecc9940b81b",
+      "probe_sha256": "1a05bc4a0bc3b6430a70edd1a57b7f19038b7686080f3280a752157fc4d479b4",
+      "samples_sha256": "e77220f347cd1f1ae0ac8d6d3731b9da543a39840db1e69743258966a0620221",
+      "exit_code": 0,
+      "observed_inventory_vsyncs": [],
+      "state_transitions": [
+        {
+          "frame": 1,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 0
+        },
+        {
+          "frame": 15,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 512
+        },
+        {
+          "frame": 121,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 513
+        },
+        {
+          "frame": 125,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 563,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 1,
+          "submode": 0,
+          "gameFlags": 1
+        }
+      ],
+      "final": {
+        "phase": "finished",
+        "submode": 0,
+        "gameFlags": 1,
+        "audioStateCandidate": 0,
+        "requestedTrackCandidate": -1,
+        "queuedTrackCandidate": -1,
+        "phaseIndex": 1,
+        "armyOutcome": 0,
+        "countedFriendly": 0,
+        "countedEnemy": 1,
+        "rngState": 377048257,
+        "mode": 3,
+        "sequencePointer": 2149242588,
+        "sequenceFlags": 1543,
+        "sequenceDescriptor": 2147605344,
+        "sequenceFrame": 210,
+        "x": 107,
+        "y": 0,
+        "scriptFlag10": 0,
+        "scriptFlag11": 1,
+        "scriptFlag12": 0,
+        "scriptFlag15": 0,
+        "scriptFlag17": 0,
+        "scriptFlag18": 0,
+        "scriptFlag19": 0,
+        "frame": 600,
+        "level": 23,
+        "scriptFlag13": 0,
+        "scriptFlag14": 0,
+        "scriptFlag16": 0,
+        "actorFlags": 1610625280,
+        "scriptFlag9": 1,
+        "z": 1148,
+        "health": 300,
+        "overlay": 25,
+        "vblank": 12265,
+        "gameFrame": 5243
+      }
+    },
+    "army-timing-116-1": {
+      "seed_sha256": "8641939967114c4c89f55006eaa55b8d85981e6082a8119e61848ecc9940b81b",
+      "probe_sha256": "1a05bc4a0bc3b6430a70edd1a57b7f19038b7686080f3280a752157fc4d479b4",
+      "samples_sha256": "3b48db7992b5e193ff7cb51a86f8b41df603180e2c289411e399cfc00c32bcd7",
+      "exit_code": 0,
+      "observed_inventory_vsyncs": [],
+      "state_transitions": [
+        {
+          "frame": 1,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 0
+        },
+        {
+          "frame": 15,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 512
+        },
+        {
+          "frame": 121,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 513
+        },
+        {
+          "frame": 125,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 563,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 1,
+          "submode": 0,
+          "gameFlags": 1
+        }
+      ],
+      "final": {
+        "phase": "finished",
+        "mode": 3,
+        "overlay": 25,
+        "scriptFlag12": 0,
+        "scriptFlag13": 0,
+        "submode": 0,
+        "scriptFlag15": 0,
+        "audioStateCandidate": 0,
+        "requestedTrackCandidate": -1,
+        "queuedTrackCandidate": -1,
+        "phaseIndex": 1,
+        "armyOutcome": 0,
+        "countedFriendly": 0,
+        "countedEnemy": 1,
+        "scriptFlag14": 0,
+        "health": 300,
+        "sequencePointer": 2149242588,
+        "sequenceFlags": 1543,
+        "sequenceDescriptor": 2147605344,
+        "level": 23,
+        "x": 107,
+        "y": 0,
+        "actorFlags": 1610625280,
+        "z": 1148,
+        "scriptFlag9": 1,
+        "scriptFlag10": 0,
+        "scriptFlag11": 1,
+        "frame": 600,
+        "scriptFlag19": 0,
+        "scriptFlag18": 0,
+        "scriptFlag17": 0,
+        "scriptFlag16": 0,
+        "rngState": 377048257,
+        "gameFlags": 1,
+        "gameFrame": 5243,
+        "vblank": 12265,
+        "sequenceFrame": 210
+      }
+    },
+    "army-timing-118-1": {
+      "seed_sha256": "8641939967114c4c89f55006eaa55b8d85981e6082a8119e61848ecc9940b81b",
+      "probe_sha256": "1a05bc4a0bc3b6430a70edd1a57b7f19038b7686080f3280a752157fc4d479b4",
+      "samples_sha256": "1812b45e874787d2a55109da20b9ea4b92c6b5e43b0f0d496a696b6bbb052545",
+      "exit_code": 0,
+      "observed_inventory_vsyncs": [],
+      "state_transitions": [
+        {
+          "frame": 1,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 0
+        },
+        {
+          "frame": 15,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 512
+        },
+        {
+          "frame": 121,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 513
+        },
+        {
+          "frame": 125,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 563,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 1,
+          "submode": 0,
+          "gameFlags": 1
+        }
+      ],
+      "final": {
+        "phase": "finished",
+        "countedFriendly": 0,
+        "countedEnemy": 1,
+        "rngState": 377048257,
+        "health": 300,
+        "sequencePointer": 2149242588,
+        "sequenceFlags": 1543,
+        "sequenceDescriptor": 2147605344,
+        "sequenceFrame": 210,
+        "x": 107,
+        "y": 0,
+        "actorFlags": 1610625280,
+        "frame": 600,
+        "mode": 3,
+        "scriptFlag19": 0,
+        "scriptFlag18": 0,
+        "scriptFlag17": 0,
+        "scriptFlag16": 0,
+        "armyOutcome": 0,
+        "z": 1148,
+        "scriptFlag9": 1,
+        "scriptFlag10": 0,
+        "scriptFlag11": 1,
+        "scriptFlag12": 0,
+        "scriptFlag13": 0,
+        "scriptFlag14": 0,
+        "scriptFlag15": 0,
+        "overlay": 25,
+        "vblank": 12265,
+        "gameFrame": 5243,
+        "submode": 0,
+        "gameFlags": 1,
+        "audioStateCandidate": 0,
+        "requestedTrackCandidate": -1,
+        "queuedTrackCandidate": -1,
+        "phaseIndex": 1,
+        "level": 23
+      }
+    },
+    "army-timing-119-1": {
+      "seed_sha256": "8641939967114c4c89f55006eaa55b8d85981e6082a8119e61848ecc9940b81b",
+      "probe_sha256": "1a05bc4a0bc3b6430a70edd1a57b7f19038b7686080f3280a752157fc4d479b4",
+      "samples_sha256": "28f7904f68c411013fc8d28634011b13acc5a247e4d9e55fa8b5ccc312b13954",
+      "exit_code": 0,
+      "observed_inventory_vsyncs": [],
+      "state_transitions": [
+        {
+          "frame": 1,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 0
+        },
+        {
+          "frame": 15,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 512
+        },
+        {
+          "frame": 121,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 513
+        },
+        {
+          "frame": 125,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 563,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 1,
+          "submode": 0,
+          "gameFlags": 1
+        }
+      ],
+      "final": {
+        "phase": "finished",
+        "sequenceFlags": 1543,
+        "sequenceDescriptor": 2147605344,
+        "sequenceFrame": 210,
+        "x": 107,
+        "y": 0,
+        "actorFlags": 1610625280,
+        "level": 23,
+        "z": 1148,
+        "scriptFlag19": 0,
+        "frame": 600,
+        "scriptFlag18": 0,
+        "scriptFlag17": 0,
+        "scriptFlag16": 0,
+        "scriptFlag9": 1,
+        "scriptFlag10": 0,
+        "scriptFlag11": 1,
+        "scriptFlag12": 0,
+        "scriptFlag13": 0,
+        "scriptFlag14": 0,
+        "scriptFlag15": 0,
+        "overlay": 25,
+        "vblank": 12265,
+        "gameFrame": 5243,
+        "submode": 0,
+        "gameFlags": 1,
+        "audioStateCandidate": 0,
+        "requestedTrackCandidate": -1,
+        "queuedTrackCandidate": -1,
+        "phaseIndex": 1,
+        "armyOutcome": 0,
+        "countedFriendly": 0,
+        "countedEnemy": 1,
+        "rngState": 377048257,
+        "health": 300,
+        "mode": 3,
+        "sequencePointer": 2149242588
+      }
+    },
+    "army-timing-121-1": {
+      "seed_sha256": "8641939967114c4c89f55006eaa55b8d85981e6082a8119e61848ecc9940b81b",
+      "probe_sha256": "1a05bc4a0bc3b6430a70edd1a57b7f19038b7686080f3280a752157fc4d479b4",
+      "samples_sha256": "ef4113a25741e9528ae2b3cd98719149f86907129a8171ff855d844d2a599f6c",
+      "exit_code": 0,
+      "observed_inventory_vsyncs": [],
+      "state_transitions": [
+        {
+          "frame": 1,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 0
+        },
+        {
+          "frame": 15,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 512
+        },
+        {
+          "frame": 121,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 513
+        },
+        {
+          "frame": 125,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 563,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 1,
+          "submode": 0,
+          "gameFlags": 1
+        }
+      ],
+      "final": {
+        "phase": "finished",
+        "mode": 3,
+        "overlay": 25,
+        "vblank": 12265,
+        "scriptFlag9": 1,
+        "scriptFlag10": 0,
+        "scriptFlag11": 1,
+        "scriptFlag12": 0,
+        "scriptFlag13": 0,
+        "scriptFlag14": 0,
+        "scriptFlag15": 0,
+        "armyOutcome": 0,
+        "countedFriendly": 0,
+        "countedEnemy": 1,
+        "rngState": 377048257,
+        "health": 300,
+        "z": 1148,
+        "sequencePointer": 2149242588,
+        "sequenceFlags": 1543,
+        "sequenceDescriptor": 2147605344,
+        "sequenceFrame": 210,
+        "x": 107,
+        "y": 0,
+        "actorFlags": 1610625280,
+        "frame": 600,
+        "scriptFlag19": 0,
+        "scriptFlag18": 0,
+        "scriptFlag17": 0,
+        "scriptFlag16": 0,
+        "phaseIndex": 1,
+        "queuedTrackCandidate": -1,
+        "requestedTrackCandidate": -1,
+        "level": 23,
+        "submode": 0,
+        "gameFrame": 5243,
+        "audioStateCandidate": 0,
+        "gameFlags": 1
+      }
+    },
+    "army-timing-122-1": {
+      "seed_sha256": "8641939967114c4c89f55006eaa55b8d85981e6082a8119e61848ecc9940b81b",
+      "probe_sha256": "1a05bc4a0bc3b6430a70edd1a57b7f19038b7686080f3280a752157fc4d479b4",
+      "samples_sha256": "155f186c6b7b8f559e7db578b9699b42c6b6a11a001bebb6af6572436a9d54f7",
+      "exit_code": 0,
+      "observed_inventory_vsyncs": [],
+      "state_transitions": [
+        {
+          "frame": 1,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 0
+        },
+        {
+          "frame": 15,
+          "phaseIndex": 0,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 512
+        },
+        {
+          "frame": 121,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 513
+        },
+        {
+          "frame": 125,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 0,
+          "submode": 0,
+          "gameFlags": 1
+        },
+        {
+          "frame": 563,
+          "phaseIndex": 1,
+          "countedFriendly": 0,
+          "countedEnemy": 1,
+          "submode": 0,
+          "gameFlags": 1
+        }
+      ],
+      "final": {
+        "phase": "finished",
+        "mode": 3,
+        "sequencePointer": 2149242588,
+        "sequenceFlags": 1543,
+        "sequenceDescriptor": 2147605344,
+        "sequenceFrame": 210,
+        "x": 107,
+        "y": 0,
+        "actorFlags": 1610625280,
+        "level": 23,
+        "frame": 600,
+        "scriptFlag9": 1,
+        "scriptFlag10": 0,
+        "scriptFlag11": 1,
+        "scriptFlag12": 0,
+        "scriptFlag13": 0,
+        "scriptFlag14": 0,
+        "scriptFlag15": 0,
+        "scriptFlag16": 0,
+        "scriptFlag17": 0,
+        "scriptFlag18": 0,
+        "scriptFlag19": 0,
+        "queuedTrackCandidate": -1,
+        "overlay": 25,
+        "vblank": 12265,
+        "gameFrame": 5243,
+        "submode": 0,
+        "gameFlags": 1,
+        "audioStateCandidate": 0,
+        "requestedTrackCandidate": -1,
+        "z": 1148,
+        "phaseIndex": 1,
+        "armyOutcome": 0,
+        "countedFriendly": 0,
+        "countedEnemy": 1,
+        "rngState": 377048257,
+        "health": 300
+      }
+    }
+  }
+}
