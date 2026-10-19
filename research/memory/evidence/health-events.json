@@ -1,0 +1,378 @@
+{
+  "run_id": "medievil-memory-pumpkin-3",
+  "exe_sha1": "265ce5dc508002a339ae535e49a5b1b4e683b732",
+  "probe_sha256": "30b69a26ea03ea503be88d5eb48489b7ac32a32fba8540ad119b061efe9e02b4",
+  "seed_sha256": "a23eb608e9e520de1c73c765dae62457dc130d461f7b7db071ea04b86e801d5f",
+  "setup": "Restored our own Pumpkin exploration state, which originally used the separately recorded level-dispatch setup. This continuation made no RAM pokes.",
+  "isolation": {
+    "private_app": true,
+    "expected_process_name": "ReduxAudit",
+    "webserver": false,
+    "gdb_server": false,
+    "debugger": false,
+    "observed_process_path": "/private/tmp/medievil-memory-pumpkin-3/ReduxAudit.app/Contents/MacOS/ReduxAudit",
+    "excluded_from_canonical_discovery": true
+  },
+  "changes": [
+    {
+      "frame": 1383,
+      "old": {
+        "health": 300,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      },
+      "new": {
+        "health": 292,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      }
+    },
+    {
+      "frame": 1425,
+      "old": {
+        "health": 292,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      },
+      "new": {
+        "health": 284,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      }
+    },
+    {
+      "frame": 1460,
+      "old": {
+        "health": 284,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      },
+      "new": {
+        "health": 276,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      }
+    },
+    {
+      "frame": 1494,
+      "old": {
+        "health": 276,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      },
+      "new": {
+        "health": 268,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      }
+    },
+    {
+      "frame": 1538,
+      "old": {
+        "health": 268,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      },
+      "new": {
+        "health": 236,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      }
+    },
+    {
+      "frame": 1571,
+      "old": {
+        "health": 236,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      },
+      "new": {
+        "health": 228,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      }
+    },
+    {
+      "frame": 1622,
+      "old": {
+        "health": 228,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      },
+      "new": {
+        "health": 214,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      }
+    },
+    {
+      "frame": 1661,
+      "old": {
+        "health": 214,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      },
+      "new": {
+        "health": 200,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      }
+    },
+    {
+      "frame": 1955,
+      "old": {
+        "health": 200,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      },
+      "new": {
+        "health": 130,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      }
+    },
+    {
+      "frame": 2148,
+      "old": {
+        "health": 130,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      },
+      "new": {
+        "health": 98,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      }
+    },
+    {
+      "frame": 2230,
+      "old": {
+        "health": 98,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      },
+      "new": {
+        "health": 28,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      }
+    },
+    {
+      "frame": 2331,
+      "old": {
+        "health": 28,
+        "reserveEnergy": 300,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      },
+      "new": {
+        "health": 300,
+        "reserveEnergy": 0,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      }
+    },
+    {
+      "frame": 2704,
+      "old": {
+        "health": 300,
+        "reserveEnergy": 0,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      },
+      "new": {
+        "health": 268,
+        "reserveEnergy": 0,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      }
+    },
+    {
+      "frame": 2754,
+      "old": {
+        "health": 268,
+        "reserveEnergy": 0,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      },
+      "new": {
+        "health": 198,
+        "reserveEnergy": 0,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      }
+    },
+    {
+      "frame": 2840,
+      "old": {
+        "health": 198,
+        "reserveEnergy": 0,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      },
+      "new": {
+        "health": 166,
+        "reserveEnergy": 0,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      }
+    },
+    {
+      "frame": 2897,
+      "old": {
+        "health": 166,
+        "reserveEnergy": 0,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      },
+      "new": {
+        "health": 96,
+        "reserveEnergy": 0,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      }
+    },
+    {
+      "frame": 2942,
+      "old": {
+        "health": 96,
+        "reserveEnergy": 0,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      },
+      "new": {
+        "health": 64,
+        "reserveEnergy": 0,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      }
+    },
+    {
+      "frame": 3008,
+      "old": {
+        "health": 64,
+        "reserveEnergy": 0,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      },
+      "new": {
+        "health": 0,
+        "reserveEnergy": 0,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      }
+    },
+    {
+      "frame": 3159,
+      "old": {
+        "health": 0,
+        "reserveEnergy": 0,
+        "reserveCapacity": 300,
+        "deathSubstate": 0
+      },
+      "new": {
+        "health": 0,
+        "reserveEnergy": 0,
+        "reserveCapacity": 300,
+        "deathSubstate": 1
+      }
+    }
+  ],
+  "refill": {
+    "frame": 2331,
+    "old": {
+      "health": 28,
+      "reserveEnergy": 300,
+      "reserveCapacity": 300,
+      "deathSubstate": 0
+    },
+    "new": {
+      "health": 300,
+      "reserveEnergy": 0,
+      "reserveCapacity": 300,
+      "deathSubstate": 0
+    }
+  },
+  "fatal_health_zero": {
+    "frame": 3008,
+    "old": {
+      "health": 64,
+      "reserveEnergy": 0,
+      "reserveCapacity": 300,
+      "deathSubstate": 0
+    },
+    "new": {
+      "health": 0,
+      "reserveEnergy": 0,
+      "reserveCapacity": 300,
+      "deathSubstate": 0
+    }
+  },
+  "death_substate_one": {
+    "frame": 3159,
+    "old": {
+      "health": 0,
+      "reserveEnergy": 0,
+      "reserveCapacity": 300,
+      "deathSubstate": 0
+    },
+    "new": {
+      "health": 0,
+      "reserveEnergy": 0,
+      "reserveCapacity": 300,
+      "deathSubstate": 1
+    }
+  },
+  "final": {
+    "phase": "finished",
+    "mode": 3,
+    "deathSubstate": 1,
+    "bossMax": 0,
+    "reserveEnergy": 0,
+    "overlay": 20,
+    "gameFrame": 6267,
+    "submode": 0,
+    "bossActive": 0,
+    "bossInput": 0,
+    "bossCached": 0,
+    "frame": 3423,
+    "health": 0,
+    "level": 10,
+    "reserveCapacity": 300,
+    "weapon": 0
+  },
+  "semantic_checks": {
+    "normal_completion": true,
+    "samples": 3423,
+    "live_samples": 3422,
+    "unique_positions": 1348,
+    "unique_game_frames": 1367,
+    "modes": [
+      3
+    ]
+  },
+  "samples_sha256": "9ba01cd9582190ce59ec4bc3fd5c6535150393fde15c96b7697216b0ce74b35b",
+  "scope": "Native player damage, one automatic bottle-energy transfer and fatal death-substate entry verified. The run stopped when the player actor unregistered; later Game Over/menu/reset timing and Pumpkin boss damage/defeat were not verified."
+}

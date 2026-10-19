@@ -1,0 +1,107 @@
+{
+  "scope": "Two full-fight executions per pattern from one identical 8v4 mid-fight save state and matching frozen per-pattern probes. Controlled-emulator repeatability, not a guarantee across fresh playthroughs/platforms.",
+  "patterns": {
+    "move": {
+      "checks": {
+        "seed_hash_equal": true,
+        "probe_hash_equal": true,
+        "emulator_hash_equal": true,
+        "initial_ram_equal": true,
+        "final_ram_equal": true,
+        "rng_trace_equal": true,
+        "all_samples_semantically_equal": true
+      },
+      "run_ids": [
+        "medievil-memory-army-action-full-move-1",
+        "medievil-memory-army-action-full-move-2"
+      ],
+      "seed_sha256": "6f8955d973c1a1342265ed378f63279760cbef1c280f4b5b6d51a1a980ec28fa",
+      "probe_sha256": "bfbc48632640a05adf18078d171e2f7932f9ade7120936f34088e044b57afdf8",
+      "emulator_sha256": "b34a12d9e6565630163d7b086b2fd59366d9eb7523526ec7610975f11563ce0c",
+      "initial_ram_sha256": "203d859b8be86fa0a030565734b9c9011953ac5b9efcb1beec37d197f59d5b15",
+      "final_ram_sha256": "00dcc0cdeb54c48e93238055903e6adc8b2795b095b203fc8b6db25d1275d86c",
+      "rng_trace_sha256": "f9b3b8ae9cd7e6aecd9db3e0b10359bd1c64c5213c025425bd0bd52bdb65b461",
+      "frame_count": 2558,
+      "first_success_frame": 2556,
+      "positive_hp_survivors": 6
+    },
+    "jump": {
+      "checks": {
+        "seed_hash_equal": true,
+        "probe_hash_equal": true,
+        "emulator_hash_equal": true,
+        "initial_ram_equal": true,
+        "final_ram_equal": true,
+        "rng_trace_equal": true,
+        "all_samples_semantically_equal": true
+      },
+      "run_ids": [
+        "medievil-memory-army-action-full-jump-1",
+        "medievil-memory-army-action-full-jump-2"
+      ],
+      "seed_sha256": "6f8955d973c1a1342265ed378f63279760cbef1c280f4b5b6d51a1a980ec28fa",
+      "probe_sha256": "225ebabea0c6ab9f3dbf0542cb129d8f0ac0b7fc057ae773ea125c788d83ffdc",
+      "emulator_sha256": "b34a12d9e6565630163d7b086b2fd59366d9eb7523526ec7610975f11563ce0c",
+      "initial_ram_sha256": "203d859b8be86fa0a030565734b9c9011953ac5b9efcb1beec37d197f59d5b15",
+      "final_ram_sha256": "432c5d40b96a4d385743a82e5b8f1ad569f43b1c4965346f0189f37b472bce76",
+      "rng_trace_sha256": "677194b9d43dad8c3321860edc7d90010aec38925c8cdaddfd302300433f257a",
+      "frame_count": 4163,
+      "first_success_frame": 4161,
+      "positive_hp_survivors": 4
+    },
+    "dagger": {
+      "checks": {
+        "seed_hash_equal": true,
+        "probe_hash_equal": true,
+        "emulator_hash_equal": true,
+        "initial_ram_equal": true,
+        "final_ram_equal": true,
+        "rng_trace_equal": true,
+        "all_samples_semantically_equal": true
+      },
+      "run_ids": [
+        "medievil-memory-army-action-full-dagger-1",
+        "medievil-memory-army-action-full-dagger-2"
+      ],
+      "seed_sha256": "6f8955d973c1a1342265ed378f63279760cbef1c280f4b5b6d51a1a980ec28fa",
+      "probe_sha256": "225ebabea0c6ab9f3dbf0542cb129d8f0ac0b7fc057ae773ea125c788d83ffdc",
+      "emulator_sha256": "b34a12d9e6565630163d7b086b2fd59366d9eb7523526ec7610975f11563ce0c",
+      "initial_ram_sha256": "203d859b8be86fa0a030565734b9c9011953ac5b9efcb1beec37d197f59d5b15",
+      "final_ram_sha256": "0503a778d5e130cba29f9ad678c48a7e72199300fa8a7fdd3e76047fd1bcdce7",
+      "rng_trace_sha256": "7a37766b00e5a6175ae36485a6a0cac54ab0934741c32e188eb6fec53be08a22",
+      "frame_count": 2536,
+      "first_success_frame": 2534,
+      "positive_hp_survivors": 6
+    },
+    "jump-dagger": {
+      "checks": {
+        "seed_hash_equal": true,
+        "probe_hash_equal": true,
+        "emulator_hash_equal": true,
+        "initial_ram_equal": true,
+        "final_ram_equal": true,
+        "rng_trace_equal": true,
+        "all_samples_semantically_equal": true
+      },
+      "run_ids": [
+        "medievil-memory-army-action-full-jump-dagger-1",
+        "medievil-memory-army-action-full-jump-dagger-2"
+      ],
+      "seed_sha256": "6f8955d973c1a1342265ed378f63279760cbef1c280f4b5b6d51a1a980ec28fa",
+      "probe_sha256": "bfbc48632640a05adf18078d171e2f7932f9ade7120936f34088e044b57afdf8",
+      "emulator_sha256": "b34a12d9e6565630163d7b086b2fd59366d9eb7523526ec7610975f11563ce0c",
+      "initial_ram_sha256": "203d859b8be86fa0a030565734b9c9011953ac5b9efcb1beec37d197f59d5b15",
+      "final_ram_sha256": "db39718d8e52269ae8a6b4538de7dc7ed786bd7f043983c6adcdd56407720cd1",
+      "rng_trace_sha256": "4106af27d6905c1c47f1c690e4a17340f632e0b643b3b39fa39c5b8135a3fca7",
+      "frame_count": 2330,
+      "first_success_frame": 2328,
+      "positive_hp_survivors": 8
+    }
+  },
+  "limits": [
+    "Only two complete executions per pattern, not an unconditional all-runs guarantee.",
+    "Save-state restoration controls more than the RNG seed; raw RAM equality alone would not prove equivalent CPU/devices.",
+    "Controller inputs are Vsync-scheduled and effective masks match; clearOverride itself permits underlying host input, so future tests must continue checking those masks.",
+    "These outcomes stop at the army controller transition. Full post-victory continuation separately reproduced a game exception."
+  ]
+}

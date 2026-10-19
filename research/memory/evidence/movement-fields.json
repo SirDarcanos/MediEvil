@@ -1,0 +1,1182 @@
+{
+  "exe_sha1": "265ce5dc508002a339ae535e49a5b1b4e683b732",
+  "pointer_root": "0x800EDB3C",
+  "native_functions": {
+    "equipped_weapon_setter": "0x8006B034",
+    "movement_update": "0x8006B104",
+    "combined_flags_update": "0x80069C30"
+  },
+  "scope": "Walking, rest, camera-only, pause and one sword equip observed; running transitions not tested",
+  "captures": [
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-00001-rest.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 29,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-00060-rest.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 59,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-00120-rest.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 89,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-00180-right.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 119,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-00240-right.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 26,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-00300-rest-after-right.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 56,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-00360-rest-after-right.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 30,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-00420-up.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 60,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-00480-up.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 26,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-00540-rest-after-up.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 56,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-00600-rest-after-up.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 30,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-00660-left.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 60,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-00720-left.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 11,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-00780-rest-after-left.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 41,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-00840-rest-after-left.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 30,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-00900-down.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 60,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-00960-down.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 27,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-01020-jump-candidate.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 57,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-01080-jump-candidate.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 30,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-01140-camera.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 60,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-01200-camera.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 90,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-01260-rest-after-camera.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 120,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-01320-rest-after-camera.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 150,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-01380-pause.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 180,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-01440-pause.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 182,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-01500-unpause.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 182,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-01560-unpause.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 210,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-01620-final-rest.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 240,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-01680-final-rest.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 270,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-01740-final-rest.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 300,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-01800-final-rest.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 330,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-3",
+      "capture": "frame-01800-final.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 330,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-00001-rest.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 29,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-00060-rest.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 59,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-00120-rest.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 89,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-00180-right.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 119,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-00240-right.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 26,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-00300-rest-after-right.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 56,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-00360-rest-after-right.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 30,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-00420-up.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 60,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-00480-up.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 26,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-00540-rest-after-up.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 56,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-00600-rest-after-up.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 30,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-00660-left.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 60,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-00720-left.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 11,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-00780-rest-after-left.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 41,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-00840-rest-after-left.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 30,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-00900-down.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 60,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-00960-down.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 27,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-01020-jump-candidate.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 57,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-01080-jump-candidate.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 30,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-01140-camera.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 60,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-01200-camera.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 90,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-01260-rest-after-camera.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 120,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-01320-rest-after-camera.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 150,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-01380-pause.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 180,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-01440-pause.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 182,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-01500-unpause.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 182,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-01560-unpause.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 210,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-01620-final-rest.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 240,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-01680-final-rest.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 270,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-01740-final-rest.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 300,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-01800-final-rest.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 330,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-movement-4",
+      "capture": "frame-01800-final.ram",
+      "equippedWeapon": 8,
+      "movementFlags": 0,
+      "idleUpdateCounter": 330,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00001-corridor.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 29,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00060-corridor.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 59,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00120-corridor.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 89,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00180-corridor.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 0,
+      "idleUpdateCounter": 119,
+      "walkingUpdateCounter": 0,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00240-corridor.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 25,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00277-reached-1.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 43,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00300-star-rune.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 55,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00360-star-rune.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 85,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00420-star-rune.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 115,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00480-star-rune.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 145,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00540-star-rune.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 175,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00541-reached-2.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 175,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00600-back-to-room.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 205,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00660-back-to-room.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 235,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00720-back-to-room.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 265,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00780-back-to-room.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 295,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00793-reached-3.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 301,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00840-sword.ram",
+      "equippedWeapon": 18,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 325,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00900-sword.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 355,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00901-reached-4.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 355,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-00960-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 385,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-01020-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 415,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-01080-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 445,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-01140-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 475,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-01200-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 505,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-01260-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 535,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-01320-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 565,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-01380-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 595,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-01440-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 625,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-01500-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 655,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-01560-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 685,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-01620-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 715,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-01680-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 745,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-01740-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 775,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-01800-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 805,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-01860-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 835,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-01920-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 865,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-01980-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 895,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-02040-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 925,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-02100-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 955,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-02160-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 985,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-02220-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1015,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-02280-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1045,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-02340-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1075,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-02400-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1105,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-02460-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1135,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-02520-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1165,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-02580-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1195,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-02640-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1225,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-02700-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1255,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-02760-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1285,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-02820-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1315,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-02880-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1345,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-02940-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1375,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-03000-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1405,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-03060-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1435,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-03120-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1465,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-03180-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1495,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-03240-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1525,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-03300-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1555,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-03360-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1585,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-03420-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1615,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-03480-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1645,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-03540-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1675,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-03600-final.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1705,
+      "runningUpdateCounter": 0
+    },
+    {
+      "run": "medievil-memory-pickups-1",
+      "capture": "frame-03600-room-crossing.ram",
+      "equippedWeapon": 0,
+      "movementFlags": 256,
+      "idleUpdateCounter": 0,
+      "walkingUpdateCounter": 1705,
+      "runningUpdateCounter": 0
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "scope": "Controller-only shared-RNG consumption tests in Crypt; not final-combat outcome manipulation",
+  "window_vsyncs": 600,
+  "rng_state_address": "0x800F3994",
+  "runs": {
+    "idle": {
+      "calls": 99,
+      "validated_native_steps": 99,
+      "state_address": "0x800F3994",
+      "multiplier": "0x41C64E6D",
+      "increment": "0x00003039",
+      "first_state": 2953313536,
+      "last_state": 3844040319,
+      "caller_return_addresses": {
+        "0x80024040": 14,
+        "0x800240C0": 34,
+        "0x80067278": 3,
+        "0x80053890": 1,
+        "0x800538B8": 1,
+        "0x800538E0": 1,
+        "0x80053948": 1,
+        "0x80055158": 8,
+        "0x8005516C": 8,
+        "0x80055180": 8,
+        "0x8007E7E4": 5,
+        "0x8007E840": 3,
+        "0x8007E850": 3,
+        "0x8007E860": 5,
+        "0x8007E5AC": 4
+      },
+      "submode_calls": {
+        "0": 99
+      },
+      "state_discontinuities": [],
+      "scope": "Exact native PRNG steps/callers in this trace window. Scratch actor is only a context hint. Discontinuities need reseed/write tracing; no combat outcome manipulation is implied.",
+      "run_id": "medievil-memory-rng-crypt-idle-2",
+      "seed_sha256": "0703b96df11bf544f6841e81d0b466cbdc2b0a9fb0fbe910f6003369cb53cf94",
+      "probe_sha256": "c7b7a3fb2d84e737da75299a904b61c19aba91ffdc8e8314662aa04003871caa",
+      "trace_sha256": "497d0d5f3c901aa90f44502924ab02c0530000c4a55624727a071cdfe836dc8b"
+    },
+    "move": {
+      "calls": 110,
+      "validated_native_steps": 110,
+      "state_address": "0x800F3994",
+      "multiplier": "0x41C64E6D",
+      "increment": "0x00003039",
+      "first_state": 2953313536,
+      "last_state": 2779594242,
+      "caller_return_addresses": {
+        "0x80024040": 16,
+        "0x800240C0": 36,
+        "0x80067278": 12,
+        "0x80053890": 1,
+        "0x800538B8": 1,
+        "0x800538E0": 1,
+        "0x80053948": 1,
+        "0x80055158": 8,
+        "0x8005516C": 8,
+        "0x80055180": 8,
+        "0x8007E7E4": 3,
+        "0x8007E840": 3,
+        "0x8007E850": 3,
+        "0x8007E860": 3,
+        "0x8007E5AC": 5,
+        "0x8003E750": 1
+      },
+      "submode_calls": {
+        "0": 110
+      },
+      "state_discontinuities": [],
+      "scope": "Exact native PRNG steps/callers in this trace window. Scratch actor is only a context hint. Discontinuities need reseed/write tracing; no combat outcome manipulation is implied.",
+      "run_id": "medievil-memory-rng-crypt-move-2",
+      "seed_sha256": "0703b96df11bf544f6841e81d0b466cbdc2b0a9fb0fbe910f6003369cb53cf94",
+      "probe_sha256": "c7b7a3fb2d84e737da75299a904b61c19aba91ffdc8e8314662aa04003871caa",
+      "trace_sha256": "dcc30305bfd7e4ec18defa92d4ffdc202bbd910ae726e7e978857206a3dc291a"
+    },
+    "inventory": {
+      "calls": 75,
+      "validated_native_steps": 75,
+      "state_address": "0x800F3994",
+      "multiplier": "0x41C64E6D",
+      "increment": "0x00003039",
+      "first_state": 2953313536,
+      "last_state": 3044282519,
+      "caller_return_addresses": {
+        "0x80024040": 9,
+        "0x800240C0": 21,
+        "0x80067278": 3,
+        "0x80053890": 1,
+        "0x800538B8": 1,
+        "0x800538E0": 1,
+        "0x80053948": 1,
+        "0x80055158": 8,
+        "0x8005516C": 8,
+        "0x80055180": 8,
+        "0x8007E7E4": 4,
+        "0x8007E840": 1,
+        "0x8007E850": 1,
+        "0x8007E860": 4,
+        "0x8007E5AC": 4
+      },
+      "submode_calls": {
+        "0": 70,
+        "2": 5
+      },
+      "state_discontinuities": [],
+      "scope": "Exact native PRNG steps/callers in this trace window. Scratch actor is only a context hint. Discontinuities need reseed/write tracing; no combat outcome manipulation is implied.",
+      "run_id": "medievil-memory-rng-crypt-inventory-2",
+      "seed_sha256": "0703b96df11bf544f6841e81d0b466cbdc2b0a9fb0fbe910f6003369cb53cf94",
+      "probe_sha256": "c7b7a3fb2d84e737da75299a904b61c19aba91ffdc8e8314662aa04003871caa",
+      "trace_sha256": "3e859c75cb2a8f0e2ef523a2bffab602f25b5d484f9a7b3f9e7e51b14da365de"
+    },
+    "attack": {
+      "calls": 1955,
+      "validated_native_steps": 1955,
+      "state_address": "0x800F3994",
+      "multiplier": "0x41C64E6D",
+      "increment": "0x00003039",
+      "first_state": 2953313536,
+      "last_state": 1573851967,
+      "caller_return_addresses": {
+        "0x80024040": 15,
+        "0x800240C0": 35,
+        "0x80067278": 34,
+        "0x80053890": 1,
+        "0x800538B8": 1,
+        "0x800538E0": 1,
+        "0x80053948": 1,
+        "0x80055158": 8,
+        "0x8005516C": 8,
+        "0x80055180": 8,
+        "0x8007E7E4": 5,
+        "0x8007E840": 2,
+        "0x8007E850": 2,
+        "0x8007E860": 5,
+        "0x8007E5AC": 5,
+        "0x80088F00": 192,
+        "0x80089118": 192,
+        "0x80089194": 192,
+        "0x800891A0": 192,
+        "0x8002A210": 144,
+        "0x8002A224": 144,
+        "0x8002A234": 144,
+        "0x8002A244": 144,
+        "0x8002A264": 144,
+        "0x8002A28C": 144,
+        "0x8002A2B4": 144,
+        "0x80087A18": 16,
+        "0x80087A28": 16,
+        "0x80087A38": 16
+      },
+      "submode_calls": {
+        "0": 1955
+      },
+      "state_discontinuities": [],
+      "scope": "Exact native PRNG steps/callers in this trace window. Scratch actor is only a context hint. Discontinuities need reseed/write tracing; no combat outcome manipulation is implied.",
+      "run_id": "medievil-memory-rng-crypt-attack-2",
+      "seed_sha256": "0703b96df11bf544f6841e81d0b466cbdc2b0a9fb0fbe910f6003369cb53cf94",
+      "probe_sha256": "c7b7a3fb2d84e737da75299a904b61c19aba91ffdc8e8314662aa04003871caa",
+      "trace_sha256": "c9f4b5ef13b53cfcd0522b7796f33d01b8b7306de242bae9561b24c405feeab2"
+    }
+  },
+  "idle_repeat_identical": true,
+  "first_observed_consumer_divergence": {
+    "move": {
+      "call_index": 47,
+      "idle": {
+        "frame": 165,
+        "vblank": 10635,
+        "gameFrame": 4605,
+        "mode": 3,
+        "submode": 0,
+        "level": 6,
+        "callerRA": 2147631168,
+        "actorScratchHint": 2149066712,
+        "before": 745110355,
+        "afterRegister": 2175728784,
+        "output": 430
+      },
+      "changed_input": {
+        "frame": 161,
+        "vblank": 10631,
+        "gameFrame": 4603,
+        "mode": 3,
+        "submode": 0,
+        "level": 6,
+        "callerRA": 2147906168,
+        "actorScratchHint": 2149066712,
+        "before": 745110355,
+        "afterRegister": 2175728784,
+        "output": 430
+      }
+    },
+    "inventory": {
+      "call_index": 45,
+      "idle": {
+        "frame": 135,
+        "vblank": 10605,
+        "gameFrame": 4590,
+        "mode": 3,
+        "submode": 0,
+        "level": 6,
+        "callerRA": 2147631296,
+        "actorScratchHint": 2149066712,
+        "before": 4050022797,
+        "afterRegister": 2672131906,
+        "output": 8005
+      },
+      "changed_input": {
+        "frame": 123,
+        "vblank": 10593,
+        "gameFrame": 4584,
+        "mode": 3,
+        "submode": 0,
+        "level": 6,
+        "callerRA": 2147906168,
+        "actorScratchHint": 2148460676,
+        "before": 4050022797,
+        "afterRegister": 2672131906,
+        "output": 8005
+      }
+    },
+    "attack": {
+      "call_index": 45,
+      "idle": {
+        "frame": 135,
+        "vblank": 10605,
+        "gameFrame": 4590,
+        "mode": 3,
+        "submode": 0,
+        "level": 6,
+        "callerRA": 2147631296,
+        "actorScratchHint": 2149066712,
+        "before": 4050022797,
+        "afterRegister": 2672131906,
+        "output": 8005
+      },
+      "changed_input": {
+        "frame": 131,
+        "vblank": 10601,
+        "gameFrame": 4588,
+        "mode": 3,
+        "submode": 0,
+        "level": 6,
+        "callerRA": 2147906168,
+        "actorScratchHint": 2149076756,
+        "before": 4050022797,
+        "afterRegister": 2672131906,
+        "output": 8005
+      }
+    }
+  }
+}

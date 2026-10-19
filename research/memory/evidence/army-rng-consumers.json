@@ -1,0 +1,369 @@
+{
+  "scope": "Native constructor draws and first friendly registration snapshots, identical input/state repeats; inherited laboratory setup, no probe HP/RNG edits.",
+  "constructor_return_address": "0x800169A8",
+  "formula": "initial HP = 500 - (output & 255)",
+  "runs": [
+    {
+      "run_id": "medievil-memory-army-consumers-1",
+      "probe_sha256": "8d82b8ca970a79c3fabd1231ba844c885fe29842ad33e16821dd40e80d810a33",
+      "seed_sha256": "6baae5c78c2cf230bea21e783bb5cfdc5f3a188d55d786c8fab3ee777aeaa583",
+      "trace_sha256": "cea8de29afc065554b87c1270748c14602d9e9edfaaa38161fb14fe0f5dccf98",
+      "rng_validation": {
+        "calls": 1794,
+        "validated_native_steps": 1794,
+        "state_address": "0x800F3994",
+        "multiplier": "0x41C64E6D",
+        "increment": "0x00003039",
+        "first_state": 3566230151,
+        "last_state": 2180701917,
+        "caller_return_addresses": {
+          "0x8007E5AC": 22,
+          "0x80015800": 23,
+          "0x80067278": 185,
+          "0x8003E750": 1,
+          "0x8008EE74": 8,
+          "0x800281A0": 27,
+          "0x80028274": 18,
+          "0x800282A8": 18,
+          "0x800282D8": 18,
+          "0x80028300": 18,
+          "0x8002833C": 18,
+          "0x80028348": 27,
+          "0x80028358": 27,
+          "0x800169A8": 8,
+          "0x800240C0": 11,
+          "0x8001669C": 69,
+          "0x800166B4": 69,
+          "0x800166D0": 69,
+          "0x80028670": 117,
+          "0x800284AC": 810,
+          "0x80017670": 12,
+          "0x800281BC": 9,
+          "0x800281E4": 9,
+          "0x8002820C": 9,
+          "0x80028244": 9,
+          "0x8007E7C4": 4,
+          "0x8007E860": 4,
+          "0x80016E20": 39,
+          "0x80016E58": 39,
+          "0x800333E0": 39,
+          "0x80016B18": 36,
+          "0x80016B34": 21,
+          "0x80016B48": 1
+        },
+        "submode_calls": {
+          "2": 38,
+          "0": 1756
+        },
+        "state_discontinuities": [],
+        "scope": "Exact native PRNG steps/callers in this trace window. Scratch actor is only a context hint. Discontinuities need reseed/write tracing; no combat outcome manipulation is implied."
+      },
+      "initial_hp_bindings": [
+        {
+          "draw_frame": 1710,
+          "actor": 2149325908,
+          "output": 24441,
+          "before_hp": 500,
+          "predicted_hp": 379,
+          "first_registered_sample": {
+            "frame": 1711,
+            "team": "friendly",
+            "slot": 2,
+            "actor": 2149325908,
+            "hp": 379,
+            "action": 1
+          }
+        },
+        {
+          "draw_frame": 1712,
+          "actor": 2149327036,
+          "output": 4298,
+          "before_hp": 500,
+          "predicted_hp": 298,
+          "first_registered_sample": {
+            "frame": 1741,
+            "team": "friendly",
+            "slot": 0,
+            "actor": 2149327036,
+            "hp": 298,
+            "action": 1
+          }
+        },
+        {
+          "draw_frame": 1860,
+          "actor": 2149312784,
+          "output": 12113,
+          "before_hp": 500,
+          "predicted_hp": 419,
+          "first_registered_sample": {
+            "frame": 1861,
+            "team": "friendly",
+            "slot": 7,
+            "actor": 2149312784,
+            "hp": 419,
+            "action": 15
+          }
+        },
+        {
+          "draw_frame": 1860,
+          "actor": 2149310528,
+          "output": 13315,
+          "before_hp": 500,
+          "predicted_hp": 497,
+          "first_registered_sample": {
+            "frame": 1861,
+            "team": "friendly",
+            "slot": 3,
+            "actor": 2149310528,
+            "hp": 497,
+            "action": 15
+          }
+        },
+        {
+          "draw_frame": 1862,
+          "actor": 2149311656,
+          "output": 24755,
+          "before_hp": 500,
+          "predicted_hp": 321,
+          "first_registered_sample": {
+            "frame": 1891,
+            "team": "friendly",
+            "slot": 5,
+            "actor": 2149311656,
+            "hp": 321,
+            "action": 15
+          }
+        },
+        {
+          "draw_frame": 1864,
+          "actor": 2149320200,
+          "output": 22750,
+          "before_hp": 500,
+          "predicted_hp": 278,
+          "first_registered_sample": {
+            "frame": 1891,
+            "team": "friendly",
+            "slot": 4,
+            "actor": 2149320200,
+            "hp": 278,
+            "action": 15
+          }
+        },
+        {
+          "draw_frame": 1866,
+          "actor": 2149299420,
+          "output": 14273,
+          "before_hp": 500,
+          "predicted_hp": 307,
+          "first_registered_sample": {
+            "frame": 1891,
+            "team": "friendly",
+            "slot": 6,
+            "actor": 2149299420,
+            "hp": 307,
+            "action": 15
+          }
+        },
+        {
+          "draw_frame": 1870,
+          "actor": 2149321328,
+          "output": 17098,
+          "before_hp": 500,
+          "predicted_hp": 298,
+          "first_registered_sample": {
+            "frame": 1891,
+            "team": "friendly",
+            "slot": 1,
+            "actor": 2149321328,
+            "hp": 298,
+            "action": 15
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "medievil-memory-army-consumers-2",
+      "probe_sha256": "8d82b8ca970a79c3fabd1231ba844c885fe29842ad33e16821dd40e80d810a33",
+      "seed_sha256": "6baae5c78c2cf230bea21e783bb5cfdc5f3a188d55d786c8fab3ee777aeaa583",
+      "trace_sha256": "cea8de29afc065554b87c1270748c14602d9e9edfaaa38161fb14fe0f5dccf98",
+      "rng_validation": {
+        "calls": 1794,
+        "validated_native_steps": 1794,
+        "state_address": "0x800F3994",
+        "multiplier": "0x41C64E6D",
+        "increment": "0x00003039",
+        "first_state": 3566230151,
+        "last_state": 2180701917,
+        "caller_return_addresses": {
+          "0x8007E5AC": 22,
+          "0x80015800": 23,
+          "0x80067278": 185,
+          "0x8003E750": 1,
+          "0x8008EE74": 8,
+          "0x800281A0": 27,
+          "0x80028274": 18,
+          "0x800282A8": 18,
+          "0x800282D8": 18,
+          "0x80028300": 18,
+          "0x8002833C": 18,
+          "0x80028348": 27,
+          "0x80028358": 27,
+          "0x800169A8": 8,
+          "0x800240C0": 11,
+          "0x8001669C": 69,
+          "0x800166B4": 69,
+          "0x800166D0": 69,
+          "0x80028670": 117,
+          "0x800284AC": 810,
+          "0x80017670": 12,
+          "0x800281BC": 9,
+          "0x800281E4": 9,
+          "0x8002820C": 9,
+          "0x80028244": 9,
+          "0x8007E7C4": 4,
+          "0x8007E860": 4,
+          "0x80016E20": 39,
+          "0x80016E58": 39,
+          "0x800333E0": 39,
+          "0x80016B18": 36,
+          "0x80016B34": 21,
+          "0x80016B48": 1
+        },
+        "submode_calls": {
+          "2": 38,
+          "0": 1756
+        },
+        "state_discontinuities": [],
+        "scope": "Exact native PRNG steps/callers in this trace window. Scratch actor is only a context hint. Discontinuities need reseed/write tracing; no combat outcome manipulation is implied."
+      },
+      "initial_hp_bindings": [
+        {
+          "draw_frame": 1710,
+          "actor": 2149325908,
+          "output": 24441,
+          "before_hp": 500,
+          "predicted_hp": 379,
+          "first_registered_sample": {
+            "frame": 1711,
+            "team": "friendly",
+            "slot": 2,
+            "actor": 2149325908,
+            "hp": 379,
+            "action": 1
+          }
+        },
+        {
+          "draw_frame": 1712,
+          "actor": 2149327036,
+          "output": 4298,
+          "before_hp": 500,
+          "predicted_hp": 298,
+          "first_registered_sample": {
+            "frame": 1741,
+            "team": "friendly",
+            "slot": 0,
+            "actor": 2149327036,
+            "hp": 298,
+            "action": 1
+          }
+        },
+        {
+          "draw_frame": 1860,
+          "actor": 2149312784,
+          "output": 12113,
+          "before_hp": 500,
+          "predicted_hp": 419,
+          "first_registered_sample": {
+            "frame": 1861,
+            "team": "friendly",
+            "slot": 7,
+            "actor": 2149312784,
+            "hp": 419,
+            "action": 15
+          }
+        },
+        {
+          "draw_frame": 1860,
+          "actor": 2149310528,
+          "output": 13315,
+          "before_hp": 500,
+          "predicted_hp": 497,
+          "first_registered_sample": {
+            "frame": 1861,
+            "team": "friendly",
+            "slot": 3,
+            "actor": 2149310528,
+            "hp": 497,
+            "action": 15
+          }
+        },
+        {
+          "draw_frame": 1862,
+          "actor": 2149311656,
+          "output": 24755,
+          "before_hp": 500,
+          "predicted_hp": 321,
+          "first_registered_sample": {
+            "frame": 1891,
+            "team": "friendly",
+            "slot": 5,
+            "actor": 2149311656,
+            "hp": 321,
+            "action": 15
+          }
+        },
+        {
+          "draw_frame": 1864,
+          "actor": 2149320200,
+          "output": 22750,
+          "before_hp": 500,
+          "predicted_hp": 278,
+          "first_registered_sample": {
+            "frame": 1891,
+            "team": "friendly",
+            "slot": 4,
+            "actor": 2149320200,
+            "hp": 278,
+            "action": 15
+          }
+        },
+        {
+          "draw_frame": 1866,
+          "actor": 2149299420,
+          "output": 14273,
+          "before_hp": 500,
+          "predicted_hp": 307,
+          "first_registered_sample": {
+            "frame": 1891,
+            "team": "friendly",
+            "slot": 6,
+            "actor": 2149299420,
+            "hp": 307,
+            "action": 15
+          }
+        },
+        {
+          "draw_frame": 1870,
+          "actor": 2149321328,
+          "output": 17098,
+          "before_hp": 500,
+          "predicted_hp": 298,
+          "first_registered_sample": {
+            "frame": 1891,
+            "team": "friendly",
+            "slot": 1,
+            "actor": 2149321328,
+            "hp": 298,
+            "action": 15
+          }
+        }
+      ]
+    }
+  ],
+  "repeat_identical": true,
+  "limitations": [
+    "First slot snapshot can lag constructor by up to 29 Vsyncs; exact HP match and actor pointer establish binding in these observations, not every future actor hint.",
+    "Attack variant/delay draw sites occurred 39 times each; native result-store readback is being checked separately.",
+    "Most draws belong to other callers; not all caller roles are mapped. No fixed consumption-per-hit or winning seed claim."
+  ]
+}

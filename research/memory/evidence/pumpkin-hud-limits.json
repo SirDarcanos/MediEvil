@@ -1,0 +1,58 @@
+{
+  "run_id": "medievil-memory-pumpkin-active-2",
+  "probe_sha256": "64ab0c7c926946fff9f3603d66d748b95cc35cc35708fd7f4d2b642a98aa5c7b",
+  "seed_sha256": "a23eb608e9e520de1c73c765dae62457dc130d461f7b7db071ea04b86e801d5f",
+  "setup_writes": {
+    "[0x800EE978]+0x10": 0
+  },
+  "isolation": {
+    "private_app": true,
+    "expected_process_name": "ReduxAudit",
+    "webserver": false,
+    "gdb_server": false,
+    "debugger": false,
+    "observed_process_path": "/private/tmp/medievil-memory-pumpkin-active-2/ReduxAudit.app/Contents/MacOS/ReduxAudit",
+    "excluded_from_canonical_discovery": true
+  },
+  "counterexample": {
+    "cached_zero_while_active_and_actor_hp_1100_samples": 400,
+    "first_frame": 11,
+    "last_frame": 410,
+    "sample": {
+      "phase": "fight",
+      "reserveCapacity": 300,
+      "frame": 11,
+      "deathSubstate": 0,
+      "actor": 2149239248,
+      "z": -297,
+      "pumpkinPhase": 1,
+      "wakeGateCount": 0,
+      "monsterActor": 2149244384,
+      "monsterHP": 1100,
+      "y": 24,
+      "x": -298,
+      "level": 10,
+      "mode": 3,
+      "weapon": 3,
+      "overlay": 20,
+      "gameFrame": 4904,
+      "submode": 0,
+      "bossActive": 1,
+      "bossInput": 1100,
+      "bossCached": 0,
+      "bossMax": 1100,
+      "health": 300,
+      "reserveEnergy": 300,
+      "targetHP": 1100,
+      "targetActor": 2149244384
+    }
+  },
+  "active_samples": 2604,
+  "input_actor_hp_mismatches": 0,
+  "boss_hp_values": [
+    1100
+  ],
+  "final_dagger_quantity": 50,
+  "samples_sha256": "9211abeef671eb01b35caad98b78cec9278f633c2e0aab76cad2035efc32dec3",
+  "scope": "A real counterexample to treating cached HUD zero as boss death: active flag was 1, actor/input were 1100, cache stayed zero for 400 Vsync samples. Ranged attacks consumed ammunition but did not damage the boss. No natural boss damage/defeat certification; forced prerequisite/derived phase not natural progression."
+}

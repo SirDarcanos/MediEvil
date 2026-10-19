@@ -1,0 +1,24 @@
+{
+  "scope": "Main executable level callback ownership, not a visual identification or proof of an audible effect.",
+  "function": "0x800283D0",
+  "registration": "0x800241F4 registers it in the level callback array when enable-mask bit 0x80 is set.",
+  "state": "Pool pointer 0x800EE094; six groups, group stride 0x1E8; three elements per group with stride 0x9C.",
+  "random_sites": {
+    "0x800284AC": "rand()%3 during element phases 2/6; may copy another element coordinate target.",
+    "0x80028670": "Random byte used when an element changes phase."
+  },
+  "pause_condition": "Branch skips update work for submode 1, not submode 2.",
+  "observed_calls": {
+    "0x800284ac": {
+      "0": 810
+    },
+    "0x80028670": {
+      "0": 117
+    }
+  },
+  "limits": [
+    "Exact visual identity not established.",
+    "Callback draws share the same 0x800F3994 state as soldier initialization, attacks and collision decisions.",
+    "Enable-mask/register layout is code-backed; changing settings/turning the system off has not been tested."
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "scope": "Observed native low-health friendly check, actual phase-2 8v8 army. No probe RNG/HP writes; inherited laboratory setup.",
+  "probe_sha256": "183fc3882e69e7c6a1f2401b6adbb8d72712b63612b4608d5b0d24005e6b6f80",
+  "seed_sha256": "d620ca34ae513d9ed5edf647b5ae085048359173a6fb7b59e693e8c8b5462387",
+  "trace_sha256": "b80b19175bd638389725cd8cb7f996a40c526d22d1f0fd8c2ff6bac51ee67d56",
+  "rng_validation": {
+    "calls": 1368,
+    "validated_native_steps": 1368,
+    "state_address": "0x800F3994",
+    "multiplier": "0x41C64E6D",
+    "increment": "0x00003039",
+    "first_state": 3166769735,
+    "last_state": 2020325615,
+    "caller_return_addresses": {
+      "0x80067278": 246,
+      "0x80016B18": 106,
+      "0x80016E20": 120,
+      "0x80016E58": 120,
+      "0x800333E0": 120,
+      "0x800240C0": 15,
+      "0x80016B34": 58,
+      "0x800170F8": 539,
+      "0x8007E5AC": 8,
+      "0x80015800": 8,
+      "0x8007E7C4": 8,
+      "0x8007E860": 8,
+      "0x80016B48": 3,
+      "0x80017670": 9
+    },
+    "submode_calls": {
+      "0": 1368
+    },
+    "state_discontinuities": [],
+    "scope": "Exact native PRNG steps/callers in this trace window. Scratch actor is only a context hint. Discontinuities need reseed/write tracing; no combat outcome manipulation is implied."
+  },
+  "low_health_return_address": "0x800170F8",
+  "low_health_calls": 539,
+  "hp_range": [
+    -47,
+    99
+  ],
+  "subtype_counts": {
+    "0": 539
+  },
+  "action_counts": {
+    "6": 91,
+    "17": 220,
+    "5": 39,
+    "11": 124,
+    "18": 65
+  },
+  "zero_low_three_bits_outside_action5": 70,
+  "action5_readbacks_validated": 120,
+  "examples": [
+    {
+      "frame": 17,
+      "vblank": 15283,
+      "gameFrame": 6745,
+      "mode": 3,
+      "submode": 0,
+      "level": 23,
+      "callerRA": 2147578104,
+      "actorScratchHint": 2149277232,
+      "before": 2916304956,
+      "afterRegister": 2103458245,
+      "output": 32096,
+      "actorHPBefore": 50,
+      "actorActionBefore": 6,
+      "actorDelayBefore": 8,
+      "actorSubtype": 0,
+      "levelVoiceHandleBefore": -1
+    },
+    {
+      "frame": 19,
+      "vblank": 15285,
+      "gameFrame": 6746,
+      "mode": 3,
+      "submode": 0,
+      "level": 23,
+      "callerRA": 2147578104,
+      "actorScratchHint": 2149277232,
+      "before": 2880089128,
+      "afterRegister": 1729080641,
+      "output": 26383,
+      "actorHPBefore": 50,
+      "actorActionBefore": 6,
+      "actorDelayBefore": 8,
+      "actorSubtype": 0,
+      "levelVoiceHandleBefore": -1
+    },
+    {
+      "frame": 21,
+      "vblank": 15287,
+      "gameFrame": 6747,
+      "mode": 3,
+      "submode": 0,
+      "level": 23,
+      "callerRA": 2147578104,
+      "actorScratchHint": 2149277232,
+      "before": 1822769191,
+      "afterRegister": 554853076,
+      "output": 8466,
+      "actorHPBefore": 50,
+      "actorActionBefore": 6,
+      "actorDelayBefore": 8,
+      "actorSubtype": 0,
+      "levelVoiceHandleBefore": -1
+    }
+  ],
+  "interpretation": "The RNG call precedes the action-5 voice condition. Injury/death-state lifetime changes consumption even without an attack or audible voice. Native action 11 appeared in 124 low-health draws; signed actor HP can be negative during this lifecycle.",
+  "limits": [
+    "Observed predicates support the code-backed branch; this is not a mute/HLE/audio-configuration comparison.",
+    "Raw actor scratch hints outside the checked native consumer remain hints, not proof of ownership.",
+    "No fixed draw count per attack or per Vsync is implied."
+  ],
+  "recorded_L_plus_0C_counts": {
+    "-1": 539
+  },
+  "field_correction": "The original levelVoiceHandleBefore trace field read L+0x0C, not L+0x10. Native 0x80016F14 gates this draw on L+0x10 == -1. Existing raw traces retain their original bytes/hash; their mislabeled field is not direct runtime evidence of that handle. Current probe offset corrected to +0x10. HP/subtype/action and RNG/readback findings are unaffected."
+}
