@@ -30,6 +30,44 @@ const categories = {
   chalice: ['#ffe29a', 'C'], equipment: ['#9ebbf4', 'E'], quest: ['#f2a7be', '?'], chest: ['#e2b188', '□'],
 };
 const statusLabels = {live:'LIVE',paused:'PAUSED',connecting:'CONNECTING',disconnected:'EMULATOR OFF',waiting_game:'WAITING FOR GAME',not_playing:'NOT IN LEVEL',loading:'LOADING',updating:'SAMPLING',multiple:'SELECT EMULATOR',unavailable:'RECONNECTING',error:'READER ERROR'};
+let movementSample = null, movementDirection = null, lastMovementAt = 0, movementExpiryTimer = null;
+function clearMovementDirection() {
+  movementDirection=null;clearTimeout(movementExpiryTimer);movementExpiryTimer=null;
+}
+function trackMovement(sample, now) {
+  const p=sample?.position;
+  if (sample?.status!=='live' || sample.source==='snapshot' || !Array.isArray(p) ||
+      p.length!==3 || !p.every(Number.isFinite) || !Number.isInteger(sample.frame)) {
+    movementSample=null;clearMovementDirection();return;
+  }
+  const key=JSON.stringify([sample.epoch,sample.pid,sample.emulator,sample.level,sample.player_address,sample.state_address]);
+  const previous=movementSample;
+  movementSample={key,frame:sample.frame,position:p.slice(),at:now};
+  if (!previous || previous.key!==key || now<previous.at || now-previous.at>500 || sample.frame<previous.frame) {
+    clearMovementDirection();return;
+  }
+  const dx=p[0]-previous.position[0], dz=p[2]-previous.position[2], distance=Math.hypot(dx,dz);
+  if (sample.frame===previous.frame) {
+    if (distance) clearMovementDirection();
+    return; // Repeated HTTP samples are not a new movement observation.
+  }
+  if (distance<1 || distance>1024) { clearMovementDirection();return; }
+  movementDirection={x:dx/distance,y:-dz/distance};lastMovementAt=now;
+  clearTimeout(movementExpiryTimer);
+  movementExpiryTimer=setTimeout(()=>{clearMovementDirection();draw();},251);
+}
+function drawMovementArrow(x,y) {
+  if (!movementDirection || state?.status!=='live' || Date.now()-lastMovementAt>250) return;
+  ctx.save();ctx.translate(x,y);ctx.rotate(Math.atan2(movementDirection.y,movementDirection.x));
+  const compact=x<48 || x>w-48 || y<48 || y>h-48;
+  if (!compact) {
+    ctx.lineCap='round';ctx.strokeStyle='#10170c';ctx.lineWidth=6;
+    ctx.beginPath();ctx.moveTo(26,0);ctx.lineTo(39,0);ctx.stroke();
+    ctx.strokeStyle='#c5ed72';ctx.lineWidth=3;ctx.stroke();
+  }
+  ctx.beginPath();ctx.moveTo(compact?22:46,0);ctx.lineTo(compact?18:36,compact?-4:-6);ctx.lineTo(compact?18:36,compact?4:6);ctx.closePath();
+  ctx.fillStyle='#c5ed72';ctx.fill();ctx.strokeStyle='#10170c';ctx.lineWidth=2;ctx.stroke();ctx.restore();
+}
 function marker() {
   return connected && state && ['live','paused'].includes(state.status) && state.position && geometry &&
     state.level === geometry.table_index && Date.now() - lastReceived < 1500 ? state.position : null;
@@ -182,6 +220,7 @@ function draw() {
   if (p) {
     let [x,y] = toScreen(p[0],p[2]); const margin=24, outside=x<margin||x>w-margin||y<margin||y>h-margin, tx=x, ty=y;
     x=Math.max(margin,Math.min(w-margin,x)); y=Math.max(margin,Math.min(h-margin,y));
+    drawMovementArrow(x,y);
     ctx.save();
     ctx.fillStyle='#10170cdd';ctx.strokeStyle='#c5ed72';ctx.lineWidth=1.5;
     ctx.beginPath();ctx.arc(x,y,16,0,Math.PI*2);ctx.fill();ctx.stroke();
@@ -256,8 +295,8 @@ function update() {
   $('message').textContent=message;draw();
 }
 async function poll() {
-  try { const response=await fetch('/api/state',{signal:AbortSignal.timeout(1500)});if(!response.ok)throw Error('Reader unavailable');state=await response.json();lastReceived=Date.now();connected=true;choose(); }
-  catch { connected=false; }
+  try { const response=await fetch('/api/state',{signal:AbortSignal.timeout(1500)});if(!response.ok)throw Error('Reader unavailable');state=await response.json();lastReceived=Date.now();connected=true;trackMovement(state,lastReceived);choose(); }
+  catch { connected=false;trackMovement(null,Date.now()); }
   update();setTimeout(poll,50);
 }
 function zoom(factor,px=w/2,py=h/2) {
