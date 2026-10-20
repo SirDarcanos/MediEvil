@@ -7,6 +7,10 @@ entries do not select a version or authorize a release. See the
 
 ## Unreleased
 
+### LiveMap
+
+- Add an arrow ahead of Dan that shows his observed movement direction and hides while stationary or without fresh live movement.
+
 ### Reference and research
 
 - Expand the USA typed-address reference and retain reusable memory-audit tools,

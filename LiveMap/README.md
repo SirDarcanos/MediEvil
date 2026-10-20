@@ -30,10 +30,16 @@ python3 runner.py --gdb-port 2345 --open
 
 Follow the first-run page to select your own data-track BIN/ISO. Windows/Linux use DuckStation's read-only shared-memory export; macOS requires the configured local GDB server and may pause on attachment. See [the runner guide](RUNNERS.md) for configuration, supported game revision, controls, cache location and recovery. No special savestate or analogue controller is required.
 
+## Movement arrow
+
+A green arrow ahead of Dan shows his observed horizontal movement, not the direction he is facing. It uses screen-space sizing while zooming, becomes a compact chevron near the viewport edge without moving Dan’s marker, and disappears when he stops, pauses, disconnects, or the movement sample becomes stale. Recorded snapshots show no movement arrow. Level/session changes and large position jumps reset its history.
+
 ## Build and check
 
 ```sh
 python3 -m unittest discover -s . -p 'test_*.py'
+node --test web/test_movement.cjs
+node --check web/app.js
 python3 release/build.py --output dist
 ```
 
