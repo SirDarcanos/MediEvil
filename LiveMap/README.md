@@ -6,7 +6,7 @@ A standalone companion minimap for runners using their own DuckStation, BIOS, US
 
 ## Download for runners
 
-[**Download the LiveMap preview**](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.1.0-preview.1) — Windows x64, macOS Apple Silicon/ARM64 and Linux x64. Native downloads bundle Python; no separate Python installation or commands are needed.
+[**Download LiveMap 0.2.0 (unsigned preview)**](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.2.0) — choose the individually named Windows x64, macOS Apple Silicon/ARM64 or Linux x64 ZIP. Native downloads bundle Python; no separate Python installation or commands are needed.
 
 Unzip the entire folder, then double-click **`MediEvilMinimap.exe`** on Windows or **`Open Minimap.command`** on Mac. On Linux, open `MediEvilMinimap`. The browser setup page guides you through importing your own game. Keep `_internal` beside the executable. See the [runner guide](RUNNERS.md) for DuckStation configuration and security/preview caveats.
 
@@ -47,7 +47,9 @@ The default build is a **Python-required source preview**, not a bundled-interpr
 
 ## Release status
 
-[Native CI run 39139164216](https://github.com/SirDarcanos/MediEvil/actions/runs/39139164216) produced bundled-Python Windows x64, Linux x64 and macOS ARM64 packages, with successful native tests and frozen-startup/resource checks. Python 3.10 and 3.14 source checks also passed. The initial `a8e54aa` Mac candidate (the subsequent fix changed archive metadata only, not runtime code) additionally imported the local USA disc, rendered its textures and reopened its cache without an image argument. The read-only DuckStation GDB backend has prior live gameplay evidence.
+[Native CI run 39377444367](https://github.com/SirDarcanos/MediEvil/actions/runs/39377444367), at runtime commit `4f2c7d70c5befa68b27b9a1c19a1f18533f43a2d`, produced the 0.2.0 bundled-Python Windows x64, Linux x64 and macOS ARM64 packages, with successful native tests and frozen-startup/resource checks. Python 3.10 and 3.14 source checks also passed. Downloaded archive checksums, required notices and packaged frontend code were verified. Release asset names are clearer; ZIP contents remain the exact CI artifacts. The release tag also includes documentation-only release updates, with runtime/build inputs unchanged.
+
+Earlier Mac preview evidence includes own-disc import, textured rendering, cached restart and read-only DuckStation GDB gameplay; those observations are not a fresh 0.2.0 native-gameplay certification.
 
 These are unsigned preview releases, not universally validated stable releases. Actual Windows/Linux DuckStation gameplay and lifecycle checks, signing/notarization decisions and maintainer approval remain before a general release-ready claim. CI startup checks do not prove live emulator compatibility.
 
