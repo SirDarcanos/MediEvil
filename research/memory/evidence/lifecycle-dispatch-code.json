@@ -1,0 +1,82 @@
+{
+  "scope": "Static USA lifecycle and allocator evidence for the unified ASL. Not gameplay, polling, LiveSplit compilation or backend verification. The maintainer will perform gameplay testing.",
+  "exe_sha1": "265ce5dc508002a339ae535e49a5b1b4e683b732",
+  "source": {
+    "method": "Read-only Ghidra export from a disposable copy; selected resident instruction words additionally compared directly with the identified executable.",
+    "export": "/tmp/medievil-ums-static-eBDT1q/lifecycle-dispatch.txt",
+    "existing_dispatch_export": "/tmp/medievil-ghidra-memory-audit/title-request-owner.txt",
+    "limits": "The generic Homebrew Ghidra could not open PSX:LE:32:default; its normal process exit was not an analysis pass. The existing PSX-enabled Ghidra installation supplied the export. No original project or game data was modified."
+  },
+  "allocator": {
+    "allocate": "0x800A403C",
+    "free": "0x800A42B4",
+    "block_header": "payload - 0x14",
+    "previous_physical_header": "u32 header + 0x00",
+    "next_physical_header": "u32 header + 0x04",
+    "signed_capacity": "i32 payload - 0x04; negative while allocated, positive when free",
+    "requested_capacity": "max(16, (requested_bytes + 7) & ~3); includes four-byte tail",
+    "tail": "u32 payload + abs(signed_capacity) - 4 == 0xDEADFACE while allocated",
+    "ordering": "Free negates signed_capacity at 0x800A42CC before coalescing physical blocks or inserting into a free list. A non-null root can therefore point to an already freed allocation.",
+    "read_guard": "Check pointer/span bounds, negative capacity, required payload span excluding tail, tail marker, and bounded reciprocal physical-neighbor consistency. Combine with the object's own root, registration/class and mode/overlay context; allocator metadata alone does not identify the semantic owner.",
+    "limits": "No allocation generation counter was established. Two matching asynchronous reads cannot exclude an entire free/reallocate cycle between them. Registration/owner discontinuity and read gaps must disarm event inference."
+  },
+  "persistent_game": {
+    "root": "u32 0x800EDB3C",
+    "requested_bytes": "0x6F0",
+    "created_flag": "u32 0x800ED6D0",
+    "create": "Dispatcher calls 0x8005A6B0 then sets created_flag to 1; persistent allocation is created by 0x8006993C.",
+    "destroy": "Dispatcher calls 0x80069B8C then clears created_flag at 0x8005A37C. The destructor frees G without clearing its root.",
+    "limits": "The created flag alone is not liveness: destruction precedes flag clearing. Gameplay mode alone is also insufficient. Use current allocation and registration/context guards before reading health or Rune quantity."
+  },
+  "player": {
+    "root": "u32 G + 0x530",
+    "register": "0x80069BC0 stores A in G + 0x530 and sets byte A + 0x34 bit 0x20",
+    "unregister": "0x80069C10 clears G + 0x530 and that registration bit",
+    "active_list": "Head u32 0x800EE888, sentinel 0x800EE884, node next pointer +0x04; traversal in 0x800410A4",
+    "limits": "Check bounded list membership and allocation/class ownership rather than trusting stale registration bytes. G can remain valid on map after A unregisters.",
+    "private_storage": "Native actor factory 0x800424F8 includes u16 definition + 0x08 private bytes immediately after the common 0x98-byte actor in the same malloc block; instructions 0x8004265C-0x80042660 store actor + 0x98 at actor + 0x90. Private pointers are bounded subspans, not independent allocations."
+  },
+  "level_controller": {
+    "root": "u32 0x800EE978",
+    "descriptor_root": "u32 0x800EE92C",
+    "descriptor": "0x800DA674 + current_level_index * 100 (decimal stride 0x64; instructions 0x800409C0-0x800409D0)",
+    "requested_bytes": "u16 descriptor + 0x3E",
+    "initialize": "0x80040998 allocates/clears controller storage then calls descriptor + 0x40",
+    "destroy": "0x80040B5C invokes descriptor + 0x44 then frees non-null controller storage without establishing a zeroed root",
+    "limits": "Descriptor identity establishes layout, not liveness. Reject positive/free allocator headers and wrong overlay/level context. A zero-sized descriptor has no allocated controller; initialization sets L to null.",
+    "selected_descriptors": [
+      {"level_index": 2, "size": "0x3BC", "constructor": "0x8001032C"},
+      {"level_index": 4, "size": "0x550", "constructor": "0x80010F30"},
+      {"level_index": 7, "size": "0x30", "constructor": "0x80010138"},
+      {"level_index": 10, "size": "0x1C", "constructor": "0x80010198"},
+      {"level_index": 15, "size": "0x18", "constructor": "0x800101A0"},
+      {"level_index": 19, "size": "0x0", "constructor": "0x80010148"},
+      {"level_index": 23, "size": "0x14", "constructor": "0x800119B4"}
+    ]
+  },
+  "title": {
+    "root": "u32 0x800EDC1C",
+    "requested_bytes": "0x35C",
+    "constructor": "TL.BIN 0x80012284 allocates and clears 0x35C bytes, stores T in the global root, then allocates 0x18 auxiliary bytes at T + 0x18C",
+    "source": "/tmp/medievil-ghidra-memory-audit/ums-title-owner-9TScIN/title-owner.txt",
+    "limits": "Allocator ownership, title overlay/mode, menu flow/selection and callback identity are separate guards; the minimum accessed offset 0x194 is not the allocation size."
+  },
+  "gameplay_dispatch": {
+    "dispatcher": "0x80059E58",
+    "result": "i32 0x800EEE6C",
+    "result_3": "UI class 500 handler 0x80063BB4, choice 0, writes result 3 at 0x80063C18 and requests transition through 0x8005A99C. Dispatcher tears down gameplay, frees G, clears created flag, then selects title mode 2.",
+    "result_6": "Native death path writes result 6 at 0x80069FDC; dispatcher shares the result-3 cleanup destination. Death-substate entry precedes this later result.",
+    "result_5": "Successful completion handling retains G and processes level progress; destination may be Hall of Heroes, another level, map or ending. It is not synonymous with a changed header or map arrival.",
+    "result_4": "Reload or next-gameplay dispatch, not successful completion",
+    "transition_pending": "0x8002364C returns zero while game-flags bit 0x80 is set, so a result request can be visible before cleanup begins.",
+    "hoh_origin": "u16 0x800EEE36 stores completed origin when next level is set to index 18; normal HoH result-5 departure restores this origin before routing.",
+    "limits": "UI class-to-visible-Quit interpretation and asynchronous polling visibility remain untested. Never derive a manual quit from pause state or title arrival alone."
+  },
+  "instruction_comparison": {
+    "0x800A41BC": "0xAC64FFFC: store allocator tail marker",
+    "0x800A41CC": "0xAE030010: store negative allocated capacity",
+    "0x800A42CC": "0xACA20010: store positive freed capacity before coalescing",
+    "0x8005A37C": "0xAF8000FC: clear persistent-game created flag after destruction",
+    "0x80063C18": "0xAC62EE6C: store UI-confirmed gameplay result 3"
+  }
+}

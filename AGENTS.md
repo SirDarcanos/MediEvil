@@ -7,10 +7,10 @@ permission changes; agents own routine engineering within the requested scope.
 
 ## Project and authoritative homes
 
-- `Auto-Splitters/`: MediSplit and its bundled dependency. Keep old splitters
-  separately when introducing their unified replacement; preserve their bytes
-  and attribution. Assess an emu-help update for compatibility rather than
-  blindly replacing the bundle.
+- `Auto-Splitters/`: MediSplit and the legacy scripts' bundled dependency. The
+  unified LiveSplit ASL reads RAM directly and must not load or require emu-help.
+  Keep the old splitters separately with their original bytes and attribution;
+  retain the bundle for those legacy scripts.
 - `LiveMap/`: the companion minimap and its own run/build documentation.
 - `research/memory/`: reusable research tools, probes, Ghidra scripts, tests,
   curated evidence and notes; use its [index](research/memory/README.md).
