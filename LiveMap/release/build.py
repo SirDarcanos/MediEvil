@@ -21,10 +21,10 @@ import tempfile
 import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
-RUNTIME=('runner.py','app.py','feed.py','local_http.py','ram.py','emulator_memory.py','gdb_reader.py','disc_import.py',
+RUNTIME=('runner.py','app.py','feed.py','local_http.py','ram.py','bizhawk.py','emulator_memory.py','gdb_reader.py','disc_import.py',
          'extract_maps.py','binary.py','vlo.py','appearance.py','textures.py','objects.py','triggers.py',
          'scripted_exits.py','edge_on.py','fence_materials.json')
-WEB=('index.html','app.js','terrain.js','raster.js','movement.js','style.css','setup.html','setup.js','setup.css','marker.svg')
+WEB=('index.html','app.js','terrain.js','raster.js','movement.js','style.css','setup.html','setup.js','setup.css','marker.svg','bizhawk.lua')
 LAUNCHERS=('Open Minimap.cmd','Open Minimap.command','open-minimap.sh')
 
 

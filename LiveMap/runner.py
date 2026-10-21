@@ -49,7 +49,7 @@ class Runner:
         maps = load_manifest(self.maps_dir)
         self.maps.update(maps)
         self.ready = True
-        self.message = 'Maps ready. Connecting to DuckStation…'
+        self.message = 'Maps ready. Looking for your emulator…'
         if self.listening:
             self.start_feed()
 
@@ -70,7 +70,7 @@ def main(argv=None):
     parser.add_argument('--data-dir', type=Path, default=user_data_dir(),
                         help='Writable local cache, independent of the app folder')
     parser.add_argument('--import-game', type=Path, help='Optional local BIN, ISO or CUE path; no upload needed')
-    parser.add_argument('--emulator', choices=('duckstation', 'auto', 'redux'), default='duckstation')
+    parser.add_argument('--emulator', choices=('duckstation', 'auto', 'redux', 'bizhawk'), default='auto')
     parser.add_argument('--pid', type=int)
     parser.add_argument('--gdb-port', type=int, help='Explicit read-only GDB fallback; attachment may pause DuckStation')
     parser.add_argument('--port', type=int, default=8768, help='Loopback map port; use 0 for an available port')
@@ -84,7 +84,7 @@ def main(argv=None):
     if args.pid is not None and args.pid <= 0:
         parser.error('PID must be positive.')
     if args.gdb_port is not None and (not 1 <= args.gdb_port <= 65535 or args.gdb_port == args.port
-                                     or args.pid is not None or args.emulator == 'redux'):
+                                     or args.pid is not None or args.emulator not in ('auto', 'duckstation')):
         parser.error('GDB needs a separate port1–65535, no PID, and DuckStation selected.')
     if args.gdb_port:
         print('GDB reads only. DuckStation itself may pause on attachment; resume manually. Disconnect may change its pause state.', flush=True)

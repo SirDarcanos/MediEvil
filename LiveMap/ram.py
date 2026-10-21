@@ -9,6 +9,7 @@ import subprocess
 import sys
 import time
 from emulator_memory import ReadOnlyMapping, emulator_pids
+import bizhawk
 
 RAM_SIZE = 0x200000
 GAME_STATE_PTR = 0xEDB3C
@@ -81,6 +82,10 @@ def duckstation_pids() -> list[int]:
     return emulator_pids('duckstation')
 
 
+def bizhawk_pids() -> list[int]:
+    return emulator_pids('bizhawk') if sys.platform == 'win32' else []
+
+
 class SharedRAM(ReadOnlyMapping):
     def __init__(self, pid: int, name: str | None = None):
         if pid <= 0:
@@ -123,11 +128,11 @@ class DuckStationRAM(SharedRAM):
 class Tracker:
     """One reader; auto-discovery never attaches a debugger or controls gameplay."""
     def __init__(self, pid: int | None = None, emulator: str = 'auto', gdb_port: int | None = None):
-        if emulator not in ('auto', 'redux', 'duckstation'):
+        if emulator not in ('auto', 'redux', 'duckstation', 'bizhawk'):
             raise ValueError('Unknown emulator')
         if pid is not None and pid <= 0:
             raise ValueError('Invalid PID')
-        if gdb_port is not None and (not 1 <= gdb_port <= 65535 or pid is not None or emulator == 'redux'):
+        if gdb_port is not None and (not 1 <= gdb_port <= 65535 or pid is not None or emulator not in ('auto', 'duckstation')):
             raise ValueError('GDB requires a local port, no PID, and auto/DuckStation selection')
         self.gdb_port = gdb_port
         self.next_connect = -10.0
@@ -138,6 +143,7 @@ class Tracker:
         self.ram = None
         self.last_discovery = -10.0
         self.candidates = []
+        self.bizhawk_multiple = False
         self.epoch = 0
         self.previous = None
         self.last_frame_change = time.monotonic()
@@ -150,17 +156,24 @@ class Tracker:
     def sample(self) -> dict:
         now = time.monotonic()
         refreshing_stalled_mapping = False
-        result = {'status':'disconnected', 'message':'Start DuckStation or PCSX-Redux and load MediEvil USA (SCUS-94227).'}
+        result = {'status':'disconnected', 'message':'Start DuckStation, PCSX-Redux or Windows BizHawk and load MediEvil USA (SCUS-94227).'}
+        if self.requested_emulator == 'bizhawk' and sys.platform != 'win32':
+            return {**result, 'status':'unavailable', 'message':'BizHawk integration currently requires Windows and the bundled Lua bridge.',
+                    'epoch':self.epoch, 'sample_time':time.time()}
         if now - self.last_discovery >= 1:
             self.last_discovery = now
             try:
                 self.candidates = []
+                self.bizhawk_multiple = False
                 if self.gdb_port is not None:
                     self.candidates = [(None, 'duckstation-gdb')]
                 else:
-                    for name, discover in (('redux', redux_pids), ('duckstation', duckstation_pids)):
+                    for name, discover in (('redux', redux_pids), ('duckstation', duckstation_pids), ('bizhawk', bizhawk_pids)):
                         if self.requested_emulator in ('auto', name):
-                            self.candidates.extend((pid, name) for pid in discover()
+                            found = discover()
+                            if name == 'bizhawk' and len(found) > 1 and (self.requested_pid is None or self.requested_pid in found):
+                                self.bizhawk_multiple = True
+                            self.candidates.extend((pid, name) for pid in found
                                                    if self.requested_pid is None or pid == self.requested_pid)
             except (OSError, subprocess.SubprocessError):
                 self.candidates = []
@@ -168,12 +181,17 @@ class Tracker:
             if self.ram and (self.ram.pid, self.ram_emulator) not in self.candidates:
                 self.close()
                 self.epoch += 1
-            elif self.ram and self.gdb_port is None and self.previous and now - self.last_frame_change > 1:
+            elif self.ram and self.ram_emulator != 'bizhawk' and self.gdb_port is None and self.previous and now - self.last_frame_change > 1:
                 # A reader's mapping can outlive a disabled/reallocated export.
                 # Release it before reopening so an orphan Windows object is not
                 # mistaken for a paused producer. Genuine pauses retain history.
                 self.close()
                 refreshing_stalled_mapping = True
+        if self.bizhawk_multiple:
+            if self.ram:
+                self.close(); self.epoch += 1
+            return {**result, 'status':'multiple', 'message':'Keep only one BizHawk instance and one copy of the LiveMap Lua script open; --pid cannot disambiguate its shared bridge.',
+                    'epoch':self.epoch, 'sample_time':time.time()}
         if not self.ram:
             if len(self.candidates) > 1:
                 return {**result, 'status':'multiple', 'message':'Multiple emulators; select one with --emulator and/or --pid.',
@@ -187,6 +205,8 @@ class Tracker:
                     if name == 'duckstation-gdb':
                         from gdb_reader import GDBRAM
                         self.ram = GDBRAM(self.gdb_port)
+                    elif name == 'bizhawk':
+                        self.ram = bizhawk.BizHawkRAM(pid)
                     else:
                         self.ram = (DuckStationRAM if name == 'duckstation' else SharedRAM)(pid)
                     self.ram_emulator = name
@@ -196,6 +216,8 @@ class Tracker:
                 except (OSError, ValueError):
                     message = ('DuckStation: enable Show Debug Menu under Advanced, then Export Shared Memory under Debugging. Restart the game.'
                                if name == 'duckstation' else 'Redux RAM is not available yet.')
+                    if name == 'bizhawk':
+                        message = 'BizHawk: load web/bizhawk.lua in Tools > Lua Console; keep one EmuHawk instance open. Windows only.'
                     if name == 'duckstation' and sys.platform == 'darwin':
                         message = 'DuckStation on macOS needs the explicit GDB fallback; shared RAM is Windows/Linux only.'
                     if name == 'duckstation-gdb':
@@ -221,16 +243,21 @@ class Tracker:
                     self.epoch += 1
                 if current[2] != (self.previous[2] if self.previous else None):
                     self.last_frame_change = now
+                if result['status'] == 'live' and self.ram_emulator == 'bizhawk' and getattr(self.ram, 'is_paused', False):
+                    result['status'] = 'paused'
+                    result['message'] = 'BizHawk is paused; the read-only Lua bridge is still updating.'
                 if result['status'] == 'live' and now - self.last_frame_change > 1:
                     result['status'] = 'paused'
                     result['message'] = 'Game frame is not advancing.'
                 if self.gdb_port is not None:
                     result['message'] += ' GDB attachment may pause DuckStation once; resume manually. No control commands are sent.'
                 self.previous = current
-            except (OSError, ValueError, struct.error):
+            except (OSError, ValueError, struct.error) as error:
+                name, pid = self.ram_emulator, self.ram.pid
                 self.close()
                 self.epoch += 1
                 self.next_connect = time.monotonic() + 1
-                self.connect_message = 'RAM connection lost; reconnecting.'
-                result = {'status':'unavailable','message':self.connect_message}
+                self.connect_message = (f'BizHawk Lua bridge: {error} Reload the bundled script in Tools > Lua Console.'
+                                        if name == 'bizhawk' else 'RAM connection lost; reconnecting.')
+                result = {'status':'unavailable','message':self.connect_message, 'emulator':name, 'pid':pid}
         return {**result, 'epoch':self.epoch, 'sample_time':time.time()}

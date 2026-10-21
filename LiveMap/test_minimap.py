@@ -89,10 +89,11 @@ class FakeRAM:
 
 class LifecycleTests(unittest.TestCase):
     def setUp(self):
-        # Keep Redux examples independent of actual DuckStation instances.
-        replacement = patch('ram.duckstation_pids', return_value=[])
-        replacement.start()
-        self.addCleanup(replacement.stop)
+        # Synthetic Redux examples must not discover real emulators on the host.
+        for replacement in (patch('ram.duckstation_pids', return_value=[]),
+                            patch('ram.bizhawk_pids', return_value=[])):
+            replacement.start()
+            self.addCleanup(replacement.stop)
 
     @patch('ram.SharedRAM', FakeRAM)
     @patch('ram.redux_pids', return_value=[42])

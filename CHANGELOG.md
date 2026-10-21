@@ -24,6 +24,9 @@ entries do not select a version or authorize a release. See the
 - Separate sampling, HTTP serving, movement tracking and fallback rendering;
   share texture decoding and response/security handling without changing the
   runner workflow, map format or controls.
+- Add experimental Windows BizHawk support through a bundled read-only Lua bridge,
+  alongside DuckStation and PCSX-Redux auto-detection. Native BizHawk gameplay
+  verification remains pending.
 
 ### Reference and research
 

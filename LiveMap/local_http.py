@@ -19,6 +19,7 @@ CONTENT_TYPES = {
     '.png': 'image/png',
     '.svg': 'image/svg+xml',
     '.json': 'application/json',
+    '.lua': 'text/plain; charset=utf-8',
 }
 MAP_FILES = {
     '/': 'index.html',
@@ -28,6 +29,7 @@ MAP_FILES = {
     '/movement.js': 'movement.js',
     '/style.css': 'style.css',
     '/dan.png': 'dan.png',
+    '/bizhawk.lua': 'bizhawk.lua',
 }
 COMMON_CSP = "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; "
 MAP_CSP = COMMON_CSP + "img-src 'self' data:; frame-ancestors 'none'"

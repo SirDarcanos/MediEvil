@@ -83,6 +83,8 @@ def emulator_pids(emulator: str) -> list[int]:
         name = name.casefold()
         if emulator == 'redux':
             match = name in ('pcsx-redux', 'pcsx-redux.exe')
+        elif emulator == 'bizhawk':
+            match = name in ('emuhawk', 'emuhawk.exe')
         elif emulator == 'duckstation':
             match = (name in ('duckstation', 'duckstation-qt') or
                      (name.startswith('duckstation') and name.endswith('.exe')))
@@ -94,7 +96,9 @@ def emulator_pids(emulator: str) -> list[int]:
 
 
 class ReadOnlyMapping:
-    def __init__(self, name: str):
+    def __init__(self, name: str, size: int = RAM_SIZE):
+        if not isinstance(size, int) or not 0 < size <= RAM_SIZE:
+            raise ValueError('Invalid read-only mapping size')
         self.view = None
         self._api = None
         self._handle = None
@@ -106,12 +110,12 @@ class ReadOnlyMapping:
             self._handle = self._api.OpenFileMappingW(FILE_MAP_READ, False, name)
             if not self._handle:
                 raise win_error('Exported RAM mapping is not available')
-            self._address = self._api.MapViewOfFile(self._handle, FILE_MAP_READ, 0, 0, RAM_SIZE)
+            self._address = self._api.MapViewOfFile(self._handle, FILE_MAP_READ, 0, 0, size)
             if not self._address:
                 error = win_error('Cannot read exported RAM mapping')
                 self.close()
                 raise error
-            array = (ctypes.c_ubyte * RAM_SIZE).from_address(self._address)
+            array = (ctypes.c_ubyte * size).from_address(self._address)
             self.view = memoryview(array).cast('B').toreadonly()
         else:
             lib = ctypes.CDLL(None, use_errno=True)
@@ -123,9 +127,9 @@ class ReadOnlyMapping:
                 error = ctypes.get_errno()
                 raise OSError(error, os.strerror(error), name)
             try:
-                if os.fstat(fd).st_size < RAM_SIZE:
-                    raise ValueError('Exported RAM mapping is smaller than 2 MiB')
-                self.view = mmap.mmap(fd, RAM_SIZE, flags=mmap.MAP_SHARED, prot=mmap.PROT_READ)
+                if os.fstat(fd).st_size < size:
+                    raise ValueError('Exported mapping is smaller than the requested size')
+                self.view = mmap.mmap(fd, size, flags=mmap.MAP_SHARED, prot=mmap.PROT_READ)
             finally:
                 os.close(fd)
 

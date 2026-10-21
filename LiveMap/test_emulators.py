@@ -12,6 +12,7 @@ class DuckDiscoveryTests(unittest.TestCase):
         FakeDuck.data = fixture() if data is None else data
         for replacement in (patch('ram.redux_pids', return_value=list(redux)),
                             patch('ram.duckstation_pids', return_value=list(duck), create=True),
+                            patch('ram.bizhawk_pids', return_value=[]),
                             patch('ram.SharedRAM', FakeRAM),
                             patch('ram.DuckStationRAM', FakeDuck, create=True)):
             replacement.start()

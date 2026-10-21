@@ -1,6 +1,6 @@
 # MediEvil LiveMap
 
-A standalone companion minimap for runners using their own DuckStation, BIOS, USA game and saves. On first launch it extracts all 25 textured maps from the runner's own supported disc image into local app-data storage. It reads live RAM without controlling or patching the game.
+A standalone companion minimap for runners using their own DuckStation or PCSX-Redux, BIOS, USA game and saves. Experimental Windows BizHawk support uses the bundled read-only Lua bridge. On first launch it extracts all 25 textured maps from the runner's own supported disc image into local app-data storage. It reads live RAM without controlling or patching the game.
 
 **This folder is the maintained project location.** No extracted game assets, emulator, BIOS, savestates, RAM dumps or controller-automation research belong in this repository or its downloads.
 
@@ -29,6 +29,24 @@ python3 runner.py --gdb-port 2345 --open
 ```
 
 Follow the first-run page to select your own data-track BIN/ISO. Windows/Linux use DuckStation's read-only shared-memory export; macOS requires the configured local GDB server and may pause on attachment. See [the runner guide](RUNNERS.md) for configuration, supported game revision, controls, cache location and recovery. No special savestate or analogue controller is required.
+
+## BizHawk on Windows (experimental)
+
+This unreleased source change is **not included in the published 0.2.0 binaries**. Target: BizHawk 2.11.1, PS1/Octoshock, MediEvil USA. Native BizHawk/NLua and Windows gameplay verification are still pending; local synthetic checks are not a substitute.
+
+1. Run BizHawk and LiveMap in the **same Windows session/VM**, under the same user. Keep **one EmuHawk instance and one bridge script** open.
+2. Load your game in BizHawk. Open **Tools → Lua Console**, then load `web/bizhawk.lua` from the app folder, or use the **BizHawk Lua bridge** download link in LiveMap.
+3. Keep the script running. LiveMap now auto-detects supported emulators; `--emulator bizhawk` selects BizHawk explicitly. Multiple BizHawk instances are deliberately refused even with `--pid` because the exporter uses a shared named bridge.
+
+The bridge reads a few PS1 RAM ranges and writes only a small host mapping. It never patches game RAM, sends controller input, advances frames, or pauses/resumes the game. It keeps a heartbeat while paused; stale/stopped exports hide the marker. No HTTP bridge, process-memory scanning, extra Python package, or BizHawk installation is performed by LiveMap. macOS/Linux BizHawk support is not implemented; their existing Redux/DuckStation routes remain available.
+
+### Bridge contract and Windows test gate
+
+The API reference is BizHawk **2.11.1**, commit `bdddf4a58aa1a022afb11dc73294a81a5aa7bbd5`: [named mapping writes](https://github.com/TASEmulators/BizHawk/blob/bdddf4a58aa1a022afb11dc73294a81a5aa7bbd5/src/BizHawk.Client.Common/Api/MemoryMappedFiles.cs), [Lua communication](https://github.com/TASEmulators/BizHawk/blob/bdddf4a58aa1a022afb11dc73294a81a5aa7bbd5/src/BizHawk.Client.Common/lua/CommonLibs/CommLuaLibrary.cs), [PS1 MainRAM domain](https://github.com/TASEmulators/BizHawk/blob/bdddf4a58aa1a022afb11dc73294a81a5aa7bbd5/src/BizHawk.Emulation.Cores/Consoles/Sony/PSX/Octoshock.IDebuggable.cs), and [cooperative scheduling while paused](https://github.com/TASEmulators/BizHawk/blob/bdddf4a58aa1a022afb11dc73294a81a5aa7bbd5/src/BizHawk.Client.Common/lua/CommonLibs/EmulationLuaLibrary.cs). No upstream implementation code is bundled.
+
+The `MediEvilLiveMap-BizHawk-v1` mapping is 512 bytes: a 32-byte `<4s7I` little-endian header (`MLBH`, version, sequence, Unix seconds, running/paused/inactive status, segment count, two reserved zeros), followed by address/length-prefixed RAM bytes and zero padding. The exporter marks the mapping busy before copying, then publishes an even sequence; Python checks the header around its copy and reconstructs a sparse 2 MiB buffer for the existing USA decoder. It requires a producer advance and checks wall-clock plus monotonic freshness. RAM patches and emulator-control APIs are not part of this protocol.
+
+Before accepting native support in the Windows VM, check real movement/arrow direction and signed XYZ; pause/resume with a live exporter heartbeat; stop/restart the Lua script; save-state and cross-level loads; emulator restart; wrong game/revision; and refusal of multiple EmuHawk instances. Confirm the app and emulator run in the same Windows guest. Synthetic mappings and Lua API mocks do not establish these outcomes.
 
 ## Movement arrow
 

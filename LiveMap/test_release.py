@@ -22,6 +22,11 @@ class ReleaseTests(unittest.TestCase):
                 self.assertEqual(names,expected)
                 self.assertFalse(any(n.endswith(('.png','.bin','.sav','.cue','.state'))for n in names))
                 self.assertIn(b'first-run',z.read('MediEvil-Minimap/runner.py'))
+                self.assertIn('bizhawk.py',names)
+                self.assertIn('web/bizhawk.lua',names)
+                self.assertIn(b'mmfWriteBytes',z.read('MediEvil-Minimap/web/bizhawk.lua'))
+                self.assertNotIn('test_bizhawk.py',names)
+                self.assertNotIn('test_bizhawk_bridge.lua',names)
                 self.assertEqual((z.getinfo('MediEvil-Minimap/Open Minimap.command').external_attr>>16)&0o777,0o755)
             with self.assertRaises(ValueError):build.build(Path(tmp)/'output')
     def test_packaged_source_entry_points_import_without_checkout(self):
