@@ -1,0 +1,130 @@
+{
+  "scope": "USA static owner-specific publication and activation paths for six legacy optional entry/completion pairs. Code-backed design support only: no natural encounter-entry gameplay or actual ASL polling was verified here.",
+  "exe_sha1": "265ce5dc508002a339ae535e49a5b1b4e683b732",
+  "method": "Read actor-definition and action-table pointers from the identified overlays, then export selected constructors/initializers/updaters in disposable read-only Ghidra projects. HUD writers are discovery anchors, not universal event predicates.",
+  "sources": [
+    "/tmp/medievil-ghidra-memory-audit/ums-optional-C02N9X",
+    "/tmp/medievil-ghidra-memory-audit/ums-owners-jQYsXr",
+    "/tmp/medievil-ghidra-memory-audit/pumpkin-clean-output/overlay-audit.txt"
+  ],
+  "common_guards": [
+    "Supported USA layout, coherent adjacent snapshots in the same gameplay visit, exact level index/header and indexed descriptor ownership. Validate a declared level controller where present; Ghost Ship's descriptor declares zero bytes and initializes L to null.",
+    "The named publisher actor must have a live allocation, active-list membership, expected definition/constructor and a valid record. Actor-private data is an interior span at actor + 0x98, pointed to by actor + 0x90, with length u16 definition + 0x08; validate it inside the owning actor allocation rather than expecting another heap header. Linked actors need their own allocation/registration guards.",
+    "Initial attachment or an observation gap is a baseline, never an encounter entry. Pointer/class replacement is not by itself an activation event.",
+    "For publication-based timing retain the legacy rising HUD-active edge only after validating the level-specific publisher, native activation condition and caption/max binding. Do not use an unowned global HUD flag or HUD HP zero as the event.",
+    "Consume the level-entry key once per run. Its optional boss key belongs to later successful level completion, including the single global HoH placement."
+  ],
+  "hud_fields": {
+    "active": "u32 0x800F170C",
+    "input": "i32 0x800F1710; not an actor lifetime/death oracle",
+    "maximum": "i32 0x800F171C",
+    "caption": "u16 0x800F1720"
+  },
+  "encounters": [
+    {
+      "key": "stainedGlassDemon",
+      "level_index": 4,
+      "header": 7,
+      "overlay": "DC.BIN",
+      "owner": "DCDemonHeart (the native health-bar publisher), linked to the S.G.D. actor",
+      "publisher_definition": "0x8001B4B4",
+      "publisher_constructor": "0x80013354",
+      "linked_definition": "0x8001B330",
+      "linked_constructor": "0x800119AC",
+      "publisher_updater": "0x80013AC8; initial discovery export began at 0x80013AD0 and omits its scratch-owner load",
+      "condition": "Publisher action byte A + 0x5C != 11; linked actor is u32 private + 0x00. Updater publishes the heart's signed actor HP and definition maximum.",
+      "caption": "0x0E9D",
+      "maximum": 500,
+      "limits": "S.G.D. definition maximum is zero; do not mistake the glass actor's HP for the heart's health or the optional entry trigger. Natural approach/publication timing remains untested."
+    },
+    {
+      "key": "guardians",
+      "level_index": 2,
+      "header": 13,
+      "overlay": "GY2.BIN",
+      "owner": "Gy2StoneWolf reciprocal pair",
+      "definition": "0x80017878",
+      "constructor": "0x800112D0",
+      "initializer": "0x800115A4",
+      "updater": "0x80011B0C",
+      "record_ids": ["0xAC12", "0xAC13"],
+      "partner": "u32 private + 0x38; constructor resolves the other record ID",
+      "condition": "Signed-low-16 interpretation of (u16 first.HP + u16 second.HP - 10000) is positive. The native updater then publishes the pair bar, not an arbitrary single wolf's registration.",
+      "caption": "0x0EA2",
+      "maximum": "(definition maximum 5150 - 5000) * 4 == 600",
+      "limits": "Both actors and their reciprocal pair ownership must be checked. Actor existence alone does not establish that the updater has entered its publication branch."
+    },
+    {
+      "key": "antQueen",
+      "level_index": 7,
+      "header": 2,
+      "overlay": "AC.BIN",
+      "owner": "QueenAnt",
+      "definition": "0x8001A374",
+      "constructor": "0x8001215C",
+      "initializer": "0x80012320",
+      "updater": "0x800126D8",
+      "initial_action": 13,
+      "condition": "Owned QueenAnt action is not 13 (dormant), 11 or 20. Only this branch publishes its actor HP/definition maximum.",
+      "caption": "0x0E9E",
+      "maximum": 1000,
+      "limits": "Constructor/registration is too early: constructor explicitly requests dormant action 13."
+    },
+    {
+      "key": "pumpkinKing",
+      "level_index": 10,
+      "header": 20,
+      "overlay": "PS.BIN",
+      "owner": "PsMonster",
+      "definition": "0x8001AD48",
+      "constructor": "0x80013D70",
+      "initializer": "0x80013EE4",
+      "updater": "0x8001416C",
+      "private": "P = u32 actor + 0x90; sleep flag is i32 P + 0x04",
+      "initial_sleep": 1,
+      "activation": "When sleep == 1 and i32 L + 0x10 == 0, native updater writes phase L + 0x0C = 2, clears sleep to 0, and requests action 13. Its initializer can immediately replace phase 2 with 1.",
+      "entry_edge": "Same owned actor allocation and bounded private-data span: previous sleep 1 to current sleep 0. Do not require observing the transient level phase 2.",
+      "publication": "Awake branch with actor action != 11 publishes signed actor HP and definition maximum.",
+      "caption": "0x0EA7",
+      "maximum": 1100,
+      "limits": "Historical forced wake-gate setup is not natural gameplay activation evidence; HP/cache zero does not establish defeat."
+    },
+    {
+      "key": "wingedDemons",
+      "level_index": 15,
+      "header": 8,
+      "overlay": "EE.BIN",
+      "owner": "EeWingedDemon actors and their level controller",
+      "definition": "0x8001BDE0",
+      "constructor": "0x80016418",
+      "initializer": "0x80016550",
+      "updater": "0x80016698",
+      "condition": "i32 L + 0x14 == 1 and publisher actor action != 11. Updater stores the two indexed signed actor HP values at L + 0x10/+0x12 and sums nonnegative values for display.",
+      "caption": "0x10FE",
+      "maximum": "definition maximum 850 * 2 == 1700",
+      "limits": "Do not split on either actor's mere spawn; constructor uses distinct initial actions 13/21 for record subtype 0/1. Controller activation/publication is a separate guard."
+    },
+    {
+      "key": "pirateCaptain",
+      "level_index": 19,
+      "header": 11,
+      "overlay": "GS.BIN",
+      "owner": "GsPirateCapt, record subtype 1",
+      "definition": "0x8001583C",
+      "constructor": "0x800103B8",
+      "initializer": "0x8001059C",
+      "updater": "0x80010918; initial discovery export began at 0x80010920 and omits its scratch-owner load",
+      "level_controller": "None: indexed descriptor declares allocation size zero and constructor 0x80010148; require the initialized null L root, not an allocated controller",
+      "private": "P = u32 actor + 0x90; i32 P + 0x18 starts at zero",
+      "condition": "u8 record + 0x06 == 1, i32 P + 0x18 == 1, and actor action != 11. This updater branch publishes the Captain bar.",
+      "caption": "0x11EF",
+      "maximum": 400,
+      "limits": "Initial actor construction or action 14 is not sufficient; private activation state distinguishes pre-encounter existence from publication."
+    }
+  ],
+  "verification_limits": [
+    "These paths support static implementation, not a claim that all six natural entry sequences were executed.",
+    "The five publication-based conditions deliberately retain the intended legacy visible-entry timing while adding owner-specific evidence; actual asynchronous polling and bar-state lifetime remain unverified.",
+    "No boss-death, route legality, mandatory HoH visit or new category restriction is introduced."
+  ]
+}

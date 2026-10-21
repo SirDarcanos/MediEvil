@@ -7,9 +7,26 @@ entries do not select a version or authorize a release. See the
 
 ## Unreleased
 
+### MediSplit
+
+- Add a development Any%-only ASL with 17 fixed splits: 14 successful level
+  exits, then Fazguls, Kardok and Zarok. Keep only Autostart, Autosplit and Autoend
+  options, with no HoH delay or automatic reset; preserve both legacy scripts.
+- Use a directly editable script and existing cached-base/direct-field RAM
+  readers without emu-help, full-RAM snapshots or a generated-source workflow.
+  Actual LiveSplit/emulator gameplay validation remains outstanding.
+- Add a small MediEvil Recomp v0.2b RAM lookup for 64-bit ASL hosts with
+  `MemoryPages()`, retaining the same Any% route and three settings. Recomp
+  discovery and gameplay remain unverified.
+
 ### LiveMap
 
-- Add experimental Windows BizHawk support through a bundled read-only Lua bridge, alongside DuckStation and PCSX-Redux auto-detection. Native BizHawk gameplay verification remains pending.
+- Separate sampling, HTTP serving, movement tracking and fallback rendering;
+  share texture decoding and response/security handling without changing the
+  runner workflow, map format or controls.
+- Add experimental Windows BizHawk support through a bundled read-only Lua bridge,
+  alongside DuckStation and PCSX-Redux auto-detection. Native BizHawk gameplay
+  verification remains pending.
 
 ### Reference and research
 

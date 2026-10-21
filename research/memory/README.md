@@ -68,6 +68,8 @@ emulator. Matching game revision and starting-state prerequisites still apply.
 
 ## Evidence
 
+- `evidence/lifecycle-dispatch-code.json`: static allocator, persistent-game/title ownership and quit/death/completion dispatch fields for the unified splitter. Allocation headers complement owner guards; they do not supply an allocation generation counter or atomic polling proof.
+- `evidence/optional-encounter-code.json`: static, owner-specific activation/publication paths for the six optional legacy boss pairs. These preserve encounter-entry/completion timing; natural gameplay and actual ASL polling remain unverified.
 - `evidence/newgame-request-events.json`: guarded New Game acceptance packet at Vsync3 versus later title-flow completion at124; idle/attract and navigation controls do not match. The packet itself is generic, not a global New Game flag.
 - `evidence/kardok-arrival-events.json` / `evidence/kardok-damage-events.json`: assisted encounter preparation, then 113 native 6-HP damage events without boss HP writes.
 - `evidence/final-boss-events.json`: explicit 6-HP last-hit setup; native Kardok HP0/action11/HUD-active0, followed by phase/owner handoff to Zarok. This run did not finish Zarok.

@@ -4,6 +4,8 @@ import tempfile
 import unittest
 from unittest.mock import patch
 import stat
+import subprocess
+import sys
 import zipfile
 
 path=Path(__file__).with_name('release')/'build.py'
@@ -27,6 +29,23 @@ class ReleaseTests(unittest.TestCase):
                 self.assertNotIn('test_bizhawk_bridge.lua',names)
                 self.assertEqual((z.getinfo('MediEvil-Minimap/Open Minimap.command').external_attr>>16)&0o777,0o755)
             with self.assertRaises(ValueError):build.build(Path(tmp)/'output')
+    def test_packaged_source_entry_points_import_without_checkout(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            package = build.assemble(Path(tmp) / 'source package')
+            for entry_point in ('runner.py', 'app.py'):
+                with self.subTest(entry_point=entry_point):
+                    result = subprocess.run(
+                        [sys.executable, '-E', str(package / entry_point), '--help'],
+                        cwd=tmp, capture_output=True, text=True, timeout=10,
+                    )
+                    self.assertEqual(result.returncode, 0, result.stderr)
+                    self.assertIn('--gdb-port', result.stdout)
+            page = (package / 'web/index.html').read_text(encoding='utf-8')
+            for script in ('terrain.js', 'raster.js', 'movement.js', 'app.js'):
+                self.assertIn(f'src="/{script}"', page)
+                self.assertEqual((package / 'web' / script).read_bytes(),
+                                 (build.ROOT / 'web' / script).read_bytes())
+
     def test_windows_zip_metadata_still_marks_unix_launchers_executable(self):
         original=zipfile.ZipInfo.from_file
         def windows_info(filename,arcname=None,*,strict_timestamps=True):

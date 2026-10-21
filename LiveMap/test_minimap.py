@@ -2,6 +2,7 @@
 import http.client
 import json
 from pathlib import Path
+import re
 import struct
 import tempfile
 import threading
@@ -175,9 +176,8 @@ class HTTPTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.feed = app.Feed()
-        cls.server = app.ThreadingHTTPServer(('127.0.0.1', 0), app.make_handler(cls.feed, {'maps':[]}, 0))
+        cls.server = app.ThreadingHTTPServer(('127.0.0.1', 0), app.make_handler(cls.feed, {'maps':[]}))
         cls.port = cls.server.server_address[1]
-        cls.server.RequestHandlerClass = app.make_handler(cls.feed, {'maps':[]}, cls.port)
         cls.worker = threading.Thread(target=cls.server.serve_forever, daemon=True)
         cls.worker.start()
 
@@ -211,6 +211,18 @@ class HTTPTests(unittest.TestCase):
         self.assertEqual(body, (app.ROOT / 'web/marker.svg').read_bytes())
         self.assertTrue(body.startswith(b'<svg'))
         self.assertEqual(self.request('/dan.png', {'Origin':'https://evil.example'})[0], 403)
+
+    def test_page_script_dependencies_are_served_with_javascript_type(self):
+        status, _, page = self.request('/')
+        self.assertEqual(status, 200)
+        scripts = re.findall(rb'<script src="([^"]+)" defer></script>', page)
+        self.assertEqual(len(scripts), 4)
+        for script in scripts:
+            with self.subTest(script=script):
+                status, headers, body = self.request(script.decode())
+                self.assertEqual(status, 200)
+                self.assertEqual(headers['Content-Type'], 'text/javascript; charset=utf-8')
+                self.assertTrue(body.startswith(b"'use strict';"))
 
     def test_file_allowlist(self):
         for path in ('/../ram.py', '/research/boot_probe.lua', '/maps/../../EXE/MEDIEVIL.EXE'):

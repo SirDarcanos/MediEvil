@@ -179,8 +179,8 @@ class BridgeHTTPExamples(unittest.TestCase):
     def test_bridge_is_served_readonly_and_keeps_existing_host_restrictions(self):
         class Feed:
             def current(self):return {'status':'connecting'}
-        server=ThreadingHTTPServer(('127.0.0.1',0),app.make_handler(Feed(),{'maps':[]},0))
-        port=server.server_address[1];server.RequestHandlerClass=app.make_handler(Feed(),{'maps':[]},port)
+        server=ThreadingHTTPServer(('127.0.0.1',0),app.make_handler(Feed(),{'maps':[]}))
+        port=server.server_address[1]
         thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
         try:
             client=http.client.HTTPConnection('127.0.0.1',port,timeout=2)
