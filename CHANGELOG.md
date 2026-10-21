@@ -37,8 +37,10 @@ Unsigned preview, tagged
 [`livemap-v0.3.0`](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.3.0).
 
 - Add experimental Windows BizHawk support through a bundled read-only Lua bridge,
-  alongside DuckStation and PCSX-Redux auto-detection. Native BizHawk gameplay
-  verification remains pending ([#16](https://github.com/SirDarcanos/MediEvil/pull/16)).
+  alongside DuckStation and PCSX-Redux auto-detection
+  ([#16](https://github.com/SirDarcanos/MediEvil/pull/16)). The maintainer subsequently
+  confirmed it works on Windows 11 with the latest BizHawk release; individual
+  lifecycle and performance checks have not been reported.
 - Rewrite the player guide with setup steps for all three emulators, download
   choices, controls, upgrades and troubleshooting; separate developer details.
 - Separate sampling, HTTP serving, movement tracking and fallback rendering;

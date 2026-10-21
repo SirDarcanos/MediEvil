@@ -25,7 +25,7 @@ You provide your own emulator, BIOS and game. On first launch, select your game'
 | PCSX-Redux | Automatic detection of its normal RAM export | [Set up PCSX-Redux](RUNNERS.md#pcsx-redux-on-windows-linux-or-macos) |
 | BizHawk | Experimental Windows-only script, targeting 2.11.1 / Octoshock | [Set up BizHawk](RUNNERS.md#bizhawk-on-windows--experimental) |
 
-**Preview limits:** these apps are unsigned and may trigger security warnings. Actual Windows/Linux DuckStation gameplay and BizHawk's Windows gameplay/script behavior remain unverified. Build/startup checks are not gameplay tests. Try your setup before a timed run, and keep your computer's security protections enabled.
+**Preview limits:** these apps are unsigned and may trigger security warnings. The maintainer confirms BizHawk works on Windows 11 with the latest BizHawk release; individual script-lifecycle and performance checks have not been reported. Actual Windows/Linux DuckStation gameplay remains unverified. Build/startup checks are not gameplay tests. Try your setup before a timed run, and keep your computer's security protections enabled.
 
 Items and exits show positions stored in the level, not live collection or gate status. LiveMap reads the game without controlling it; no game assets, emulator, BIOS or saves are supplied.
 

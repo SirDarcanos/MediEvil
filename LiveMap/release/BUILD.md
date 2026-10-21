@@ -34,7 +34,7 @@ The [repository workflow](../../.github/workflows/livemap-build.yml) builds on e
 
 For the exact 0.3.0 build revision and CI results, see the [release notes](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.3.0). Build outputs retain their internal `MediEvil-Minimap-v1-*` names. Published downloads use `MediEvil-LiveMap-0.3.0-<platform>.zip`; rename without repacking and generate checksum files for the published names. Verify the packaged `README.md` matches `RUNNERS.md` at the release commit.
 
-**Stable-release gates still outstanding:** actual Windows/Linux DuckStation gameplay/lifecycle and code signing/notarization decisions. BizHawk remains experimental until native Windows/NLua gameplay and lifecycle checks pass; its [protocol and test gate](../DEVELOPMENT.md#experimental-bizhawk-bridge) describe the required checks. No fresh cross-platform PCSX-Redux gameplay verification is implied. Published previews must retain these limits and their unsigned status. Do not label the source ZIP as standalone or CI startup as full gameplay certification.
+**Stable-release gates still outstanding:** actual Windows/Linux DuckStation gameplay/lifecycle and code signing/notarization decisions. The maintainer confirms BizHawk works on Windows 11 with the latest release. It remains experimental: individual lifecycle and performance checks have not been reported; its [protocol and test gate](../DEVELOPMENT.md#experimental-bizhawk-bridge) describe those checks. No fresh cross-platform PCSX-Redux gameplay verification is implied. Published previews must retain these limits and their unsigned status. Do not label the source ZIP as standalone or CI startup as full gameplay certification.
 
 ## Maintainer release checks (not runner tasks)
 

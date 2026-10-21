@@ -2,7 +2,7 @@
 
 LiveMap opens a map in your browser and shows where Dan is while you play. It can follow him, show his movement direction, and display the level's items and exits.
 
-**This is an unsigned preview.** Try it before using it in a timed run. BizHawk support is experimental and has not yet been tested in actual Windows gameplay.
+**This is an unsigned preview.** Try it before using it in a timed run. Experimental BizHawk support has been user-tested successfully on Windows 11 with the latest BizHawk release.
 
 ## 1. What you need
 
@@ -71,7 +71,7 @@ PCSX-Redux's normal shared-memory connection is detected automatically. It does 
 
 ### BizHawk on Windows — experimental
 
-This connection targets **BizHawk 2.11.1 with Octoshock**. Actual BizHawk gameplay and its Lua-script behavior on Windows still need testing; it is not a verified alternative for a timed run yet.
+This connection targets **BizHawk 2.11.1 with Octoshock**. The maintainer confirms it works on **Windows 11** with the latest BizHawk release. This is a user-reported gameplay test, not a report covering every script-lifecycle or performance scenario. Try your own setup before a timed run.
 
 1. Open **one copy of EmuHawk**, BizHawk's main program, and load your USA game.
 2. Open **Tools → Lua Console** in BizHawk. Lua is the scripting feature used to share Dan's position with LiveMap.
@@ -183,6 +183,8 @@ CUE references must stay inside the CUE's folder; nonstandard pregaps are unsupp
 
 Build and startup checks can show that the app opens and includes its files. They do **not** prove that every emulator version works during gameplay. See the [0.3.0 release notes](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.3.0) for the checks performed on these downloads.
 
-Actual Windows/Linux DuckStation gameplay and lifecycle testing remains outstanding. BizHawk's Windows gameplay, Lua-script lifecycle and performance are also unverified. Earlier Mac DuckStation gameplay observations are historical, not a fresh test of 0.3.0. PCSX-Redux is an existing connection option, not a claim of new cross-platform gameplay testing for this release.
+Actual Windows/Linux DuckStation gameplay and lifecycle testing remains outstanding. The maintainer reports successful BizHawk gameplay on Windows 11 with the latest BizHawk release. Individual Lua-script lifecycle scenarios and performance checks have not been reported. Earlier Mac DuckStation gameplay observations are historical, not a fresh test of 0.3.0. PCSX-Redux is an existing connection option, not a claim of new cross-platform gameplay testing for this release.
+
+The published 0.3.0 ZIPs and release-tag guide predate the BizHawk confirmation and retain the older warning. The [release notes](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.3.0) record the updated result; the downloads and tag remain unchanged.
 
 LiveMap does not send controller input, patch game memory, change emulator settings or write saves. It has no telemetry reporting or external game-file upload. The downloads contain no emulator, BIOS, disc, extracted game assets, saves or RAM dumps. License and attribution notices are in the included `LICENSE.txt` and `THIRD_PARTY.md` files.
