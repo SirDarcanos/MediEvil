@@ -1,103 +1,188 @@
-# MediEvil live minimap — v1
+# MediEvil LiveMap 0.3.0 — player guide
 
-A textured top-down map with Dan’s live position, raw XYZ coordinates, items, static props and authored exits. Follow, pan and zoom work outside the normal level bounds, including native coordinate wraps.
+LiveMap opens a map in your browser and shows where Dan is while you play. It can follow him, show his movement direction, and display the level's items and exits.
 
-**Bring your own supported emulator, BIOS and MediEvil USA (SCUS-94227).** DuckStation and PCSX-Redux routes are retained; Windows BizHawk support is experimental. No game data or saves are supplied. The minimap never controls the game, patches RAM, changes DuckStation settings or writes save slots. There is no controller automation, telemetry reporting or external upload.
+**This is an unsigned preview.** Try it before using it in a timed run. BizHawk support is experimental and has not yet been tested in actual Windows gameplay.
 
-## Download and open — no commands to type
+## 1. What you need
 
-Get a native package from the [LiveMap preview release](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.2.0). Choose **Windows x64**, **macOS Apple Silicon/ARM64**, or **Linux x64**. These packages include Python; you do **not** install Python or any Python packages. Intel Macs and other architectures are not supplied in this preview.
+- Your own **MediEvil USA game, SCUS-94227**, and the BIOS needed by your emulator.
+- **DuckStation**, **PCSX-Redux**, or **BizHawk on Windows**. BizHawk's bridge targets version **2.11.1**, using its PlayStation core, **Octoshock**.
+- A current web browser and at least **2 GiB of free space** for first-time setup.
+- For making the maps: the game's **data-track BIN** (often called `Track 1.bin`) or an uncompressed, 2048-byte-sector **ISO**. CHD, other compressed images and other game revisions are not supported.
 
-1. Download the ZIP for your OS, not GitHub's automatic **Source code** download.
-2. Unzip the **whole folder**. Do not run files inside the ZIP, or move the executable away from its `_internal` folder.
-3. Start the minimap:
-   - **Windows:** double-click **`MediEvilMinimap.exe`**. `Open Minimap.cmd` is an alternative.
-   - **macOS:** double-click **`Open Minimap.command`**. A Terminal window appears automatically; you do not type commands.
-   - **Linux:** open **`MediEvilMinimap`**, or use `open-minimap.sh`.
-4. Your browser opens the map/setup page. Keep any launcher/console window open while using it.
+An emulator runs the game; LiveMap only reads its position. LiveMap does not include an emulator, BIOS, game, saves or maps. It creates the maps from your own game file.
 
-The default address is `http://127.0.0.1:8768`. On Windows, close the minimap's console window to quit. On Mac/Linux, Ctrl-C in its launcher window stops it. Closing only the browser tab does not stop the local map process. DuckStation stays open, although GDB disconnects can affect its pause state.
+## 2. Download and open LiveMap
 
-**Unsigned preview:** your OS may show a publisher/security warning. Do not disable OS security protections; report the exact warning if the download is blocked.
+Open the [LiveMap 0.3.0 download page](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.3.0). Under **Assets**, choose the ZIP for your computer:
 
-### Source edition (optional)
+| Your computer | Download name | File to open after extracting |
+| --- | --- | --- |
+| Windows, x64 | `MediEvil-LiveMap-0.3.0-windows-x64.zip` | `MediEvilMinimap.exe` |
+| Mac with Apple Silicon (M-series), using DuckStation | `MediEvil-LiveMap-0.3.0-macos-arm64.zip` | `Open Minimap.command` |
+| Mac with Apple Silicon (M-series), using PCSX-Redux | Same Mac ZIP | `MediEvilMinimap` |
+| Linux, x64 | `MediEvil-LiveMap-0.3.0-linux-x64.zip` | `MediEvilMinimap` or `open-minimap.sh` |
 
-The separately named **source ZIP requires Python 3.10+**, from python.org or your package manager. It needs no Python packages. Its OS launchers are `Open Minimap.cmd`, `Open Minimap.command` and `open-minimap.sh`. Most runners should use a native download above instead.
+Intel Macs and other computer types do not have a ready-to-run download in this release. **Python is included** in the three platform ZIPs. GitHub's **Source code** downloads are for developers and need a separate Python installation.
 
-## Configure DuckStation
+1. Extract the **whole ZIP** into a new folder. Do not open the app from inside the ZIP.
+2. Keep all its files together, including the `_internal` folder.
+3. Open the file listed in the table. A browser page and a console or Terminal window may appear.
+4. Keep the console or Terminal window open while using LiveMap.
 
-### Windows and Linux — preferred non-pausing connection
+The app uses a page on your own computer, normally `http://127.0.0.1:8768`. If the browser does not open, copy the address shown in the console into your browser.
 
-In DuckStation, enable **Settings → Advanced → Show Debug Menu**, then **Debugging → Export Shared Memory**. Restart DuckStation and load your game. Use the same OS user for the emulator and minimap; no administrator access is needed.
+### If your computer shows a security warning
 
-Older builds may need `[Hacks] ExportSharedMemory = true` in their existing settings file. Back it up before editing. Do not enable GDB for the normal Windows/Linux connection.
+These downloads are **unsigned**: Windows or macOS may not recognize their publisher. Download only from this repository's release page. Do not disable your computer's security protections to run them. If opening is blocked, report the exact warning and your operating system in the [issue tracker](https://github.com/SirDarcanos/MediEvil/issues).
 
-### macOS — explicit GDB fallback
+## 3. Connect your emulator
 
-Enable **Show Debug Menu**, then **Debugging → Enable GDB Server**, port **2345**. The Mac launcher uses that port. **DuckStation may pause when the map connects: resume it manually.** The map sends memory reads and acknowledgements only, never pause/resume, step, breakpoint or write commands. DuckStation can also change pause state on disconnect; check the game after closing the map. GDB may affect emulator debugging/achievement modes.
+Keep only the emulator you want to track open. Follow the section for that emulator; you do not need to configure all three.
 
-For a different configured port, run `python3 runner.py --gdb-port 3456 --open` (or use the standalone executable with those arguments).
+### DuckStation on Windows or Linux
 
-## Configure Windows BizHawk (experimental)
+1. In DuckStation, open **Settings → Advanced** and enable **Show Debug Menu**.
+2. Enable **Debugging → Export Shared Memory**. This lets LiveMap read the game's position.
+3. Restart DuckStation, then load your game.
+4. Open LiveMap using the Windows or Linux file listed above.
 
-This new source-tree integration targets **BizHawk 2.11.1 / PS1 Octoshock**. It is not included in the previously published 0.2.0 downloads. **Native BizHawk/NLua and Windows gameplay verification are pending.**
+Run both apps under the same computer user account. Administrator access is not needed. Leave DuckStation's GDB server off for this connection.
 
-1. Run Windows LiveMap **inside the same Windows session or UTM guest as BizHawk**, under the same OS user. The Mac app cannot open a Windows VM's named mappings.
-2. Keep one EmuHawk instance open and load your own USA game.
-3. In **Tools → Lua Console**, open `web/bizhawk.lua` from the LiveMap folder. Alternatively download it using LiveMap's **BizHawk Lua bridge** link. Keep only one copy of this script running.
-4. Open LiveMap normally. The runner now defaults to auto-detection. For explicit source selection use `python3 runner.py --emulator bizhawk --open`; existing `--emulator duckstation` and `--emulator redux` selections still work.
+### DuckStation on macOS
 
-The Lua script reads only small ranges of the `MainRAM` domain. It publishes a 512-byte host mapping using BizHawk's native communication API; it never writes game RAM, presses buttons, advances frames or pauses/resumes emulation. LiveMap opens that existing mapping read-only. Paused scripts keep a heartbeat; stopped, stale or malformed exports hide Dan rather than retaining a false live position. You must observe a producer update before a newly opened bridge is admitted.
+1. In DuckStation, enable **Settings → Advanced → Show Debug Menu**.
+2. Enable **Debugging → Enable GDB Server**, using port **2345**. This is the connection LiveMap uses on Mac.
+3. Load your game, then open **`Open Minimap.command`** from the extracted LiveMap folder.
+4. **If DuckStation pauses when LiveMap connects, resume the game yourself.**
 
-Because this bridge is shared, multiple EmuHawk processes are refused even when `--pid` is supplied. Close the extras instead. If the script is stopped, reload it in the Lua Console. On unsupported cores/domains it exports an inactive status. No BizHawk, BIOS, Windows, UTM or Lua dependency is installed automatically. Other BizHawk platforms are not implemented.
+The Mac launcher is configured for DuckStation on port 2345. DuckStation may also change its pause state when LiveMap closes, so check the game afterward. This debugging connection may affect emulator debugging or achievement modes. LiveMap itself never sends pause, resume or memory-write commands.
 
-### PCSX-Redux
+### PCSX-Redux on Windows, Linux or macOS
 
-Use a normal PCSX-Redux build with its standard named RAM export. Auto-detection or `--emulator redux` selects it without a Lua script or debugger. When several supported emulators are open, close the others or select a backend explicitly. The Mac DuckStation launcher still requests its existing GDB fallback; use the Redux source invocation/executable without `--gdb-port` for Redux.
+1. Open PCSX-Redux and load your USA game.
+2. Close other supported emulators so LiveMap can choose PCSX-Redux.
+3. Open **`MediEvilMinimap.exe`** on Windows or **`MediEvilMinimap`** on Linux/Mac. On Linux, `open-minimap.sh` also works.
 
-## First launch: make your maps
+PCSX-Redux's normal shared-memory connection is detected automatically. It does not need the BizHawk script or DuckStation's GDB setting. Use a normal build that provides its standard RAM export.
 
-1. In the setup page, select your game’s **data-track BIN** (usually `Track 1.bin`) or a 2048-byte **ISO**.
-2. Click **Extract my maps**. The file goes only to the local `127.0.0.1` server. The app checks the USA executable revision, extracts geometry and original textures, and caches all 25 maps.
-3. Once extraction finishes, the map opens. Enter a level or load **your own** save; Dan appears automatically. No special savestate or controller type is required.
+**On Mac, do not use `Open Minimap.command` for PCSX-Redux:** that launcher selects DuckStation's debugging connection. Open `MediEvilMinimap` directly instead.
 
-For BIN/CUE games, choose the data BIN—not the CUE text file or audio BIN. To import a CUE directly without browser upload, run `python3 runner.py --import-game "/path/to/game.cue" --open`. CUE paths must stay inside its folder. CHD, compressed images, nonstandard pregaps and other game revisions are not supported in v1; use a supported data track instead. Keep at least 2 GiB free for temporary import work and generated maps. Temporary source files are removed when an import completes or fails normally; a forcibly killed process may leave temporary files in its cache.
+### BizHawk on Windows — experimental
 
-Next time, just open the minimap. You do not select the image again.
+This connection targets **BizHawk 2.11.1 with Octoshock**. Actual BizHawk gameplay and its Lua-script behavior on Windows still need testing; it is not a verified alternative for a timed run yet.
 
-Generated game assets stay on your machine:
+1. Open **one copy of EmuHawk**, BizHawk's main program, and load your USA game.
+2. Open **Tools → Lua Console** in BizHawk. Lua is the scripting feature used to share Dan's position with LiveMap.
+3. In the Lua Console, open **`bizhawk.lua`** from the **`web`** folder inside your extracted LiveMap folder. You can also save it using the **BizHawk Lua bridge** link on LiveMap's page.
+4. Keep **one copy of the script running**. If you stop it, load/run it again to reconnect.
+5. Open the **Windows** LiveMap app, `MediEvilMinimap.exe`.
 
-- Windows: `%LOCALAPPDATA%\MediEvilMinimap`
-- macOS: `~/Library/Application Support/MediEvilMinimap`
-- Linux: `$XDG_DATA_HOME/medievil-minimap` or `~/.local/share/medievil-minimap`
+Both apps must run under the same user in the **same Windows session**. If BizHawk is inside a Windows virtual machine, run Windows LiveMap inside that machine too. The Mac app cannot connect to BizHawk running inside Windows.
 
-Do not redistribute your generated cache. Nothing is written beside your disc, BIOS, memory cards or saves.
+Only one EmuHawk instance can use this bridge at a time. Close extra instances rather than trying to select one. The script reads game memory and shares a small copy with LiveMap; it does not change the game, press buttons or advance frames. A stopped or stale connection hides Dan's marker.
 
-## During a run
+BizHawk connections on macOS and Linux are not implemented. LiveMap does not install BizHawk, Lua, Windows or virtual-machine software for you.
 
-Choose **Follow Dan** to keep the marker centered. Use the wheel or +/− to zoom, drag to pan, and **Fit level** to see the whole map. Textured terrain is the default; simple colours and height shading are alternatives. A neutral circle marks Dan; no copyrighted portrait is bundled.
+## 4. First-time setup: create your maps
 
-Items and props show **authored static placements**, not collected-item or enemy tracking. Exit areas do not tell you whether a gate/script is ready. Map coordinates remain raw rather than being clamped to the level.
+1. On LiveMap's setup page, choose your game's **data-track BIN** or supported **ISO**.
+2. For a BIN/CUE game, choose the BIN containing game data, usually **Track 1**. Do not select the CUE file or an audio track in the browser.
+3. Click **Extract my maps** and wait for it to finish. LiveMap checks the game revision and creates all **25 maps**, including their textures.
+4. Enter a level in your emulator, or load your own save. The map can then show Dan.
 
-If the connection disappears, the marker is hidden rather than presented as live. Pause/reset/state-load/restart behavior depends on the emulator; let the map reconnect, then check the level label.
+Your game file goes only to LiveMap on **this computer**. It is not uploaded to an external website. LiveMap does not change your game file, BIOS, memory cards or saves. No special save or controller type is needed.
 
-## If it does not connect
+Next time, open LiveMap and your emulator. You do not need to select the game file again.
 
-- Start your selected emulator and enter a level; menus/loading screens may have no Dan actor. For BizHawk, keep the bundled Lua bridge running.
-- Check the USA revision and connection setting above. Shared memory requires an emulator restart after enabling it.
-- Windows/Linux sandboxed emulator installs may hide the export. Use a normal installation or an explicitly configured GDB fallback.
-- If several supported emulators are open, close the extras or use `--emulator duckstation --pid NUMBER` (not with GDB).
-- If port 8768 is occupied, add `--port 0` to choose an available local port, or open an already-running copy’s browser address.
-- If the browser lost its connection, keep the launcher open and reload the page.
+## 5. Use the map
 
-### Recover a damaged map cache
+- **Follow Dan** keeps his marker centered. Drag the map to look elsewhere.
+- Use your mouse wheel or **+ / −** to zoom. **Fit level** shows the whole level.
+- The **green arrow** shows the direction Dan is moving, not where he is facing. It disappears when he stops, pauses or loses a fresh connection.
+- Choose textured terrain, simple colours or height shading using the map's controls.
+- Items, props and exits show positions stored in the level. **Items can remain shown after you collect them.** Hidden or conditional items may also appear; enemies and dropped items are not tracked.
+- Exit areas do not tell you whether a gate or script is currently ready.
+- The coordinate numbers are the game's X, Y and Z values. Tracking can continue outside the visible level; use **Follow Dan** to find the marker again.
 
-If startup reports a missing/invalid map manifest or map file, changing the port will not fix it. Close **only the minimap**, then open its app-data folder listed above. Rename **only its generated `maps` folder** to a new name such as `maps.backup-2026-10-18` (choose a name that does not already exist). Leave the backup, your game image, BIOS, DuckStation folders and save files alone.
+After a reset, save-state load or level change, let LiveMap reconnect and check the level label. If it loses the connection, it hides Dan rather than showing an old position as live.
 
-Open the minimap again. With `maps` absent, first-time setup returns; select your own disc image to rebuild. The old generated maps stay preserved in the renamed folder. Do not try `--import-game` to overwrite a broken cache: v1 deliberately preserves an existing cache instead of replacing it.
+### Close LiveMap
 
-## Current validation limits
+On Windows, close LiveMap's console window. On Mac/Linux, press **Ctrl+C** in its console or Terminal window. Closing only the browser tab leaves LiveMap running. Your emulator stays open; with DuckStation's GDB connection, check whether the game has paused.
 
-These are **unsigned runner-preview candidates**, not a claim that every OS/emulator version has been certified. Bundled-Python Windows x64, Linux x64 and macOS ARM64 builds passed native tests and frozen startup/resource checks in [CI run 39139164216](https://github.com/SirDarcanos/MediEvil/actions/runs/39139164216). The initial Mac candidate (same runtime code as the archive-permission repair) also completed local disc extraction, textured rendering and cached restart. Actual macOS DuckStation read-only tracking and a natural Crystal Caves full-loop/landing were demonstrated separately. **Actual Windows/Linux DuckStation gameplay and lifecycle verification is still required.** A source ZIP still requires Python; choose the matching native package to avoid that requirement. Do a smoke run on your exact emulator/build before relying on it in a timed run.
+## 6. Upgrade or fix a problem
 
-No emulator, BIOS, disc, extracted game assets, savestates, RAM dumps, research scripts or tests are included in the runner package. See `THIRD_PARTY.md` for format-source notices.
+### Upgrade from an earlier preview
+
+Close LiveMap, extract the new ZIP into a **new folder**, and open the new copy. Keep the old folder until you have checked the new version. Your saved maps live separately from the app, so existing maps normally load without another import. Use the **new bundled script** for BizHawk.
+
+### The map cannot find Dan
+
+- Check that the game is **MediEvil USA, SCUS-94227**, and enter a level. Menus and loading screens may have no position to show.
+- Check the instructions for your emulator above. DuckStation needs a restart after enabling shared memory; BizHawk needs its script running.
+- Close other supported emulators. For BizHawk, keep one EmuHawk instance and one script.
+- Keep the LiveMap console open, then reload the browser page.
+- If you use a sandboxed emulator package on Windows/Linux, it may hide the shared-memory connection. Try a normal installation under the same user account.
+
+### LiveMap says its address is already in use
+
+An older copy may still be running. Close that copy, or use the browser address it printed. Advanced users can start LiveMap with `--port 0` to choose a free local port; see the command examples below.
+
+### Find your saved maps
+
+LiveMap stores generated maps in its own app-data folder:
+
+| System | Folder | How to open it |
+| --- | --- | --- |
+| Windows | `%LOCALAPPDATA%\MediEvilMinimap` | Paste this path into File Explorer's address bar. |
+| macOS | `~/Library/Application Support/MediEvilMinimap` | In Finder, choose **Go → Go to Folder** and paste the path. |
+| Linux | `$XDG_DATA_HOME/medievil-minimap`, or `~/.local/share/medievil-minimap` when that variable is not set | Open the location in your file manager. |
+
+These files contain data from your game. Keep them private; do not redistribute them. Temporary import copies are removed after a normal success or failure. Force-quitting during import can leave temporary files in this app-data folder.
+
+### Rebuild damaged maps without losing the old copy
+
+If LiveMap reports a missing or invalid map file:
+
+1. Close **only LiveMap**.
+2. Open its app-data folder using the table above.
+3. Rename **only the `maps` folder** to a new, unused name, such as `maps.backup-1`. Keep that backup.
+4. Reopen LiveMap. First-time setup returns; select your own game file again.
+
+Leave your emulator, game, BIOS and save folders alone. Changing the connection port will not repair maps. LiveMap deliberately does not overwrite an existing map cache, so `--import-game` is not a shortcut for this repair.
+
+### Optional: commands and source downloads
+
+Most players can use the platform ZIPs without typing commands. The source edition needs **Python 3.10 or newer** and no extra Python packages.
+
+Open a terminal in the extracted app folder. With a standalone download, use `.\MediEvilMinimap.exe` on Windows or `./MediEvilMinimap` on Mac/Linux in place of `python3 runner.py` below. With Windows source, use `py -3 runner.py`.
+
+```sh
+# Choose an emulator explicitly:
+python3 runner.py --emulator duckstation --open
+python3 runner.py --emulator redux --open
+python3 runner.py --emulator bizhawk --open
+
+# DuckStation on Mac, or an explicitly configured GDB connection:
+python3 runner.py --gdb-port 2345 --open
+
+# Choose a free browser address:
+python3 runner.py --port 0 --open
+
+# Import a CUE file directly instead of selecting a BIN in the browser:
+python3 runner.py --import-game "/path/to/game.cue" --open
+```
+
+For DuckStation on Mac, include `--gdb-port 2345` when combining options, or use your configured GDB port instead. Do not combine `--gdb-port` with Redux or BizHawk. `--pid NUMBER` can select a DuckStation/Redux process, but cannot select among multiple BizHawk instances and cannot be combined with GDB.
+
+CUE references must stay inside the CUE's folder; nonstandard pregaps are unsupported. Older DuckStation builds may need `[Hacks] ExportSharedMemory = true` in their existing settings file; back it up before editing. Prefer the menu setting when available.
+
+## 7. What this preview does and does not verify
+
+Build and startup checks can show that the app opens and includes its files. They do **not** prove that every emulator version works during gameplay. See the [0.3.0 release notes](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.3.0) for the checks performed on these downloads.
+
+Actual Windows/Linux DuckStation gameplay and lifecycle testing remains outstanding. BizHawk's Windows gameplay, Lua-script lifecycle and performance are also unverified. Earlier Mac DuckStation gameplay observations are historical, not a fresh test of 0.3.0. PCSX-Redux is an existing connection option, not a claim of new cross-platform gameplay testing for this release.
+
+LiveMap does not send controller input, patch game memory, change emulator settings or write saves. It has no telemetry reporting or external game-file upload. The downloads contain no emulator, BIOS, disc, extracted game assets, saves or RAM dumps. License and attribution notices are in the included `LICENSE.txt` and `THIRD_PARTY.md` files.
