@@ -1,0 +1,3 @@
+# Private local agent execution logs and delegated conversation artifacts.
+.pi/tasks/
+.pi/delegate/

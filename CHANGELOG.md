@@ -7,6 +7,18 @@ entries do not select a version or authorize a release. See the
 
 ## Unreleased
 
+### MediSplit
+
+- Add a development Any%-only ASL with 17 fixed splits: 14 successful level
+  exits, then Fazguls, Kardok and Zarok. Keep only Autostart, Autosplit and Autoend
+  options, with no HoH delay or automatic reset; preserve both legacy scripts.
+- Use a directly editable script and existing cached-base/direct-field RAM
+  readers without emu-help, full-RAM snapshots or a generated-source workflow.
+  Actual LiveSplit/emulator gameplay validation remains outstanding.
+- Add a small MediEvil Recomp v0.2b RAM lookup for 64-bit ASL hosts with
+  `MemoryPages()`, retaining the same Any% route and three settings. Recomp
+  discovery and gameplay remain unverified.
+
 ### Reference and research
 
 - Expand the USA typed-address reference and retain reusable memory-audit tools,
