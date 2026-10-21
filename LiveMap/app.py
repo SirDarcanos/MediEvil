@@ -49,7 +49,7 @@ class Feed:
 
 def make_handler(feed, maps, port, maps_dir=None):
     maps_dir = Path(maps_dir) if maps_dir is not None else ROOT / 'data/maps'
-    files = {'/':'index.html', '/app.js':'app.js', '/terrain.js':'terrain.js', '/style.css':'style.css', '/dan.png':'dan.png'}
+    files = {'/':'index.html', '/app.js':'app.js', '/terrain.js':'terrain.js', '/style.css':'style.css', '/dan.png':'dan.png', '/bizhawk.lua':'bizhawk.lua'}
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, *args):
             pass
@@ -77,7 +77,7 @@ def make_handler(feed, maps, port, maps_dir=None):
                     payload = file.read_bytes()
                 except FileNotFoundError:
                     self.send_error(404); return
-                kind = {'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.png':'image/png','.svg':'image/svg+xml'}[file.suffix]
+                kind = {'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.png':'image/png','.svg':'image/svg+xml','.lua':'text/plain; charset=utf-8'}[file.suffix]
             else:
                 candidates = {f'/maps/{m["code"]}.json':m['file'] for m in maps['maps']}
                 if route not in candidates:
@@ -108,7 +108,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--port', type=int, default=8768)
     parser.add_argument('--pid', type=int, help='Select an emulator process when more than one is running')
-    parser.add_argument('--emulator', choices=('auto', 'duckstation', 'redux'), default='auto',
+    parser.add_argument('--emulator', choices=('auto', 'duckstation', 'redux', 'bizhawk'), default='auto',
                         help='Auto-detect supported emulators, or restrict discovery to one kind')
     parser.add_argument('--gdb-port', type=int,
                         help='Explicit loopback GDB fallback. Attachment may pause DuckStation; resume manually. No control commands are sent.')
@@ -122,8 +122,8 @@ def main():
     if args.gdb_port is not None:
         if not 1 <= args.gdb_port <= 65535 or args.gdb_port == args.port:
             parser.error('GDB port must be 1–65535 and different from the map port')
-        if args.pid is not None or args.snapshot or args.emulator == 'redux':
-            parser.error('--gdb-port cannot be combined with --pid, --snapshot, or --emulator redux')
+        if args.pid is not None or args.snapshot or args.emulator not in ('auto', 'duckstation'):
+            parser.error('--gdb-port requires auto/DuckStation and cannot be combined with --pid or --snapshot')
         print('GDB fallback: DuckStation may pause when attached. Resume it manually. The map sends memory reads only.', flush=True)
     manifest = ROOT / 'data/maps/manifest.json'
     if not manifest.exists():

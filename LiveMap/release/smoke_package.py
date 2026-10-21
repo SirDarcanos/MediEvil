@@ -76,8 +76,10 @@ def smoke(archive):
             if state['ready']or state['busy']:raise RuntimeError('Empty-cache setup was not isolated')
             with urllib.request.urlopen(url+'/dan.png',timeout=5)as response:
                 if response.headers.get_content_type()!='image/svg+xml' or b'<svg'not in response.read():raise RuntimeError('Bundled neutral marker unavailable')
-            return {'standalone_startup':True,'bundled_setup_and_marker':True,'root_python_source_removed':True,
-                'no_emulator_started':True,'duckstation_gameplay_verified':False,'platform':sys.platform}
+            with urllib.request.urlopen(url+'/bizhawk.lua',timeout=5)as response:
+                if response.headers.get_content_type()!='text/plain' or b'mmfWriteBytes'not in response.read():raise RuntimeError('Bundled BizHawk Lua bridge unavailable')
+            return {'standalone_startup':True,'bundled_setup_and_marker':True,'bundled_bizhawk_bridge':True,'root_python_source_removed':True,
+                'no_emulator_started':True,'duckstation_gameplay_verified':False,'bizhawk_gameplay_verified':False,'platform':sys.platform}
         finally:
             child.terminate()
             try:child.wait(timeout=10)

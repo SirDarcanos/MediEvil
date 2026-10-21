@@ -7,6 +7,10 @@ entries do not select a version or authorize a release. See the
 
 ## Unreleased
 
+### LiveMap
+
+- Add experimental Windows BizHawk support through a bundled read-only Lua bridge, alongside DuckStation and PCSX-Redux auto-detection. Native BizHawk gameplay verification remains pending.
+
 ### Reference and research
 
 - Expand the USA typed-address reference and retain reusable memory-audit tools,

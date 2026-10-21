@@ -2,11 +2,11 @@
 
 A textured top-down map with Dan’s live position, raw XYZ coordinates, items, static props and authored exits. Follow, pan and zoom work outside the normal level bounds, including native coordinate wraps.
 
-**Bring your own DuckStation, BIOS and MediEvil USA (SCUS-94227).** No game data or saves are supplied. The minimap never controls the game, patches RAM, changes DuckStation settings or writes save slots. There is no controller automation, telemetry reporting or external upload.
+**Bring your own supported emulator, BIOS and MediEvil USA (SCUS-94227).** DuckStation and PCSX-Redux routes are retained; Windows BizHawk support is experimental. No game data or saves are supplied. The minimap never controls the game, patches RAM, changes DuckStation settings or writes save slots. There is no controller automation, telemetry reporting or external upload.
 
 ## Download and open — no commands to type
 
-Get a native package from the [LiveMap preview release](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.1.0-preview.1). Choose **Windows x64**, **macOS Apple Silicon/ARM64**, or **Linux x64**. These packages include Python; you do **not** install Python or any Python packages. Intel Macs and other architectures are not supplied in this preview.
+Get a native package from the [LiveMap preview release](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.2.0). Choose **Windows x64**, **macOS Apple Silicon/ARM64**, or **Linux x64**. These packages include Python; you do **not** install Python or any Python packages. Intel Macs and other architectures are not supplied in this preview.
 
 1. Download the ZIP for your OS, not GitHub's automatic **Source code** download.
 2. Unzip the **whole folder**. Do not run files inside the ZIP, or move the executable away from its `_internal` folder.
@@ -38,6 +38,23 @@ Enable **Show Debug Menu**, then **Debugging → Enable GDB Server**, port **234
 
 For a different configured port, run `python3 runner.py --gdb-port 3456 --open` (or use the standalone executable with those arguments).
 
+## Configure Windows BizHawk (experimental)
+
+This new source-tree integration targets **BizHawk 2.11.1 / PS1 Octoshock**. It is not included in the previously published 0.2.0 downloads. **Native BizHawk/NLua and Windows gameplay verification are pending.**
+
+1. Run Windows LiveMap **inside the same Windows session or UTM guest as BizHawk**, under the same OS user. The Mac app cannot open a Windows VM's named mappings.
+2. Keep one EmuHawk instance open and load your own USA game.
+3. In **Tools → Lua Console**, open `web/bizhawk.lua` from the LiveMap folder. Alternatively download it using LiveMap's **BizHawk Lua bridge** link. Keep only one copy of this script running.
+4. Open LiveMap normally. The runner now defaults to auto-detection. For explicit source selection use `python3 runner.py --emulator bizhawk --open`; existing `--emulator duckstation` and `--emulator redux` selections still work.
+
+The Lua script reads only small ranges of the `MainRAM` domain. It publishes a 512-byte host mapping using BizHawk's native communication API; it never writes game RAM, presses buttons, advances frames or pauses/resumes emulation. LiveMap opens that existing mapping read-only. Paused scripts keep a heartbeat; stopped, stale or malformed exports hide Dan rather than retaining a false live position. You must observe a producer update before a newly opened bridge is admitted.
+
+Because this bridge is shared, multiple EmuHawk processes are refused even when `--pid` is supplied. Close the extras instead. If the script is stopped, reload it in the Lua Console. On unsupported cores/domains it exports an inactive status. No BizHawk, BIOS, Windows, UTM or Lua dependency is installed automatically. Other BizHawk platforms are not implemented.
+
+### PCSX-Redux
+
+Use a normal PCSX-Redux build with its standard named RAM export. Auto-detection or `--emulator redux` selects it without a Lua script or debugger. When several supported emulators are open, close the others or select a backend explicitly. The Mac DuckStation launcher still requests its existing GDB fallback; use the Redux source invocation/executable without `--gdb-port` for Redux.
+
 ## First launch: make your maps
 
 1. In the setup page, select your game’s **data-track BIN** (usually `Track 1.bin`) or a 2048-byte **ISO**.
@@ -66,7 +83,7 @@ If the connection disappears, the marker is hidden rather than presented as live
 
 ## If it does not connect
 
-- Start DuckStation and enter a level; menus/loading screens may have no Dan actor.
+- Start your selected emulator and enter a level; menus/loading screens may have no Dan actor. For BizHawk, keep the bundled Lua bridge running.
 - Check the USA revision and connection setting above. Shared memory requires an emulator restart after enabling it.
 - Windows/Linux sandboxed emulator installs may hide the export. Use a normal installation or an explicitly configured GDB fallback.
 - If several supported emulators are open, close the extras or use `--emulator duckstation --pid NUMBER` (not with GDB).

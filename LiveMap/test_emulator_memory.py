@@ -56,10 +56,11 @@ class WindowsMappingExamples(unittest.TestCase):
 
     def test_windows_names_include_release_and_arm_builds(self):
         names = [(1, 'duckstation-qt-x64-ReleaseLTCG.exe'), (2, 'DuckStation-qt-arm64.exe'),
-                 (3, 'python.exe'), (4, 'PCSX-Redux.exe')]
+                 (3, 'python.exe'), (4, 'PCSX-Redux.exe'), (5, 'EmuHawk.exe')]
         with patch('emulator_memory.process_names', return_value=names):
             self.assertEqual(memory.emulator_pids('duckstation'), [1, 2])
             self.assertEqual(memory.emulator_pids('redux'), [4])
+            self.assertEqual(memory.emulator_pids('bizhawk'), [5])
 
 
 @unittest.skipIf(sys.platform == 'win32', 'POSIX fixture; native Windows smoke is separate')

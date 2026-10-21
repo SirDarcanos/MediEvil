@@ -290,7 +290,7 @@ function update() {
   let message=connected?(state?.message||'Connecting…'):'Map server disconnected. No live position.';
   if(connected&&state?.position&&geometry&&state.level!==geometry.table_index)message='Map preview — this is not Dan’s current level.';
   if(p&&(p[0]<geometry.bounds[0][0]||p[0]>geometry.bounds[0][1]||p[2]<geometry.bounds[2][0]||p[2]>geometry.bounds[2][1]))message='Outside map geometry · tracking continues. Use Follow Dan to centre.';
-  const emulatorName={duckstation:'DuckStation','duckstation-gdb':'DuckStation (GDB)',redux:'PCSX-Redux'}[state?.emulator];
+  const emulatorName={duckstation:'DuckStation','duckstation-gdb':'DuckStation (GDB)',redux:'PCSX-Redux',bizhawk:'BizHawk (Lua bridge)'}[state?.emulator];
   if(connected&&emulatorName)message=emulatorName+' · '+message;
   $('message').textContent=message;draw();
 }
