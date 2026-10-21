@@ -39,8 +39,10 @@ jobs:
           python-version: ${{ matrix.python }}
       - name: Source tests without third-party runtime dependencies
         run: python -m unittest discover -s . -p 'test_*.py'
-      - name: Browser script syntax
-        run: node --check web/app.js && node --check web/terrain.js && node --check web/setup.js
+      - name: Browser logic and script syntax
+        run: |
+          node --test web/test_*.cjs
+          for script in web/*.js; do node --check "$script"; done
 
   standalone:
     runs-on: ${{ matrix.os }}

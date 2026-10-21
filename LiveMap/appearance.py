@@ -4,13 +4,8 @@ FrogLord VLO/CLUT, MediEvil vertex and PTME formats; see THIRD_PARTY.md.
 These markers do not represent runtime availability or scripted/dropped items.
 """
 import struct
-from collections import Counter
-
-
-def region(data, offset, size):
-    if offset < 0 or size < 0 or offset > len(data) - size:
-        raise ValueError('Appearance data extends beyond resource')
-    return memoryview(data)[offset:offset + size]
+from binary import region
+from vlo import psx_colour, read_vlo
 
 
 def vertex_colour(packed):
@@ -19,61 +14,20 @@ def vertex_colour(packed):
             ((packed & 0x700) >> 3) | ((packed & 3) << 3)]
 
 
-def psx_colour(pixel):
-    return [((pixel >> shift) & 31) * 255 // 31 for shift in (0, 5, 10)]
-
-
 def vlo_colours(data):
     """Pixel-weighted opaque texture means, indexed by global texture ID.
 
-Uses actual 4/8-bit palette indices or direct 16-bit texels. Fully transparent
-zero pixels are excluded; 0x8000 is opaque black. No full texture rendering.
-"""
-    region(data, 0, 20)
-    if data[:4] != b'2GRV':
-        raise ValueError('Expected PS1 VLO')
-    count, images, clut_count, cluts = struct.unpack_from('<4I', data, 4)
-    region(data, images, count * 24)
-    region(data, cluts, clut_count * 12)
-    palettes = {}
-    for i in range(clut_count):
-        x, y, width, height, pointer = struct.unpack_from('<4HI', data, cluts + i * 12)
-        if width not in (16, 256) or not height:
-            raise ValueError('Invalid VLO palette dimensions')
-        region(data, pointer, width * height * 2)
-        # The ID addresses a CLUT row. Fog rows are independent palettes.
-        for row in range(height):
-            palettes[(x, y + row)] = struct.unpack_from(f'<{width}H', data, pointer + row * width * 2)
+    Uses actual 4/8-bit palette indices or direct 16-bit texels. Fully transparent
+    zero pixels are excluded; 0x8000 is opaque black. No full texture rendering.
+    """
     result = {}
-    for i in range(count):
-        _, _, word_width, height, pointer, texture_id, page, clut_id, flags = struct.unpack_from('<4HI4H', data, images + i * 24)
-        depth = (page >> 7) & 3
-        if depth == 3 or not word_width or not height:
-            raise ValueError('Invalid VLO image dimensions/depth')
-        raw = region(data, pointer, word_width * height * 2)
-        if depth == 2:
-            pixels = Counter(v[0] for v in struct.iter_unpack('<H', raw))
-        else:
-            palette = palettes.get(((clut_id & 63) << 4, clut_id >> 6))
-            if palette is None or len(palette) < (16 if depth == 0 else 256):
-                raise ValueError('VLO image palette missing or wrong size')
-            indices = Counter(raw)
-            if depth == 0:
-                nibbles = Counter()
-                for value, frequency in indices.items():
-                    nibbles[value & 15] += frequency
-                    nibbles[value >> 4] += frequency
-                indices = nibbles
-            pixels = Counter()
-            for value, frequency in indices.items():
-                pixels[palette[value]] += frequency
+    for image in read_vlo(data):
+        pixels = image.pixel_counts()
         pixels.pop(0, None)
         total = sum(pixels.values())
-        rgb = ([round(sum(psx_colour(p)[c] * n for p, n in pixels.items()) / total) for c in range(3)]
-               if total else [0, 0, 0])
-        if texture_id in result:
-            raise ValueError('Duplicate texture ID')
-        result[texture_id] = rgb
+        result[image.texture_id] = (
+            [round(sum(psx_colour(p)[c] * n for p, n in pixels.items()) / total) for c in range(3)]
+            if total else [0, 0, 0])
     return result
 
 

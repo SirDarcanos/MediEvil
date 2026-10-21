@@ -30,34 +30,10 @@ const categories = {
   chalice: ['#ffe29a', 'C'], equipment: ['#9ebbf4', 'E'], quest: ['#f2a7be', '?'], chest: ['#e2b188', '□'],
 };
 const statusLabels = {live:'LIVE',paused:'PAUSED',connecting:'CONNECTING',disconnected:'EMULATOR OFF',waiting_game:'WAITING FOR GAME',not_playing:'NOT IN LEVEL',loading:'LOADING',updating:'SAMPLING',multiple:'SELECT EMULATOR',unavailable:'RECONNECTING',error:'READER ERROR'};
-let movementSample = null, movementDirection = null, lastMovementAt = 0, movementExpiryTimer = null;
-function clearMovementDirection() {
-  movementDirection=null;clearTimeout(movementExpiryTimer);movementExpiryTimer=null;
-}
-function trackMovement(sample, now) {
-  const p=sample?.position;
-  if (sample?.status!=='live' || sample.source==='snapshot' || !Array.isArray(p) ||
-      p.length!==3 || !p.every(Number.isFinite) || !Number.isInteger(sample.frame)) {
-    movementSample=null;clearMovementDirection();return;
-  }
-  const key=JSON.stringify([sample.epoch,sample.pid,sample.emulator,sample.level,sample.player_address,sample.state_address]);
-  const previous=movementSample;
-  movementSample={key,frame:sample.frame,position:p.slice(),at:now};
-  if (!previous || previous.key!==key || now<previous.at || now-previous.at>500 || sample.frame<previous.frame) {
-    clearMovementDirection();return;
-  }
-  const dx=p[0]-previous.position[0], dz=p[2]-previous.position[2], distance=Math.hypot(dx,dz);
-  if (sample.frame===previous.frame) {
-    if (distance) clearMovementDirection();
-    return; // Repeated HTTP samples are not a new movement observation.
-  }
-  if (distance<1 || distance>1024) { clearMovementDirection();return; }
-  movementDirection={x:dx/distance,y:-dz/distance};lastMovementAt=now;
-  clearTimeout(movementExpiryTimer);
-  movementExpiryTimer=setTimeout(()=>{clearMovementDirection();draw();},251);
-}
+const movement = new MovementTracker(() => draw());
 function drawMovementArrow(x,y) {
-  if (!movementDirection || state?.status!=='live' || Date.now()-lastMovementAt>250) return;
+  const movementDirection = movement.directionAt(Date.now());
+  if (!movementDirection || state?.status!=='live') return;
   ctx.save();ctx.translate(x,y);ctx.rotate(Math.atan2(movementDirection.y,movementDirection.x));
   const compact=x<48 || x>w-48 || y<48 || y>h-48;
   if (!compact) {
@@ -87,33 +63,6 @@ function resize() {
   if (geometry) fit(false); else draw();
 }
 function toScreen(x,z) { return [w/2+(x-cx)*scale, h/2-(z-cz)*scale]; }
-function terrain(g) {
-  const mode = displayMode === 'texture' ? 'colour' : displayMode;
-  if (g.raster && g.raster.mode === mode && g.raster.objects === showObjects) return g.raster;
-  const b = showObjects ? (g.scene_bounds || g.bounds) : g.bounds, dx = Math.max(1,b[0][1]-b[0][0]), dz = Math.max(1,b[2][1]-b[2][0]);
-  const pixelsPerUnit = 2048/Math.max(dx,dz), image = document.createElement('canvas');
-  image.width = Math.ceil(dx*pixelsPerUnit)+2; image.height = Math.ceil(dz*pixelsPerUnit)+2;
-  const c = image.getContext('2d'), range = Math.max(1,b[1][1]-b[1][0]);
-  for (const [prop,i] of sceneFaceOrder(g)) {
-    if (prop && !showObjects) continue;
-    const mesh=prop?g.object_mesh:g;
-    const face = mesh.faces[i], colour = mesh.face_colours?.[i];
-    if (mode === 'colour' && colour) {
-      // Mild exposure lift for map readability; colour comes from the disc.
-      c.fillStyle = `rgb(${colour.map(v=>Math.round(255*Math.pow(v/255,.8))).join(',')})`;
-    } else {
-      const height = face.reduce((sum,v)=>sum+mesh.vertices[v][1],0)/face.length;
-      const shade = Math.round(47+36*(b[1][1]-height)/range);
-      c.fillStyle = `rgb(${shade-8},${shade+5},${shade})`;
-    }
-    c.beginPath();
-    face.forEach((v,j)=> { const p=mesh.vertices[v], x=1+(p[0]-b[0][0])*pixelsPerUnit, y=1+(b[2][1]-p[2])*pixelsPerUnit; if(j)c.lineTo(x,y);else c.moveTo(x,y); });
-    c.closePath(); c.fill();
-    if (mode === 'height') { c.strokeStyle='#91a28c44'; c.lineWidth=.5; c.stroke(); }
-  }
-  g.raster = {image, mode, objects:showObjects, pixelsPerUnit, left:b[0][0]-1/pixelsPerUnit, top:b[2][1]+1/pixelsPerUnit};
-  return g.raster;
-}
 function drawItems() {
   if (!showItems) return;
   ctx.font = 'bold 10px ui-monospace, monospace'; ctx.textAlign='center'; ctx.textBaseline='middle';
@@ -183,25 +132,6 @@ function exitAt(px,py) {
   }
   return null;
 }
-function drawEdgeOnFaces(g) {
-  const bounds=showObjects?(g.scene_bounds||g.bounds):g.bounds, range=Math.max(1,bounds[1][1]-bounds[1][0]);
-  for(const [prop,i] of sceneFaceOrder(g)) {
-    if(prop&&!showObjects)continue;
-    const mesh=prop?g.object_mesh:g, offsets=mesh.edge_on_faces?.[i];if(!offsets)continue;
-    const face=mesh.faces[i],colour=mesh.face_colours[i];
-    if(displayMode!=='height'&&colour)ctx.fillStyle=`rgb(${colour.map(v=>Math.round(255*Math.pow(v/255,.8))).join(',')})`;
-    else {const y=face.reduce((sum,v)=>sum+mesh.vertices[v][1],0)/face.length,s=Math.round(47+36*(bounds[1][1]-y)/range);ctx.fillStyle=`rgb(${s-8},${s+5},${s})`;}
-    ctx.beginPath();face.forEach((v,j)=>{const p=mesh.vertices[v],[x,y]=toScreen(p[0],p[2]),o=offsets[j];if(j)ctx.lineTo(x+o[0],y-o[1]);else ctx.moveTo(x+o[0],y-o[1]);});ctx.closePath();ctx.fill();
-  }
-  for(const proxy of (g.fence_proxies||[]).slice().sort((a,b)=>b.ends[0][1]-a.ends[0][1])) {
-    if(proxy.width*scale>=2)continue;
-    const [a,b]=proxy.ends,[ax,ay]=toScreen(a[0],a[2]),[bx,by]=toScreen(b[0],b[2]),dx=bx-ax,dy=by-ay,length=Math.hypot(dx,dy);if(!length)continue;
-    const nx=-dy/length,ny=dx/length;
-    if(displayMode!=='height')ctx.fillStyle=`rgb(${g.face_colours[proxy.face].map(v=>Math.round(255*Math.pow(v/255,.8))).join(',')})`;
-    else {const s=Math.round(47+36*(bounds[1][1]-a[1])/range);ctx.fillStyle=`rgb(${s-8},${s+5},${s})`;}
-    ctx.beginPath();ctx.moveTo(ax-nx,ay-ny);ctx.lineTo(bx-nx,by-ny);ctx.lineTo(bx+nx,by+ny);ctx.lineTo(ax+nx,ay+ny);ctx.closePath();ctx.fill();
-  }
-}
 function draw() {
   ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,w,h);
   const p = marker(); if (follow && p) { cx=p[0]; cz=p[2]; }
@@ -210,9 +140,9 @@ function draw() {
   ctx.imageSmoothingEnabled = true;
   if(detailed) ctx.drawImage(detailed,0,0,w,h);
   else {
-    const r = terrain(geometry), [left,top] = toScreen(r.left,r.top);
+    const r = rasterTerrain(geometry, displayMode, showObjects), [left,top] = toScreen(r.left,r.top);
     ctx.drawImage(r.image,left,top,r.image.width/r.pixelsPerUnit*scale,r.image.height/r.pixelsPerUnit*scale);
-    drawEdgeOnFaces(geometry);
+    drawEdgeOnFaces(ctx, geometry, displayMode, showObjects, scale, toScreen);
   }
   $('render-note').textContent = displayMode === 'texture' ? (detailed ? 'Original PS1 textures · smooth shading' : `Simple colours · ${terrainRenderer.reason || geometry.textureError || 'texture data unavailable'}`) : ''; 
   drawExits();drawItems();
@@ -261,7 +191,6 @@ async function loadMap(info) {
     let g=cache.get(info.code);
     if (!g) {
       const response=await fetch('/maps/'+info.code+'.json');if(!response.ok)throw Error('Map not found');g=await response.json();
-      g.faceOrder=g.faces.map((_,i)=>i).sort((a,b)=>g.faces[b].reduce((s,i)=>s+g.vertices[i][1],0)/g.faces[b].length-g.faces[a].reduce((s,i)=>s+g.vertices[i][1],0)/g.faces[a].length);
       cache.set(info.code,g);
     }
     let image=null;
@@ -295,8 +224,8 @@ function update() {
   $('message').textContent=message;draw();
 }
 async function poll() {
-  try { const response=await fetch('/api/state',{signal:AbortSignal.timeout(1500)});if(!response.ok)throw Error('Reader unavailable');state=await response.json();lastReceived=Date.now();connected=true;trackMovement(state,lastReceived);choose(); }
-  catch { connected=false;trackMovement(null,Date.now()); }
+  try { const response=await fetch('/api/state',{signal:AbortSignal.timeout(1500)});if(!response.ok)throw Error('Reader unavailable');state=await response.json();lastReceived=Date.now();connected=true;movement.track(state,lastReceived);choose(); }
+  catch { connected=false;movement.track(null,Date.now()); }
   update();setTimeout(poll,50);
 }
 function zoom(factor,px=w/2,py=h/2) {

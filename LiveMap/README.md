@@ -38,12 +38,23 @@ A green arrow ahead of Dan shows his observed horizontal movement, not the direc
 
 ```sh
 python3 -m unittest discover -s . -p 'test_*.py'
-node --test web/test_movement.cjs
-node --check web/app.js
+node --test web/test_*.cjs
+for script in web/*.js; do node --check "$script"; done
 python3 release/build.py --output dist
 ```
 
 The default build is a **Python-required source preview**, not a bundled-interpreter executable. [Build instructions](release/BUILD.md) cover native standalone builds and outstanding release gates. The [repository build workflow](../.github/workflows/livemap-build.yml) tests source compatibility and builds Windows, Linux and macOS packages with bundled Python. It takes effect only once these files are committed and pushed. It uploads build artifacts, not public releases; native DuckStation verification remains a separate gate.
+
+## Code layout
+
+- `runner.py`: runner startup, cache/setup state and CLI; `app.py`: direct map/snapshot CLI.
+- `feed.py`: background sampling and stale-state handling. `ram.py`, `emulator_memory.py` and `gdb_reader.py` own decoding and emulator transports.
+- `local_http.py`: map/setup routes, loopback origin checks, upload protection and response policies.
+- `disc_import.py` and `extract_maps.py`: disc import and extraction orchestration. `binary.py` supplies shared bounds checks; `vlo.py` decodes texture records for both `appearance.py` colour means and `textures.py` atlases. The remaining format modules handle props, exits and thin-face visibility.
+- `web/app.js`: map loading, controls and overlays. `movement.js` owns movement history/expiry; `terrain.js` renders WebGL textures; `raster.js` handles Canvas fallbacks and shared shading. `setup.js` drives disc import.
+- `test_*.py` and `web/test_*.cjs`: synthetic regression checks. `release/build.py` explicitly lists runtime files; add new runtime modules there as well as to the HTTP/page script lists when applicable.
+
+These checks do not replace own-disc extraction, browser/GPU or native emulator verification.
 
 ## Release status
 

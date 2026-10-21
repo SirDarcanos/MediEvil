@@ -2,15 +2,20 @@
 const {test}=require('node:test');const assert=require('node:assert/strict');
 const vm=require('node:vm'),fs=require('node:fs'),path=require('node:path');
 const calls=[];const ctx=new Proxy({}, {get:(o,k)=>o[k]??((...args)=>calls.push([k,...args]))});
-const node={getContext:()=>ctx,addEventListener(){},setAttribute(){},options:[],classList:{toggle(){}},getBoundingClientRect:()=>({width:800,height:600})};
+const node={getContext:kind=>kind==='webgl'?null:ctx,addEventListener(){},setAttribute(){},options:[],classList:{toggle(){}},getBoundingClientRect:()=>({width:800,height:600})};
 let now=1000,timerId=0;const timers=new Map();
 function advance(t){now=t;for(const [id,timer]of [...timers])if(timer.at<=now){timers.delete(id);timer.fn();}}
-const sandbox={document:{getElementById:()=>node},Image:class{},TerrainRenderer:class{},ResizeObserver:class{observe(){}},window:{addEventListener(){}},fetch:()=>new Promise(()=>{}),Date:{now:()=>now},setTimeout(fn,delay){const id=++timerId;timers.set(id,{fn,at:now+delay});return id;},clearTimeout(id){timers.delete(id);},AbortSignal};
-vm.createContext(sandbox);vm.runInContext(fs.readFileSync(path.join(__dirname,'app.js'),'utf8'),sandbox);
+const sandbox={document:{getElementById:()=>node,createElement:()=>node},Image:class{},ResizeObserver:class{observe(){}},window:{addEventListener(){}},fetch:()=>new Promise(()=>{}),Date:{now:()=>now},setTimeout(fn,delay){const id=++timerId;timers.set(id,{fn,at:now+delay});return id;},clearTimeout(id){timers.delete(id);},AbortSignal};
+vm.createContext(sandbox);
+// Bootstrap the same deferred scripts, in the same order, as the served page.
+const page = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
+for (const [, route] of page.matchAll(/<script src="([^"]+)" defer><\/script>/g)) {
+ vm.runInContext(fs.readFileSync(path.join(__dirname, route.slice(1)), 'utf8'), sandbox);
+}
 const run=s=>vm.runInContext(s,sandbox);
 const sample=(frame,position,extra={})=>({status:'live',source:'live',frame,position,epoch:1,level:16,pid:9,player_address:'0x800f0000',...extra});
-function track(s,t=now){now=t;sandbox.input=s;sandbox.time=t;run('trackMovement(input,time)');}
-function direction(){return JSON.parse(run('JSON.stringify(movementDirection)'));}
+function track(s,t=now){now=t;sandbox.input=s;sandbox.time=t;run('movement.track(input,time)');}
+function direction(){return JSON.parse(run('JSON.stringify(movement.direction)'));}
 function reset(){track(null);now=1000;calls.length=0;timers.clear();run('w=800;h=600;geometry=null;');}
 function scene(s){sandbox.input=s;run("state=input;lastReceived=Date.now();connected=true;cx=0;cz=0;scale=1;geometry={table_index:16,bounds:[[-10000,10000],[-100,100],[-10000,10000]],items:[],exits:[]};terrainRenderer.render=()=>({});");}
 test('cardinal and diagonal directions use actual X/Z movement, with +Z upward',()=>{

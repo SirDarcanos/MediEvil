@@ -29,8 +29,8 @@ def fake_maps(source, cache, progress):
 class RunnerTests(unittest.TestCase):
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.feed=FakeFeed();self.runner=Runner(self.temp.name,self.feed)
-        self.server=ThreadingHTTPServer(('127.0.0.1',0),make_runner_handler(self.runner,0));self.port=self.server.server_address[1]
-        self.server.RequestHandlerClass=make_runner_handler(self.runner,self.port);self.runner.listening=True
+        self.server=ThreadingHTTPServer(('127.0.0.1',0),make_runner_handler(self.runner));self.port=self.server.server_address[1]
+        self.runner.listening=True
         self.thread=threading.Thread(target=self.server.serve_forever,daemon=True);self.thread.start()
     def tearDown(self):
         self.server.shutdown();self.server.server_close();self.thread.join(2);self.feed.stop.set()
@@ -48,6 +48,25 @@ class RunnerTests(unittest.TestCase):
     def test_cross_origin_and_rebinding_reads_rejected(self):
         self.assertEqual(self.request('/api/setup',headers={'Origin':'https://evil.invalid'})[0],403)
         self.assertEqual(self.request('/api/state',headers={'Host':f'evil.invalid:{self.port}'})[0],403)
+    def test_setup_and_map_keep_distinct_security_policies(self):
+        for route, is_map in (('/api/setup', False), ('/setup.js', False),
+                              ('/api/state', True), ('/terrain.js', True)):
+            with self.subTest(route=route):
+                connection = http.client.HTTPConnection('127.0.0.1', self.port, timeout=3)
+                self.addCleanup(connection.close)
+                connection.request('GET', route)
+                response = connection.getresponse()
+                body = response.read()
+                self.assertEqual(response.status, 200)
+                self.assertEqual(int(response.getheader('Content-Length')), len(body))
+                self.assertEqual(response.getheader('Cache-Control'), 'no-store')
+                self.assertEqual(response.getheader('X-Content-Type-Options'), 'nosniff')
+                self.assertIsNone(response.getheader('Access-Control-Allow-Origin'))
+                policy = response.getheader('Content-Security-Policy')
+                self.assertIn("frame-ancestors 'none'", policy)
+                self.assertEqual("img-src 'self' data:" in policy, is_map)
+                self.assertEqual("object-src 'none'" in policy, not is_map)
+
     def test_import_requires_both_origin_and_token(self):
         headers=self.post_headers();del headers['Origin']
         self.assertEqual(self.request('/api/import','POST',b'data',headers)[0],403)
@@ -64,7 +83,7 @@ class RunnerTests(unittest.TestCase):
         h=self.post_headers();h['Content-Length']=str(MAX_IMAGE+1)
         self.assertEqual(self.request('/api/import','POST',b'',h)[0],400)
     def test_success_switches_to_live_ui_and_reuses_cache(self):
-        with patch('runner.import_game',side_effect=fake_maps):
+        with patch('local_http.import_game',side_effect=fake_maps):
             status,body=self.request('/api/import','POST',b'fixture',self.post_headers())
         self.assertEqual(status,200);self.assertTrue(json.loads(body)['ready']);self.assertTrue(self.feed.worker.is_alive())
         self.assertIn(b'id="map"',self.request('/')[1]);self.assertEqual(self.request('/maps/M00.json')[1],b'{}')
@@ -104,9 +123,34 @@ class RunnerTests(unittest.TestCase):
     def test_missing_game_portrait_uses_original_neutral_svg(self):
         with tempfile.TemporaryDirectory()as tmp:
             root=Path(tmp);(root/'web').mkdir();(root/'web/marker.svg').write_text('<svg>neutral</svg>')
-            with patch('app.ROOT',root):
+            with patch('local_http.ROOT',root):
                 status,body=self.request('/dan.png')
             self.assertEqual(status,200);self.assertEqual(body,b'<svg>neutral</svg>')
+
+    def test_map_symlink_keeps_route_content_type_and_path_confinement(self):
+        maps_dir = fake_maps(None, self.temp.name, None)
+        map_path = maps_dir / 'M00.json'
+        backing = map_path.with_suffix('.payload')
+        map_path.rename(backing)
+        try:
+            map_path.symlink_to(backing.name)
+        except (OSError, NotImplementedError) as error:
+            self.skipTest(f'Creating a local symlink is unavailable: {error}')
+        self.runner.activate()  # This is a valid cache, including its internal symlink.
+        connection = http.client.HTTPConnection('127.0.0.1', self.port, timeout=3)
+        self.addCleanup(connection.close)
+        connection.request('GET', '/maps/M00.json')
+        response = connection.getresponse()
+        self.assertEqual(response.status, 200)
+        self.assertEqual(response.getheader('Content-Type'), 'application/json')
+        self.assertEqual(response.read(), b'{}')
+
+        # A changed link may not escape the map directory after activation.
+        private = Path(self.temp.name) / 'private.txt'
+        private.write_text('private fixture')
+        map_path.unlink()
+        map_path.symlink_to(private)
+        self.assertEqual(self.request('/maps/M00.json')[0], 403)
 
     def test_map_path_does_not_expose_arbitrary_files(self):
         self.runner.maps['maps']=[{'code':'BAD','file':'../../private.txt'}]

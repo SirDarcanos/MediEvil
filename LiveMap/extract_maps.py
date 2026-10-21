@@ -10,7 +10,8 @@ import hashlib
 import json
 from pathlib import Path
 import struct
-from appearance import vertex_colour, vlo_colours, item_spawns, region
+from binary import region
+from appearance import vertex_colour, vlo_colours, item_spawns
 from textures import vlo_images, texture_atlas
 from triggers import exit_triggers
 from scripted_exits import ROUTES, scripted_exit_events

@@ -48,5 +48,6 @@ Developer checks:
 
 ```
 python3 -m unittest discover -s . -p 'test_*.py'
-node --check web/setup.js
+node --test web/test_*.cjs
+for script in web/*.js; do node --check "$script"; done
 ```

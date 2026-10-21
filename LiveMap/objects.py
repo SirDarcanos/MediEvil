@@ -7,7 +7,8 @@ accepted. Unsupported/animated entities are reported rather than guessed.
 import math
 from pathlib import Path
 import struct
-from appearance import region, item_label
+from binary import region
+from appearance import item_label
 
 EXE_BASE = 0x800214a4
 # vertex count, environment-normal count, normal count, textured
