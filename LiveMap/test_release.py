@@ -35,7 +35,7 @@ class ReleaseTests(unittest.TestCase):
                     )
                     self.assertEqual(result.returncode, 0, result.stderr)
                     self.assertIn('--gdb-port', result.stdout)
-            page = (package / 'web/index.html').read_text()
+            page = (package / 'web/index.html').read_text(encoding='utf-8')
             for script in ('terrain.js', 'raster.js', 'movement.js', 'app.js'):
                 self.assertIn(f'src="/{script}"', page)
                 self.assertEqual((package / 'web' / script).read_bytes(),
