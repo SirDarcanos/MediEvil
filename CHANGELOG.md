@@ -19,15 +19,6 @@ entries do not select a version or authorize a release. See the
   `MemoryPages()`, retaining the same Any% route and three settings. Recomp
   discovery and gameplay remain unverified.
 
-### LiveMap
-
-- Separate sampling, HTTP serving, movement tracking and fallback rendering;
-  share texture decoding and response/security handling without changing the
-  runner workflow, map format or controls.
-- Add experimental Windows BizHawk support through a bundled read-only Lua bridge,
-  alongside DuckStation and PCSX-Redux auto-detection. Native BizHawk gameplay
-  verification remains pending.
-
 ### Reference and research
 
 - Expand the USA typed-address reference and retain reusable memory-audit tools,
@@ -39,6 +30,20 @@ entries do not select a version or authorize a release. See the
 
 - Add the working agreement, GitHub Issues role/readiness mapping, auxiliary
   model permissions and independent component versioning policy.
+
+## LiveMap 0.3.0 — 2026-10-21
+
+Unsigned preview, tagged
+[`livemap-v0.3.0`](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.3.0).
+
+- Add experimental Windows BizHawk support through a bundled read-only Lua bridge,
+  alongside DuckStation and PCSX-Redux auto-detection. Native BizHawk gameplay
+  verification remains pending ([#16](https://github.com/SirDarcanos/MediEvil/pull/16)).
+- Rewrite the player guide with setup steps for all three emulators, download
+  choices, controls, upgrades and troubleshooting; separate developer details.
+- Separate sampling, HTTP serving, movement tracking and fallback rendering;
+  share decoding and security handling while preserving map formats and controls
+  ([#15](https://github.com/SirDarcanos/MediEvil/pull/15)).
 
 ## LiveMap 0.2.0 — 2026-10-20
 
