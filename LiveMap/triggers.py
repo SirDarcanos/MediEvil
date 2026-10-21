@@ -6,7 +6,7 @@ RESEARCH.md. Authored volumes, not live activation or exact integer hit tests.
 from itertools import product
 import math
 import struct
-from appearance import region
+from binary import region
 
 
 def is_exit(flags):

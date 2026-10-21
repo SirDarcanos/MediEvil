@@ -19,6 +19,12 @@ entries do not select a version or authorize a release. See the
   `MemoryPages()`, retaining the same Any% route and three settings. Recomp
   discovery and gameplay remain unverified.
 
+### LiveMap
+
+- Separate sampling, HTTP serving, movement tracking and fallback rendering;
+  share texture decoding and response/security handling without changing the
+  runner workflow, map format or controls.
+
 ### Reference and research
 
 - Expand the USA typed-address reference and retain reusable memory-audit tools,

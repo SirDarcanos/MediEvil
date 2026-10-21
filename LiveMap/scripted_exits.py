@@ -5,7 +5,7 @@ Evidence and scalar completion traces are retained in research/exit-gaps/.
 """
 import hashlib
 import struct
-from appearance import region
+from binary import region
 
 # Event, sequence data, per-frame callback; scalar addresses for this USA build.
 ROUTES={
