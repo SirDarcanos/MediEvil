@@ -58,7 +58,7 @@ The API reference is BizHawk **2.11.1**, commit `bdddf4a58aa1a022afb11dc73294a81
 
 The `MediEvilLiveMap-BizHawk-v1` mapping is 512 bytes: a 32-byte `<4s7I` little-endian header (`MLBH`, version, sequence, Unix seconds, running/paused/inactive status, segment count, two reserved zeros), followed by address/length-prefixed RAM bytes and zero padding. The exporter marks the mapping busy before copying, then publishes an even sequence; Python checks the header around its copy and reconstructs a sparse 2 MiB buffer for the existing USA decoder. It requires a producer advance and checks wall-clock plus monotonic freshness. RAM patches and emulator-control APIs are not part of this protocol.
 
-Before accepting native support in the Windows VM, check real movement/arrow direction and signed XYZ; pause/resume with a live exporter heartbeat; stop/restart the Lua script; save-state and cross-level loads; emulator restart; wrong game/revision; and refusal of multiple EmuHawk instances. Confirm the app and emulator run in the same Windows guest. Synthetic mappings and Lua API mocks do not establish these outcomes.
+For scenario-level validation beyond the maintainer's successful Windows 11 report, check real movement/arrow direction and signed XYZ; pause/resume with a live exporter heartbeat; stop/restart the Lua script; save-state and cross-level loads; emulator restart; wrong game/revision; and refusal of multiple EmuHawk instances. Confirm the app and emulator run in the same Windows guest. Synthetic mappings and Lua API mocks do not establish these outcomes.
 
 
 ## Movement display
@@ -69,6 +69,8 @@ The arrow represents observed horizontal movement, not facing. Its screen-space 
 
 Earlier Mac previews had own-disc import, textured rendering, cached restart and read-only DuckStation GDB gameplay observations. Those are historical observations, not fresh 0.3.0 gameplay certification.
 
-Actual Windows/Linux DuckStation gameplay and lifecycle checks remain outstanding. Native BizHawk/NLua gameplay, script lifecycle, Windows mappings and performance remain unverified. Existing PCSX-Redux transport code is not evidence of a fresh cross-platform gameplay test. Keep these limits visible when publishing previews.
+The maintainer reports that BizHawk works on Windows 11 with the latest BizHawk release. The exact installed build number and individual test scenarios were not supplied; the 2.11.1 API target above is not an independently captured test-build identifier. This user report confirms successful gameplay, not separate checks of every Lua-script lifecycle case, Windows mapping behavior or performance characteristic.
+
+Actual Windows/Linux DuckStation gameplay and lifecycle checks remain outstanding. Existing PCSX-Redux transport code is not evidence of a fresh cross-platform gameplay test. Keep these limits visible when publishing previews.
 
 The release tag identifies the version; do not invent a separate package-version source. Public releases need maintainer approval. Keep the matching full repository source/build scripts available under the repository license, retain third-party notices and distribute no game data.
