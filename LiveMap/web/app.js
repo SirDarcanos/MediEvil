@@ -17,9 +17,37 @@ function populateMapOptions() {
   if(heroes){const option=document.createElement('option');option.value='HH';option.textContent=`${heroes.name} (repeatable bonus)`;select.appendChild(option);}
 }
 let w = 1, h = 1, dpr = 1, cx = 0, cz = 0, scale = 1, follow = false, drag = null;
+let followFrame = null, cameraAt = null, cameraSample = null;
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let lastReceived = 0, connected = true, displayMode = 'texture', showItems = true, chosenItem = null;
 const terrainRenderer = new TerrainRenderer(()=>draw());
 let showExits = true, chosenExit = -1, showObjects = true;
+// Each pop-out reads the same live feed independently; no opener is required.
+const viewParams = new URLSearchParams(window.location.search);
+const mapOnly = viewParams.get('view') === 'map';
+if (mapOnly) {
+  document.body.classList.add('map-only');
+  selected = viewParams.get('level') || 'auto';
+  const style = viewParams.get('terrain');
+  if (['texture','colour','height'].includes(style)) displayMode = style;
+  showItems = viewParams.get('items') !== '0';
+  showObjects = viewParams.get('objects') !== '0';
+  showExits = viewParams.get('exits') !== '0';
+  setFollow(viewParams.get('follow') === '1');
+  $('map-style').value = displayMode;
+  $('show-items').checked = showItems;
+  $('show-objects').checked = showObjects;
+  $('show-exits').checked = showExits;
+}
+function popOutMap() {
+  const url = new URL('/', window.location.href);
+  url.search = new URLSearchParams({view:'map', level:selected, terrain:displayMode,
+    items:showItems?'1':'0', objects:showObjects?'1':'0', exits:showExits?'1':'0', follow:follow?'1':'0'}).toString();
+  const popup = window.open(url.href, 'medievil-map', 'popup,width=800,height=600,resizable=yes,scrollbars=no');
+  $('popout-status').hidden = !!popup;
+  $('popout-status').textContent = popup ? '' : 'Allow pop-ups for this site, then try again.';
+  if (popup) popup.focus();
+}
 const danImage = new Image();
 let danImageReady = false;
 danImage.onload = () => { danImageReady = true; draw(); };
@@ -48,10 +76,42 @@ function marker() {
   return connected && state && ['live','paused'].includes(state.status) && state.position && geometry &&
     state.level === geometry.table_index && Date.now() - lastReceived < 1500 ? state.position : null;
 }
-function setFollow(on) { follow = on; $('follow').setAttribute('aria-pressed', String(on)); }
+function stopCameraAnimation() {
+  if (followFrame !== null) cancelAnimationFrame(followFrame);
+  followFrame = null; cameraAt = null;
+}
+function setFollow(on) {
+  follow = on; cameraSample = null; stopCameraAnimation();
+  $('follow').setAttribute('aria-pressed', String(on));
+}
+function followCamera(p) {
+  if (!follow || !p) { cameraSample = null; stopCameraAnimation(); return; }
+  const now = performance.now(), previous = cameraSample;
+  const key = JSON.stringify([state.epoch,state.pid,state.emulator,state.level,state.player_address,state.state_address]);
+  const snap = !previous || previous.geometry !== geometry || previous.key !== key ||
+    state.frame < previous.frame || lastReceived - previous.received > 500 ||
+    Math.hypot(p[0]-previous.x,p[2]-previous.z) > 1024 ||
+    state.status !== 'live' || previous.status !== 'live' || state.source === 'snapshot' ||
+    reducedMotion.matches || (cameraAt !== null && now-cameraAt > 250);
+  cameraSample = {geometry,key,frame:state.frame,received:lastReceived,x:p[0],z:p[2],status:state.status};
+  if (snap) {
+    cx=p[0];cz=p[2];stopCameraAnimation();return;
+  }
+  // Exponential camera easing: about 95% caught up in 270 ms, independent of
+  // refresh/poll rate. The marker itself always uses the unmodified RAM sample.
+  const dt = cameraAt === null ? 0 : Math.max(0,now-cameraAt);
+  const alpha = -Math.expm1(-dt/90);
+  cx += (p[0]-cx)*alpha; cz += (p[2]-cz)*alpha;
+  if (Math.hypot(p[0]-cx,p[2]-cz)*scale <= .1) {
+    cx=p[0];cz=p[2];stopCameraAnimation();return;
+  }
+  cameraAt=now;
+  if (followFrame === null) followFrame=requestAnimationFrame(()=>{followFrame=null;draw();});
+}
 function fit(resetFollow = true) {
   if (!geometry) return;
   const b = geometry.bounds;
+  cameraSample=null;stopCameraAnimation();
   cx = (b[0][0]+b[0][1])/2; cz = (b[2][0]+b[2][1])/2;
   scale = Math.max(.001, Math.min((w-60)/Math.max(1,b[0][1]-b[0][0]), (h-60)/Math.max(1,b[2][1]-b[2][0])));
   if (resetFollow) setFollow(false);
@@ -134,7 +194,7 @@ function exitAt(px,py) {
 }
 function draw() {
   ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,w,h);
-  const p = marker(); if (follow && p) { cx=p[0]; cz=p[2]; }
+  const p = marker(); followCamera(p);
   if (!geometry) return;
   const detailed = displayMode === 'texture' && terrainRenderer.render(geometry,cx,cz,scale,w,h,dpr,showObjects);
   ctx.imageSmoothingEnabled = true;
@@ -229,8 +289,13 @@ async function poll() {
   update();setTimeout(poll,50);
 }
 function zoom(factor,px=w/2,py=h/2) {
-  const wx=cx+(px-w/2)/scale,wz=cz-(py-h/2)/scale;scale=Math.max(.001,Math.min(5,scale*factor));cx=wx-(px-w/2)/scale;cz=wz+(py-h/2)/scale;draw();
+  const wx=cx+(px-w/2)/scale,wz=cz-(py-h/2)/scale;
+  scale=Math.max(.001,Math.min(5,scale*factor));
+  // Cursor anchoring would fight the follow camera and cause a large glide back.
+  if(!follow){cx=wx-(px-w/2)/scale;cz=wz+(py-h/2)/scale;}
+  draw();
 }
+$('popout').addEventListener('click',popOutMap);
 $('map-select').addEventListener('change',e=>{selected=e.target.value;choose();update();});
 $('fit').addEventListener('click',()=>fit());$('follow').addEventListener('click',()=>{setFollow(!follow);draw();});
 $('zoom-in').addEventListener('click',()=>zoom(1.5));$('zoom-out').addEventListener('click',()=>zoom(1/1.5));
@@ -249,6 +314,7 @@ canvas.addEventListener('wheel',e=>{e.preventDefault();const r=canvas.getBoundin
 canvas.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY,cx,cz};setFollow(false);canvas.setPointerCapture(e.pointerId);});
 canvas.addEventListener('pointermove',e=>{
   if(drag){cx=drag.cx-(e.clientX-drag.x)/scale;cz=drag.cz+(e.clientY-drag.y)/scale;draw();return;}
+  if(mapOnly){canvas.title='';return;}
   const r=canvas.getBoundingClientRect(), x=e.clientX-r.left,y=e.clientY-r.top;
   const hit=showItems&&geometry?.items?.find(item=>{const p=toScreen(item.position[0],item.position[2]);return Math.hypot(p[0]-x,p[1]-y)<10;});
   const exit=exitAt(x,y);
@@ -259,6 +325,9 @@ window.addEventListener('keydown',e=>{if(e.key.toLowerCase()==='f'&&!['INPUT','S
 new ResizeObserver(resize).observe($('viewport'));
 (async()=>{
   try { const response=await fetch('/api/maps');if(!response.ok)throw Error('Map index unavailable');maps=(await response.json()).maps;
-    populateMapOptions();choose();poll();
+    populateMapOptions();
+    if (selected !== 'auto' && !maps.some(m=>m.code===selected)) selected = 'auto';
+    $('map-select').value = selected;
+    choose();poll();
   } catch(e){$('empty').textContent=e.message;$('message').textContent='Run extract_maps.py to prepare your disc’s map data.';}
 })();

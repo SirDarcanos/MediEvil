@@ -7,6 +7,11 @@ entries do not select a version or authorize a release. See the
 
 ## Unreleased
 
+### LiveMap
+
+- Add **Pop out map** to open a resizable, map-only window with independent live tracking and the current display settings.
+- Smooth **Follow Dan** camera movement in both windows without smoothing his reported position; keep zoom centered while following, recenter immediately after level changes, large jumps or reconnects, and respect reduced-motion preferences.
+
 ### MediSplit
 
 - Add a development Any%-only ASL with 17 fixed splits: 14 successful level

@@ -98,8 +98,9 @@ Next time, open LiveMap and your emulator. You do not need to select the game fi
 
 ## 5. Use the map
 
-- **Follow Dan** keeps his marker centered. Drag the map to look elsewhere.
-- Use your mouse wheel or **+ / −** to zoom. **Fit level** shows the whole level.
+- **Follow Dan** gently moves the map to catch up with Dan in either window; his marker stays at the reported position. Level changes, large jumps and reconnects recenter immediately. Drag the map to look elsewhere and turn off following. If your system requests reduced motion, following recenters without animation.
+- **Pop out map** opens a resizable window with only the map, without toolbars, legends or coordinates. It starts with your current level selection, terrain, overlays and Follow Dan setting; later changes in either window stay separate. Mouse-wheel zoom, dragging and **F** to fit still work. Keep LiveMap running in its console; either browser window can be closed independently. If the window does not open, allow pop-ups for the local LiveMap site and try again.
+- Use your mouse wheel or **+ / −** to zoom. Zooming in follow mode stays with Dan; after dragging, zoom is anchored at your mouse pointer. **Fit level** shows the whole level.
 - The **green arrow** shows the direction Dan is moving, not where he is facing. It disappears when he stops, pauses or loses a fresh connection.
 - Choose textured terrain, simple colours or height shading using the map's controls.
 - Items, props and exits show positions stored in the level. **Items can remain shown after you collect them.** Hidden or conditional items may also appear; enemies and dropped items are not tracked.
