@@ -4,7 +4,7 @@ LiveMap is a companion map for **MediEvil USA (SCUS-94227)**. It opens in your b
 
 ## Download and start
 
-[**Download LiveMap 0.3.0 — unsigned preview**](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.3.0)
+[**Download LiveMap 0.4.0 — unsigned preview**](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.4.0)
 
 Choose **Windows x64**, **Mac Apple Silicon (ARM64)** or **Linux x64**. These downloads include Python, so you do not need to install it separately. Extract the whole ZIP and keep its files together.
 

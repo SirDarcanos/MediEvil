@@ -1,4 +1,4 @@
-# MediEvil LiveMap 0.3.0 — player guide
+# MediEvil LiveMap 0.4.0 — player guide
 
 LiveMap opens a map in your browser and shows where Dan is while you play. It can follow him, show his movement direction, and display the level's items and exits.
 
@@ -15,14 +15,14 @@ An emulator runs the game; LiveMap only reads its position. LiveMap does not inc
 
 ## 2. Download and open LiveMap
 
-Open the [LiveMap 0.3.0 download page](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.3.0). Under **Assets**, choose the ZIP for your computer:
+Open the [LiveMap 0.4.0 download page](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.4.0). Under **Assets**, choose the ZIP for your computer:
 
 | Your computer | Download name | File to open after extracting |
 | --- | --- | --- |
-| Windows, x64 | `MediEvil-LiveMap-0.3.0-windows-x64.zip` | `MediEvilMinimap.exe` |
-| Mac with Apple Silicon (M-series), using DuckStation | `MediEvil-LiveMap-0.3.0-macos-arm64.zip` | `Open Minimap.command` |
+| Windows, x64 | `MediEvil-LiveMap-0.4.0-windows-x64.zip` | `MediEvilMinimap.exe` |
+| Mac with Apple Silicon (M-series), using DuckStation | `MediEvil-LiveMap-0.4.0-macos-arm64.zip` | `Open Minimap.command` |
 | Mac with Apple Silicon (M-series), using PCSX-Redux | Same Mac ZIP | `MediEvilMinimap` |
-| Linux, x64 | `MediEvil-LiveMap-0.3.0-linux-x64.zip` | `MediEvilMinimap` or `open-minimap.sh` |
+| Linux, x64 | `MediEvil-LiveMap-0.4.0-linux-x64.zip` | `MediEvilMinimap` or `open-minimap.sh` |
 
 Intel Macs and other computer types do not have a ready-to-run download in this release. **Python is included** in the three platform ZIPs. GitHub's **Source code** downloads are for developers and need a separate Python installation.
 
@@ -182,10 +182,10 @@ CUE references must stay inside the CUE's folder; nonstandard pregaps are unsupp
 
 ## 7. What this preview does and does not verify
 
-Build and startup checks can show that the app opens and includes its files. They do **not** prove that every emulator version works during gameplay. See the [0.3.0 release notes](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.3.0) for the checks performed on these downloads.
+Build and startup checks can show that the app opens and includes its files. They do **not** prove that every emulator version works during gameplay. See the [0.4.0 release notes](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.4.0) for the checks performed on these downloads.
 
-Actual Windows/Linux DuckStation gameplay and lifecycle testing remains outstanding. The maintainer reports successful BizHawk gameplay on Windows 11 with the latest BizHawk release. Individual Lua-script lifecycle scenarios and performance checks have not been reported. Earlier Mac DuckStation gameplay observations are historical, not a fresh test of 0.3.0. PCSX-Redux is an existing connection option, not a claim of new cross-platform gameplay testing for this release.
+Actual Windows/Linux DuckStation gameplay and lifecycle testing remains outstanding. The maintainer reports successful BizHawk gameplay on Windows 11 with the latest BizHawk release. Individual Lua-script lifecycle scenarios and performance checks have not been reported. Earlier Mac DuckStation gameplay observations are historical, not a fresh test of 0.4.0.
 
-The published 0.3.0 ZIPs and release-tag guide predate the BizHawk confirmation and retain the older warning. The [release notes](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.3.0) record the updated result; the downloads and tag remain unchanged.
+The map-only window and smoother following were checked with a real, isolated macOS PCSX-Redux instance, a copied Crypt save-state and scripted controller-only walking. These checks used live read-only tracking and the browser's textured renderer; they do not establish other emulator/OS combinations, full save-state/level-transition lifecycle coverage or performance on other hardware.
 
 LiveMap does not send controller input, patch game memory, change emulator settings or write saves. It has no telemetry reporting or external game-file upload. The downloads contain no emulator, BIOS, disc, extracted game assets, saves or RAM dumps. License and attribution notices are in the included `LICENSE.txt` and `THIRD_PARTY.md` files.

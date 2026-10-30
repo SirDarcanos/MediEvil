@@ -7,11 +7,6 @@ entries do not select a version or authorize a release. See the
 
 ## Unreleased
 
-### LiveMap
-
-- Add **Pop out map** to open a resizable, map-only window with independent live tracking and the current display settings.
-- Smooth **Follow Dan** camera movement in both windows without smoothing his reported position; keep zoom centered while following, recenter immediately after level changes, large jumps or reconnects, and respect reduced-motion preferences.
-
 ### MediSplit
 
 - Add a development Any%-only ASL with 17 fixed splits: 14 successful level
@@ -35,6 +30,16 @@ entries do not select a version or authorize a release. See the
 
 - Add the working agreement, GitHub Issues role/readiness mapping, auxiliary
   model permissions and independent component versioning policy.
+
+## LiveMap 0.4.0 — 2026-10-30
+
+Unsigned preview, tagged
+[`livemap-v0.4.0`](https://github.com/SirDarcanos/MediEvil/releases/tag/livemap-v0.4.0).
+
+- Add **Pop out map** to open a resizable, map-only window with independent live tracking and the current display settings
+  ([#19](https://github.com/SirDarcanos/MediEvil/pull/19)).
+- Smooth **Follow Dan** camera movement in both windows without smoothing his reported position; keep zoom centered while following, recenter immediately after level changes, large jumps or reconnects, and respect reduced-motion preferences.
+- Check live textured tracking and camera movement with an isolated macOS PCSX-Redux instance and controller-only Crypt movement. Other emulator/OS combinations and full lifecycle coverage remain unverified for these changes.
 
 ## LiveMap 0.3.0 — 2026-10-21
 
