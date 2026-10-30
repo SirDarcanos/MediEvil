@@ -5,7 +5,7 @@ const calls=[];const ctx=new Proxy({}, {get:(o,k)=>o[k]??((...args)=>calls.push(
 const node={getContext:kind=>kind==='webgl'?null:ctx,addEventListener(){},setAttribute(){},options:[],classList:{toggle(){}},getBoundingClientRect:()=>({width:800,height:600})};
 let now=1000,timerId=0;const timers=new Map();
 function advance(t){now=t;for(const [id,timer]of [...timers])if(timer.at<=now){timers.delete(id);timer.fn();}}
-const sandbox={document:{getElementById:()=>node,createElement:()=>node},Image:class{},ResizeObserver:class{observe(){}},window:{addEventListener(){}},fetch:()=>new Promise(()=>{}),Date:{now:()=>now},setTimeout(fn,delay){const id=++timerId;timers.set(id,{fn,at:now+delay});return id;},clearTimeout(id){timers.delete(id);},AbortSignal};
+const sandbox={URLSearchParams,document:{getElementById:()=>node,createElement:()=>node},Image:class{},ResizeObserver:class{observe(){}},window:{location:{search:''},addEventListener(){},matchMedia:()=>({matches:false})},fetch:()=>new Promise(()=>{}),Date:{now:()=>now},setTimeout(fn,delay){const id=++timerId;timers.set(id,{fn,at:now+delay});return id;},clearTimeout(id){timers.delete(id);},AbortSignal};
 vm.createContext(sandbox);
 // Bootstrap the same deferred scripts, in the same order, as the served page.
 const page = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');

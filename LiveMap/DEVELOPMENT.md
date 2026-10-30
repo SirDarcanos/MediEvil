@@ -42,7 +42,7 @@ Tests use synthetic fixtures unless explicitly identified otherwise. They do not
 - `feed.py`: background sampling and stale-state handling. `ram.py`, `emulator_memory.py`, `gdb_reader.py` and `bizhawk.py` own decoding and emulator transports.
 - `local_http.py`: map/setup routes, loopback origin checks, upload protection and response policies.
 - `disc_import.py` and `extract_maps.py`: disc import and extraction orchestration. `binary.py` supplies shared bounds checks; `vlo.py` decodes texture records for both `appearance.py` colour means and `textures.py` atlases. The remaining format modules handle props, exits and thin-face visibility.
-- `web/app.js`: map loading, controls and overlays. `movement.js` owns movement history/expiry; `terrain.js` renders WebGL textures; `raster.js` handles Canvas fallbacks and shared shading. `setup.js` drives disc import.
+- `web/app.js`: map loading, controls, overlays and time-based Follow Dan camera easing. `movement.js` owns movement history/expiry; `terrain.js` renders WebGL textures; `raster.js` handles Canvas fallbacks and shared shading. `setup.js` drives disc import.
 - `test_*.py` and `web/test_*.cjs`: synthetic regression checks. `release/build.py` explicitly lists runtime files; add new runtime modules there as well as to the HTTP/page script lists when applicable.
 
 These checks do not replace own-disc extraction, browser/GPU or native emulator verification.
@@ -68,6 +68,8 @@ The arrow represents observed horizontal movement, not facing. Its screen-space 
 ## Verification history and release boundaries
 
 Earlier Mac previews had own-disc import, textured rendering, cached restart and read-only DuckStation GDB gameplay observations. Those are historical observations, not fresh 0.3.0 gameplay certification.
+
+The unreleased pop-out and camera changes were also checked against a real, isolated macOS PCSX-Redux instance: a copied Crypt save-state, private HOME/cards, software-emulated GPU and scripted controller-only walking, with no game-RAM patches. The production read-only feed and browser texture renderer showed advancing gameplay frames and positions, plus camera movement between samples in both windows. Pop-out wheel zoom, dragging and fit were exercised; this exposed and corrected cursor anchoring fighting Follow Dan during zoom. These laboratory observations do not establish natural route completion, other emulator/OS combinations, save-state/level-transition lifecycle coverage or performance on other hardware.
 
 The maintainer reports that BizHawk works on Windows 11 with the latest BizHawk release. The exact installed build number and individual test scenarios were not supplied; the 2.11.1 API target above is not an independently captured test-build identifier. This user report confirms successful gameplay, not separate checks of every Lua-script lifecycle case, Windows mapping behavior or performance characteristic.
 
